@@ -1,0 +1,2871 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>JUKEN CAMP | 沖縄県立高校入試 英語特訓</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF6B9D;--pink-l:#FFD1E0;--pink-bg:#FFF2F6;
+  --purple:#A07CE8;--purple-l:#DDD0FF;--purple-bg:#F5F0FF;
+  --mint:#4ECDA5;--mint-l:#C5F5E3;--mint-bg:#EDFFF7;
+  --orange:#FFA15C;--orange-l:#FFD9B8;--orange-bg:#FFF5EC;
+  --sky:#5CB8FF;--sky-l:#BDE3FF;--sky-bg:#EDF6FF;
+  --yellow:#FFD644;--yellow-l:#FFF0B8;--yellow-bg:#FFFCF0;
+  --bg:#FFF8FC;--card:#FFFFFF;--surface:#F5F0FA;
+  --text:#3D2E50;--dim:#7A6F8A;--muted:#B0A8C0;
+  --ok:#3CC88F;--ok-bg:#E2FBEF;--ng:#FF5A7E;--ng-bg:#FFE8EE;
+  --border:#E0D8F0;--accent:#A07CE8;
+  --r:18px;--rs:12px;
+  --sh:0 2px 10px rgba(160,124,232,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100dvh;overflow-x:hidden;overscroll-behavior:none;-webkit-overflow-scrolling:touch}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#DDD0FF;border-radius:3px}
+
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(255,248,252,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(160,124,232,.08);padding:10px 16px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon{font-size:22px}
+.logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hdr-stats{display:flex;gap:6px}
+.badge{display:flex;align-items:center;gap:4px;background:var(--surface);padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;color:var(--dim)}
+
+/* NAV */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(255,248,252,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(160,124,232,.08);display:flex;padding:4px 8px;padding-bottom:max(4px,env(safe-area-inset-bottom));touch-action:manipulation}
+.nav-i{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 4px;border-radius:14px;border:none;background:none;color:var(--muted);font-size:10px;font-family:'Noto Sans JP';font-weight:600;cursor:pointer;transition:.2s}
+.nav-i.on{color:var(--pink);background:var(--pink-bg)}
+.nav-i svg{width:22px;height:22px}
+
+/* PAGES */
+.pg{display:none;padding:16px;padding-bottom:100px;max-width:480px;margin:0 auto}.pg.on{display:block;animation:fi .3s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* HOME */
+.hero{background:linear-gradient(135deg,#FFD1E0 0%,#DDD0FF 50%,#BDE3FF 100%);border-radius:var(--r);padding:24px 20px;margin-bottom:20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;right:-20%;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.7),transparent 70%);border-radius:50%}
+.hero-badge{display:inline-block;background:var(--pink);color:#fff;font-weight:700;font-size:11px;padding:3px 12px;border-radius:20px;margin-bottom:10px;position:relative}
+.hero h2{font-family:'Outfit',sans-serif;font-weight:900;font-size:22px;line-height:1.3;margin-bottom:6px;position:relative}
+.hero p{font-size:13px;color:var(--dim);position:relative}
+.stitle{font-weight:700;font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.mcard{background:var(--card);border:1.5px solid var(--surface);border-radius:var(--r);padding:16px 14px;cursor:pointer;transition:.2s;position:relative;overflow:hidden;box-shadow:var(--sh)}
+.mcard:active{transform:scale(.97)}
+.mcard:nth-child(1){border-color:var(--pink-l)}.mcard:nth-child(2){border-color:var(--mint-l)}.mcard:nth-child(3){border-color:var(--purple-l)}.mcard:nth-child(4){border-color:var(--sky-l)}
+.mcard .ico{font-size:28px;margin-bottom:8px}.mcard .nm{font-weight:700;font-size:14px;margin-bottom:3px}.mcard .ds{font-size:11px;color:var(--dim);line-height:1.4}
+.mcard .cnt{position:absolute;top:10px;right:10px;background:var(--surface);padding:2px 8px;border-radius:10px;font-size:10px;color:var(--dim);font-weight:600}
+
+.ggrid{display:grid;gap:8px;margin-bottom:24px}
+.gchip{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1.5px solid var(--surface);border-radius:var(--rs);padding:12px 14px;cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.gchip:active{transform:scale(.98)}
+.gchip-l{display:flex;align-items:center;gap:10px}
+.gdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.gchip-n{font-weight:600;font-size:13px}
+.gchip-c{font-size:11px;color:var(--dim);font-weight:500}
+
+/* QUIZ */
+.qhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.qback{display:flex;align-items:center;gap:5px;background:none;border:none;color:var(--dim);font-size:13px;font-family:'Noto Sans JP';cursor:pointer;padding:8px 0}
+.qbar{width:100%;height:6px;background:var(--surface);border-radius:3px;margin-bottom:18px;overflow:hidden}
+.qfill{height:100%;background:linear-gradient(90deg,var(--pink),var(--purple));border-radius:3px;transition:width .4s}
+.qcnt{font-size:12px;color:var(--dim);font-weight:700}
+
+.qcard{background:var(--card);border:1.5px solid var(--surface);border-radius:var(--r);padding:20px;margin-bottom:16px;box-shadow:var(--sh)}
+.qtag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.qtag-g{background:var(--purple-bg);color:var(--purple)}
+.qtag-t{background:var(--orange-bg);color:var(--orange);margin-left:6px}
+.qtxt{font-size:15px;line-height:1.8;white-space:pre-wrap}
+
+/* CHOICES */
+.choices{display:grid;gap:8px;margin-bottom:16px}
+.cbtn{display:flex;align-items:center;gap:12px;background:var(--card);border:2px solid var(--surface);border-radius:var(--rs);padding:14px 16px;cursor:pointer;font-family:'Noto Sans JP';font-size:15px;color:var(--text);text-align:left;transition:.2s;width:100%;box-shadow:var(--sh)}
+.cbtn:active:not(.dis){transform:scale(.98)}
+.clbl{width:30px;height:30px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;color:var(--dim);transition:.2s}
+.cbtn.ok{background:var(--ok-bg);border-color:var(--ok)}.cbtn.ok .clbl{background:var(--ok);color:#fff}
+.cbtn.ng{background:var(--ng-bg);border-color:var(--ng)}.cbtn.ng .clbl{background:var(--ng);color:#fff}
+.cbtn.dis{cursor:default;opacity:.4}.cbtn.dis.ok,.cbtn.dis.ng{opacity:1}
+
+/* EXPLANATION */
+.ebox{background:linear-gradient(135deg,#FFF8F0,#FFF0F6,#F0F0FF);border:1.5px solid #F0E0F0;border-radius:var(--r);padding:18px;margin-top:12px;margin-bottom:16px;display:none;animation:su .3s ease}
+.result-banner{text-align:center;padding:12px;border-radius:var(--r);margin-top:12px;margin-bottom:12px;font-weight:900;font-size:18px;display:none;animation:su .3s ease}
+.result-banner.show{display:block}
+.result-banner.ok-banner{background:#E8F8EE;border:2px solid #48BB78;color:#22543D}
+.result-banner.ng-banner{background:#FFF0F0;border:2px solid #F56565;color:#C53030}
+@keyframes su{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.ebox.show{display:block}
+.ebox-h{font-size:13px;font-weight:800;color:var(--pink);margin-bottom:10px}
+.ebox-t{font-size:13px;line-height:2;color:var(--text);white-space:pre-wrap}
+.ebox-t b,.ebox-t strong{color:var(--pink)}
+.ebox-t .tip{display:block;background:var(--purple-bg);border-left:3px solid var(--purple);padding:8px 12px;border-radius:0 8px 8px 0;margin:8px 0;font-size:12px;line-height:1.7;color:#6B54B8}
+.ebox-t .related{display:block;background:var(--mint-bg);border-left:3px solid var(--mint);padding:8px 12px;border-radius:0 8px 8px 0;margin:8px 0;font-size:12px;line-height:1.7;color:#2E8A6A}
+
+.nbtn{width:100%;background:linear-gradient(135deg,var(--pink),var(--purple));border:none;border-radius:var(--rs);padding:16px;color:#fff;font-family:'Noto Sans JP';font-size:15px;font-weight:700;cursor:pointer;display:none;margin-top:8px;box-shadow:0 4px 16px rgba(255,107,157,.2)}
+.nbtn.show{display:block}.nbtn:active{transform:scale(.98)}
+.peekbtn{width:100%;background:none;border:1.5px solid var(--border);border-radius:var(--rs);padding:14px;color:var(--dim);font-family:'Noto Sans JP';font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;margin-bottom:8px;transition:.2s}
+.peekbtn:active{background:var(--surface);transform:scale(.98)}
+.peekbtn.hide{display:none}
+
+/* ORDER */
+.oslots{display:flex;flex-wrap:wrap;gap:8px;min-height:50px;padding:14px;background:var(--card);border-radius:var(--rs);margin-bottom:12px;border:2.5px dashed #D8D0E8;box-shadow:var(--sh)}
+.ochoices{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.ochip{padding:10px 16px;background:var(--card);border:1.5px solid #D8D0E8;border-radius:10px;font-size:14px;cursor:pointer;transition:.2s;user-select:none;font-family:'Noto Sans JP';color:var(--text);box-shadow:var(--sh)}
+.ochip:active{transform:scale(.95)}.ochip.placed{opacity:.2;pointer-events:none}
+.ochip.ins{background:var(--purple);color:#fff;border-color:var(--purple);box-shadow:0 2px 8px rgba(160,124,232,.3)}
+.oslots.ok{border-color:var(--ok);background:var(--ok-bg)}.oslots.ng{border-color:var(--ng);background:var(--ng-bg)}
+.chkbtn{width:100%;background:var(--purple);border:none;border-radius:var(--rs);padding:14px;color:#fff;font-family:'Noto Sans JP';font-size:14px;font-weight:700;cursor:pointer;margin-bottom:12px;box-shadow:0 4px 12px rgba(160,124,232,.2)}
+.chkbtn:disabled{opacity:.3}
+
+/* CONV */
+.cslots{display:grid;gap:8px;margin-bottom:16px}
+.cslot{display:flex;align-items:flex-start;gap:10px;padding:12px;background:var(--card);border-radius:var(--rs);min-height:48px;border:2px solid var(--surface);cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.cslot.act{border-color:var(--pink);background:var(--pink-bg)}
+.csnum{width:24px;height:24px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:var(--dim)}
+.cstxt{font-size:13px;color:var(--muted);line-height:1.5}
+.cslot.filled .cstxt{color:var(--text)}.cslot.filled .csnum{background:var(--pink);color:#fff}
+.cchoices{display:grid;gap:6px;margin-bottom:16px}
+.ccbtn{display:flex;align-items:flex-start;gap:10px;background:var(--card);border:1.5px solid var(--surface);border-radius:var(--rs);padding:12px 14px;cursor:pointer;font-family:'Noto Sans JP';font-size:13px;color:var(--text);text-align:left;transition:.2s;width:100%;line-height:1.5;box-shadow:var(--sh)}
+.ccbtn.used{opacity:.2;pointer-events:none}
+
+/* RESULTS */
+.rcard{background:linear-gradient(135deg,#FFD1E0,#DDD0FF,#BDE3FF);border-radius:var(--r);padding:32px 20px;text-align:center;margin-bottom:20px}
+.rscore{font-family:'Outfit';font-size:64px;font-weight:900;color:var(--text);line-height:1;margin-bottom:4px}
+.rlbl{font-size:14px;color:var(--dim);margin-bottom:20px}
+.rbd{display:flex;justify-content:center;gap:24px}
+.rst{text-align:center}.rst-n{font-family:'Outfit';font-size:24px;font-weight:800}.rst-l{font-size:11px;color:var(--dim)}
+.rst-n.g{color:var(--ok)}.rst-n.r{color:var(--ng)}
+.retbtn{width:100%;background:linear-gradient(135deg,var(--pink),var(--purple));border:none;border-radius:var(--rs);padding:16px;color:#fff;font-family:'Noto Sans JP';font-size:15px;font-weight:700;cursor:pointer;margin-bottom:10px}
+.hmbtn{width:100%;background:var(--surface);border:none;border-radius:var(--rs);padding:16px;color:var(--text);font-family:'Noto Sans JP';font-size:15px;font-weight:600;cursor:pointer}
+
+/* GRAMMAR REF */
+.gref{background:var(--card);border:1.5px solid var(--surface);border-radius:var(--r);padding:16px;margin-bottom:10px;box-shadow:var(--sh)}
+.gref-t{font-weight:700;font-size:14px;margin-bottom:8px;color:var(--purple)}
+.gref-d{font-size:13px;line-height:1.8;color:var(--dim);margin-bottom:10px}
+.gref-e{background:var(--purple-bg);border-radius:10px;padding:12px;font-size:13px;line-height:1.7;border-left:3px solid var(--purple)}
+.gref-grade{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:8px;margin-right:6px}
+.gref-grade.g1{background:#FFE0EC;color:#D4507A}
+.gref-grade.g2{background:#D9E8FF;color:#4A7FD4}
+.gref-grade.g3{background:#DCF5E8;color:#2E8A5A}
+.gref-tbl{width:100%;border-collapse:collapse;margin:8px 0;font-size:12px}
+.gref-tbl th,.gref-tbl td{border:1px solid #ddd;padding:4px 6px;text-align:center}
+.gref-tbl th{background:#f0f4ff;font-weight:700;color:#4a5568}
+.gref-tbl td:first-child{background:#f7f8fc;font-weight:600;text-align:left}
+.gref-tbl b{color:#e53e3e}
+.speak-btn{background:none;border:1px solid #cbd5e0;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin-left:auto;flex-shrink:0;transition:all .15s}
+.speak-btn:active{background:#edf2f7;transform:scale(0.9)}
+.gref-tip{display:block;background:var(--orange-bg);border-left:3px solid var(--orange);padding:8px 12px;border-radius:0 8px 8px 0;margin:4px 0 0;font-size:12px;line-height:1.7;color:#B07030}
+.gref-rel{display:block;background:var(--mint-bg);border-left:3px solid var(--mint);padding:8px 12px;border-radius:0 8px 8px 0;margin:4px 0 0;font-size:12px;line-height:1.7;color:#2E8A6A}
+.gref-warn{display:block;background:var(--pink-bg);border-left:3px solid var(--pink);padding:8px 12px;border-radius:0 8px 8px 0;margin:4px 0 0;font-size:12px;line-height:1.7;color:#C04060}
+
+/* VOCAB */
+.vcard{background:var(--card);border:1.5px solid var(--surface);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.vcard:active{transform:scale(.98)}
+.vw{font-weight:700;font-size:15px}
+.vcard>div:first-child{display:flex;align-items:center;gap:8px;width:100%}
+.vm{font-size:14px;color:var(--accent);margin-top:6px;opacity:0;transition:opacity .3s}
+.vcard.rev .vm{opacity:1}
+.vcat{font-weight:700;font-size:14px;color:var(--pink);margin:16px 0 10px;padding-left:4px}
+.vcat-item{background:var(--card);border:1.5px solid var(--surface);border-radius:var(--r);padding:14px 16px;margin-bottom:8px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s;box-shadow:var(--sh)}
+.vcat-item:active{transform:scale(.98)}
+.vcat-item .vci-name{font-weight:700;font-size:14px}
+.vcat-item .vci-count{font-size:12px;color:var(--dim);background:var(--surface);padding:2px 10px;border-radius:12px}
+.vcat-group{font-weight:700;font-size:13px;color:var(--dim);margin:18px 0 8px;padding-left:2px}
+.vback-btn{display:inline-flex;align-items:center;gap:4px;background:none;border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:13px;font-family:'Noto Sans JP';color:var(--dim);cursor:pointer;margin-bottom:12px}
+.vback-btn:active{background:var(--surface)}
+
+/* SEARCH */
+.sbar{display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--surface);border-radius:var(--rs);padding:10px 14px;margin-bottom:16px;box-shadow:var(--sh)}
+.sbar input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'Noto Sans JP';font-size:14px}
+.sbar input::placeholder{color:var(--muted)}
+.sbar svg{color:var(--muted);flex-shrink:0;width:18px;height:18px}
+
+.ftabs{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:12px}
+.ftabs::-webkit-scrollbar{display:none}
+.ftab{flex-shrink:0;padding:7px 14px;border-radius:20px;background:var(--surface);border:none;color:var(--dim);font-family:'Noto Sans JP';font-size:12px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap}
+.ftab.on{background:var(--pink);color:#fff}
+
+/* GOKEI INPUT */
+.wbl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.wbank{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--purple-bg);border-radius:var(--rs);margin-bottom:12px}
+.wchip{padding:6px 14px;background:var(--card);border:1.5px solid var(--purple-l);border-radius:8px;font-size:14px;color:var(--purple);font-weight:600}
+.ainput{width:100%;background:var(--card);border:2px solid var(--surface);border-radius:var(--rs);padding:14px 16px;font-family:'Noto Sans JP';font-size:16px;color:var(--text);outline:none;transition:border-color .2s}
+.ainput:focus{border-color:var(--pink)}.ainput.ok{border-color:var(--ok);background:var(--ok-bg)}.ainput.ng{border-color:var(--ng);background:var(--ng-bg)}
+.subbtn{width:100%;background:var(--purple);border:none;border-radius:var(--rs);padding:14px;color:#fff;font-family:'Noto Sans JP';font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;margin-bottom:4px}
+.subbtn:disabled{opacity:.3}
+.corr{padding:10px 14px;background:var(--ok-bg);border:1.5px solid var(--ok);border-radius:var(--rs);font-size:14px;color:var(--ok);font-weight:700;margin-top:12px;margin-bottom:12px;display:none}
+.corr.show{display:block}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="logo" onclick="goHome()" style="cursor:pointer"><span class="logo-icon"></span><span class="logo-text">JUKEN CAMP</span></div>
+  <div class="hdr-stats"><div class="badge">🔥<span id="streakCount">0</span></div><div class="badge">⭐<span id="totalCorrect">0</span></div></div>
+</header>
+
+<div class="pg on" id="homePage">
+  <div class="hero">
+    <div class="hero-badge">沖縄県立高校入試</div>
+    <h2>英文法トレーニング</h2>
+    <p>過去問135問 ＋ 文法47項目 ＋ 単語・熟語571語</p>
+  </div>
+  <div class="stitle">📝 英文法トレーニング</div>
+  <div class="mgrid">
+    <div class="mcard" onclick="startQuiz('tekigo')"><div class="cnt" id="tc">--問</div><div class="ico">🎯</div><div class="nm">適語選択</div><div class="ds">4択から正解を選ぼう</div></div>
+    <div class="mcard" onclick="startQuiz('gokei')"><div class="cnt" id="gc">--問</div><div class="ico">✏️</div><div class="nm">語形変化</div><div class="ds">正しい形に変えよう</div></div>
+    <div class="mcard" onclick="startQuiz('seijoEisaku')"><div class="cnt" id="sc">--問</div><div class="ico">🧩</div><div class="nm">整序英作文</div><div class="ds">正しい順に並べよう</div></div>
+    <div class="mcard" onclick="startQuiz('kaiwa')"><div class="cnt" id="kc">--問</div><div class="ico">💬</div><div class="nm">会話文の完成</div><div class="ds">会話を自然につなげよう</div></div>
+  </div>
+  <div class="stitle">🏷️ 文法別トレーニング</div>
+  <div class="ggrid" id="grammarList"></div>
+</div>
+
+<div class="pg" id="quizPage">
+  <div class="qhdr"><button class="qback" onclick="goHome()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>戻る</button><div class="qcnt" id="quizCounter"></div></div>
+  <div class="qbar"><div class="qfill" id="qfill" style="width:0%"></div></div>
+  <div id="quizContent"></div>
+</div>
+
+<div class="pg" id="resultsPage">
+  <div class="rcard"><div class="rscore" id="rscore">0%</div><div class="rlbl">正答率</div>
+    <div class="rbd"><div class="rst"><div class="rst-n g" id="rcorr">0</div><div class="rst-l">正解</div></div><div class="rst"><div class="rst-n r" id="rwrong">0</div><div class="rst-l">不正解</div></div><div class="rst"><div class="rst-n" id="rtotal">0</div><div class="rst-l">出題数</div></div></div>
+  </div>
+  <button class="retbtn" onclick="retryQuiz()">もう一度チャレンジ 🔄</button>
+  <button class="hmbtn" onclick="goHome()">ホームに戻る</button>
+  <div class="stitle" style="margin-top:16px">📋 まちがえた問題</div>
+  <div id="wrongReview"></div>
+</div>
+
+<div class="pg" id="grammarPage">
+  <div class="stitle">📖 文法リファレンス</div>
+  <div class="sbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="文法を検索..." id="gSearch" oninput="filterGrammar()"></div>
+  <div class="ftabs" id="gTabs">
+    <button class="ftab on" onclick="fgCat(this,'all')">すべて</button>
+    <button class="ftab" onclick="fgCat(this,'中1')">中1</button>
+    <button class="ftab" onclick="fgCat(this,'中2')">中2</button>
+    <button class="ftab" onclick="fgCat(this,'中3')">中3</button>
+  </div>
+  <div id="grammarRefList"></div>
+</div>
+
+<div class="pg" id="vocabPage">
+  <div class="stitle">📚 重要単語・熟語</div>
+  <div class="sbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="単語を検索..." id="vSearch" oninput="filterVocab()"></div>
+  <div id="vCatList"></div>
+  <div id="vTabs" style="display:none"></div>
+  <div id="vocabList"></div>
+</div>
+
+<nav class="nav">
+  <button class="nav-i on" onclick="showPage('home')" data-p="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>ホーム</button>
+  <button class="nav-i" onclick="showPage('grammar')" data-p="grammar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>文法</button>
+  <button class="nav-i" onclick="showPage('vocab')" data-p="vocab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>単語・熟語</button>
+</nav>
+
+<script>
+// ============================================================
+// SOUND ENGINE (Web Audio API - no external files needed)
+// ============================================================
+var SFX=(function(){
+  var ctx=null;
+  function init(){if(!ctx)try{ctx=new(window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+  function play(type){
+    init();if(!ctx)return;
+    if(ctx.state==='suspended')ctx.resume();
+    var now=ctx.currentTime;
+    if(type==='correct'){
+      var o1=ctx.createOscillator(),g1=ctx.createGain();
+      o1.type='sine';o1.frequency.setValueAtTime(523,now);o1.frequency.setValueAtTime(659,now+0.08);
+      o1.frequency.setValueAtTime(784,now+0.16);
+      g1.gain.setValueAtTime(0.25,now);g1.gain.exponentialRampToValueAtTime(0.01,now+0.4);
+      o1.connect(g1);g1.connect(ctx.destination);o1.start(now);o1.stop(now+0.4);
+      var o2=ctx.createOscillator(),g2=ctx.createGain();
+      o2.type='sine';o2.frequency.setValueAtTime(1047,now+0.1);
+      g2.gain.setValueAtTime(0.12,now+0.1);g2.gain.exponentialRampToValueAtTime(0.01,now+0.35);
+      o2.connect(g2);g2.connect(ctx.destination);o2.start(now+0.1);o2.stop(now+0.35);
+    }
+    else if(type==='wrong'){
+      var o1=ctx.createOscillator(),g1=ctx.createGain();
+      o1.type='square';o1.frequency.setValueAtTime(300,now);o1.frequency.setValueAtTime(200,now+0.15);
+      g1.gain.setValueAtTime(0.15,now);g1.gain.exponentialRampToValueAtTime(0.01,now+0.3);
+      o1.connect(g1);g1.connect(ctx.destination);o1.start(now);o1.stop(now+0.3);
+    }
+    else if(type==='click'){
+      var o1=ctx.createOscillator(),g1=ctx.createGain();
+      o1.type='sine';o1.frequency.setValueAtTime(880,now);
+      g1.gain.setValueAtTime(0.08,now);g1.gain.exponentialRampToValueAtTime(0.01,now+0.06);
+      o1.connect(g1);g1.connect(ctx.destination);o1.start(now);o1.stop(now+0.06);
+    }
+    else if(type==='perfect'){
+      [523,659,784,1047].forEach(function(f,i){
+        var o=ctx.createOscillator(),g=ctx.createGain();
+        o.type='sine';o.frequency.setValueAtTime(f,now+i*0.12);
+        g.gain.setValueAtTime(0.2,now+i*0.12);g.gain.exponentialRampToValueAtTime(0.01,now+i*0.12+0.4);
+        o.connect(g);g.connect(ctx.destination);o.start(now+i*0.12);o.stop(now+i*0.12+0.4);
+      });
+    }
+    else if(type==='done'){
+      [440,523,659].forEach(function(f,i){
+        var o=ctx.createOscillator(),g=ctx.createGain();
+        o.type='sine';o.frequency.setValueAtTime(f,now+i*0.15);
+        g.gain.setValueAtTime(0.18,now+i*0.15);g.gain.exponentialRampToValueAtTime(0.01,now+i*0.15+0.35);
+        o.connect(g);g.connect(ctx.destination);o.start(now+i*0.15);o.stop(now+i*0.15+0.35);
+      });
+    }
+    else if(type==='flip'){
+      var o1=ctx.createOscillator(),g1=ctx.createGain();
+      o1.type='triangle';o1.frequency.setValueAtTime(600,now);o1.frequency.setValueAtTime(900,now+0.05);
+      g1.gain.setValueAtTime(0.1,now);g1.gain.exponentialRampToValueAtTime(0.01,now+0.1);
+      o1.connect(g1);g1.connect(ctx.destination);o1.start(now);o1.stop(now+0.1);
+    }
+  }
+  return{play:play,init:init};
+})();
+// Speech synthesis for vocab pronunciation
+function speakEn(text){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  // Clean text for speech: replace symbols with speakable equivalents
+  var clean=text
+    .replace(/→/g,', ')           // arrows become pauses
+    .replace(/\//g,' or ')         // slash becomes "or"
+    .replace(/～ing/g,'ing')       // ～ing → just "ing"
+    .replace(/〜ing/g,'ing')
+    .replace(/～/g,'')             // remaining tilde → remove
+    .replace(/〜/g,'')
+    .replace(/（[^）]*）/g,'')     // remove Japanese parenthetical
+    .replace(/[＝※]/g,'')
+    .replace(/[^\x00-\x7F,.'!? -]/g,'')  // remove remaining non-ASCII
+    .replace(/\s+/g,' ').trim();
+  if(!clean)return;
+  var u=new SpeechSynthesisUtterance(clean);
+  u.lang='en-US';u.rate=0.85;u.pitch=1.1;
+  // Try to pick a female English voice
+  var voices=window.speechSynthesis.getVoices();
+  var female=voices.find(v=>v.lang.startsWith('en')&&/female|samantha|karen|victoria|zira|google.*us/i.test(v.name));
+  if(!female)female=voices.find(v=>v.lang.startsWith('en'));
+  if(female)u.voice=female;
+  window.speechSynthesis.speak(u);
+}
+// Preload voices
+if(window.speechSynthesis){window.speechSynthesis.onvoiceschanged=function(){window.speechSynthesis.getVoices()}}
+// ============================================================
+// ALL QUESTION DATA - each question has an _id for stable lookup
+// ============================================================
+const tekigoQ = [
+ {id:200,q:`A: ( ) bag is this?
+B: It's mine.`,ch:["Which", "Where", "When", "Whose"],a:`Whose`,g:`疑問詞`,
+ ex:`<b>正解：エ（Whose）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: ( ) bag is this?（これは( )カバンですか？）
+B: It's mine.（私のものです。）
+
+📌 <b>解き方</b>
+Bが「<b>mine</b>（私のもの）」と<b>持ち主</b>を答えています。
+→ 持ち主をたずねる疑問詞 ＝ <b>Whose</b>（誰の）
+
+<span class="tip">💡 <b>Whoseの公式</b>
+<b>Whose + 名詞 + is this?</b>＝「これは誰の○○ですか？」
+答え方：It's mine. / It's Yuki's. など
+⚠️ 答えに「mine / yours / his / hers」があったら → Whose で聞いている！</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・Which（どちらの）→ 答えが「AかBか」になるはず
+・Where（どこ）→ 場所をたずねる
+・When（いつ）→ 時間をたずねる`}
+,{id:201,q:`A: I don't know ( ) to buy for Michiko's birthday present.
+B: Why don't you buy some flowers?`,ch:["who", "what", "when", "where"],a:`what`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：イ（what）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: I don't know ( ) to buy for Michiko's birthday present.
+（ミチコの誕生日プレゼントに( )買えばいいかわからない。）
+B: Why don't you buy some flowers?（花を買ったらどう？）
+
+📌 <b>解き方</b>
+Bが「花を買ったら？」と<b>モノ</b>を提案 → Aは「<b>何を</b>買えばいいか」わからない
+→ <b>what to buy</b>（何を買うべきか）が正解！
+
+<span class="tip">💡 <b>疑問詞 + to + 動詞の原形 ＝ 超頻出パターン！</b>
+・<b>what to ～</b>（何を～すべきか）
+・<b>how to ～</b>（～のしかた）
+・<b>where to ～</b>（どこで～すべきか）
+・<b>when to ～</b>（いつ～すべきか）
+⚠️ <b>why to ～ は存在しない</b>ので注意！</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・who → 「誰を買う」は意味が変
+・when / where → Bが「花」と物を答えているので、時間や場所の話ではない`}
+,{id:202,q:`A: I have so many bags to carry!
+B: ( ) I help you?`,ch:["Does", "Have", "Shall", "Did"],a:`Shall`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：ウ（Shall）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: I have so many bags to carry!（運ぶカバンがこんなにたくさん！）
+B: ( ) I help you?（( )手伝いましょうか？）
+
+📌 <b>解き方</b>
+Aが困っている → Bが「手伝おうか？」と<b>申し出</b>ている場面
+→ 「～しましょうか？」＝ <b>Shall I ～?</b>
+
+<span class="tip">💡 <b>Shall の2パターン丸暗記！</b>
+① <b>Shall I ～?</b>＝「私が～しましょうか？」→ 自分からの<b>申し出</b>
+② <b>Shall we ～?</b>＝「一緒に～しましょうか？」→ <b>誘い</b>（= Let's ～）</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・Does I → 文法的にアウト（Does + 三人称単数だけ）
+・Have I → 「私は～したことがあるか」で意味が変
+・Did I → 過去の話になってしまう`}
+,{id:203,q:`A: Nancy, ( ) your music class start at ten?
+B: No, at eleven.`,ch:["do", "does", "is", "are"],a:`does`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：イ（does）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Nancy, ( ) your music class start at ten?
+（ナンシー、音楽の授業は10時に始まりますか？）
+B: No, at eleven.（いいえ、11時です。）
+
+📌 <b>解き方</b>
+① 主語「your music class」→ <b>三人称単数</b>（it と同じ扱い）
+② 動詞「start」→ <b>一般動詞</b>
+③ 一般動詞の疑問文＋三人称単数 → <b>Does</b>
+
+<span class="tip">💡 <b>Do と Does の使い分け</b>
+・I / you / 複数 → <b>Do</b>
+・he / she / it / 1人・1つのもの → <b>Does</b>
+⚠️ Does があったら動詞は<b>原形</b>に戻す！（starts ✕ → start ○）</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・do → 主語が三人称単数なので使えない
+・is / are → be動詞。startは一般動詞なので混ぜてはダメ`}
+,{id:204,q:`A: There ( ) a lot of children in the park. Why?
+B: They have a summer festival today.`,ch:["be", "am", "are", "is"],a:`are`,g:`be動詞・一般動詞`,
+ ex:`<b>正解：ウ（are）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: There ( ) a lot of children in the park. Why?
+（公園にたくさんの子どもがいます。なぜ？）
+B: They have a summer festival today.（今日は夏祭りがあるんです。）
+
+📌 <b>解き方</b>
+<b>There is / are ～</b> の構文 → 後ろの名詞が単数か複数かで決まる！
+→ 「a lot of <b>children</b>」＝ たくさんの子ども ＝ <b>複数</b>
+→ <b>are</b>
+
+<span class="tip">💡 <b>There is / are の見分け方</b>
+・There <b>is</b> + 単数（a book / a dog / one student）
+・There <b>are</b> + 複数（many books / children / two cats）
+⚠️ 「a lot of ～」＝ たくさんの → <b>複数扱い</b>！</span>`}
+,{id:205,q:`A: Look at the cookies on the table! Can I eat them?
+B: They are for Nancy's birthday. They are not ( ).`,ch:["you and me", "you", "your", "yours"],a:`yours`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：エ（yours）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Look at the cookies on the table! Can I eat them?
+（テーブルの上のクッキー見て！食べていい？）
+B: They are for Nancy's birthday. They are not ( ).
+（ナンシーの誕生日用だよ。あなたの<b>もの</b>じゃないよ。）
+
+📌 <b>解き方</b>
+「They are not ＿.」→ 後ろに名詞がない → <b>所有代名詞</b>（～のもの）が必要
+you の所有代名詞 ＝ <b>yours</b>（あなたのもの）
+
+<span class="tip">💡 <b>所有格 vs 所有代名詞の見分け方</b>
+・<b>your</b> cookies（あなた<b>の</b> + 名詞）→ 後ろに名詞が<b>ある</b>
+・<b>yours</b>（あなたのもの）→ 後ろに名詞が<b>ない</b>
+⚠️ 空欄の後に名詞があるか？ないか？で判断！</span>
+
+<span class="related">📝 <b>所有代名詞まとめ</b>
+I→mine / you→yours / he→his / she→hers / we→ours / they→theirs</span>`}
+,{id:206,q:`A: I think young people should eat more vegetables.
+B: ( ). Having fruits is also good for them.`,ch:["Thank you", "I agree", "I'm sorry", "Let's go"],a:`I agree`,g:`会話表現`,
+ ex:`<b>正解：イ（I agree）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: I think young people should eat more vegetables.
+（若い人はもっと野菜を食べるべきだと思います。）
+B: ( ). Having fruits is also good for them.
+（( )。果物を食べるのも体にいいですよね。）
+
+📌 <b>解き方</b>
+Bは「果物もいい」と<b>追加</b>している → Aの意見に<b>賛成</b>
+→ <b>I agree</b>（賛成です/そう思います）
+
+<span class="tip">💡 <b>会話表現：賛成・反対</b>
+・<b>I agree.</b>（賛成です）
+・<b>I think so, too.</b>（私もそう思います）
+・<b>I don't think so.</b>（そうは思いません）
+・<b>I disagree.</b>（反対です）</span>`}
+,{id:207,q:`A: Do you know the new students from America?
+B: Yes. Sam and Andy ( ) in my class.`,ch:["be", "am", "is", "are"],a:`are`,g:`be動詞・一般動詞`,
+ ex:`<b>正解：エ（are）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Do you know the new students from America?
+（アメリカからの新しい生徒を知ってる？）
+B: Yes. Sam and Andy ( ) in my class.
+（うん。サムとアンディは私のクラスにいます。）
+
+📌 <b>解き方</b>
+主語「Sam <b>and</b> Andy」→ 2人 ＝ <b>複数</b> → be動詞は <b>are</b>
+
+<span class="tip">💡 <b>「A and B」は必ず複数扱い！</b>
+Sam and Andy <b>are</b> ～（2人だからare）
+⚠️ 名前が1つなら is、2つ以上なら are！</span>`}
+,{id:208,q:`A: This is a great picture!
+B: I ( ) this picture.
+A: Did you? I like it very much.`,ch:["heard", "wrote", "drew", "understood"],a:`drew`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：ウ（drew）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: This is a great picture!（すばらしい絵だね！）
+B: I ( ) this picture.（私がこの絵を描きました。）
+A: Did you? I like it very much.（本当に？とても気に入ったよ。）
+
+📌 <b>解き方</b>
+① Aが「<b>Did</b> you?」と<b>過去形</b>で聞き返している → 過去の話
+② 「picture（絵）」を作った → 「<b>描いた</b>」
+→ draw（描く）の過去形 ＝ <b>drew</b>
+
+<span class="tip">💡 <b>draw の変化（不規則！）</b>
+draw → <b>drew</b> → drawn（描く→描いた→描かれた）
+⚠️ 「drawed」は間違い！</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・heard（聞いた）→ 絵を「聞く」のは変
+・wrote（書いた）→ 文章を書くときに使う語。絵にはdrawを使う
+・understood（理解した）→ 絵を「理解した」は不自然`}
+,{id:209,q:`A: Whose pencil is this?
+B: It's not mine but I think it's ( ).`,ch:["he", "his", "she", "her"],a:`her`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：エ（her）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Whose pencil is this?（これは誰の鉛筆？）
+B: It's not mine but I think it's ( ).
+（私のじゃないけど、<b>彼女のもの</b>だと思う。）
+
+📌 <b>解き方</b>
+選択肢を整理すると…
+・<b>he</b>（彼は）→ 主語の位置でしか使えない
+・<b>his</b>（彼のもの）→「～のもの」として使えるが、<b>男性</b>
+・<b>she</b>（彼女は）→ 主語の位置でしか使えない
+・<b>her</b>（彼女のもの）→ ここでは「彼女のもの」として使える
+
+この問題では選択肢に <b>hers</b>（she の所有代名詞）がなく、代わりに <b>her</b> が「彼女のもの」を表す答えとして使われています。
+
+<span class="tip">💡 <b>her の2つの使い方</b>
+① <b>所有格</b>：her pen（彼女<b>の</b>ペン）→ 後ろに名詞あり
+② <b>目的格・所有代名詞的用法</b>：It's her.（彼女のもの）→ 後ろに名詞なし
+
+⚠️ 入試では「hers」が選択肢にある場合はそちらを選びます。
+この問題は hers がなく her しかないため、her が正解！</span>`}
+,{id:210,q:`A: Do you know that tall boy?
+B: Yes. He ( ) my friend, Ken.`,ch:["be", "am", "is", "are"],a:`is`,g:`be動詞・一般動詞`,
+ ex:`<b>正解：ウ（is）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Do you know that tall boy?（あの背の高い男の子を知ってる？）
+B: Yes. He ( ) my friend, Ken.（うん。彼は私の友達のケンです。）
+
+📌 <b>解き方</b>
+主語「He」→ <b>三人称単数</b> → be動詞は <b>is</b>
+
+<span class="tip">💡 <b>be動詞の使い分け</b>
+I → <b>am</b> / He, She, It, 1人・1つ → <b>is</b> / You, We, They, 2つ以上 → <b>are</b></span>`}
+,{id:211,q:`A: What did you do after school?
+B: I ( ) school and went home.`,ch:["will leave", "leave", "leaves", "left"],a:`left`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：エ（left）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: What did you do after school?（放課後何をしたの？）
+B: I ( ) school and went home.（学校を出て、家に帰りました。）
+
+📌 <b>解き方</b>
+① 「did you do」→ <b>過去</b>の話
+② 「<b>and went</b>」→ wentは過去形 → andの前の( )も<b>過去形</b>にする
+③ 「学校を出た」→ leave の過去形 ＝ <b>left</b>
+
+<span class="tip">💡 <b>leave の変化（不規則！）</b>
+leave → <b>left</b> → left（出発する/去る）
+⚠️ 「leaved」は間違い！</span>
+
+<span class="related">📝 <b>and でつながった動詞は同じ時制にする！</b>
+I ( ) school <b>and went</b> home. → went が過去 → ( )も過去形！</span>`}
+,{id:212,q:`A: Look at the stars in the sky!
+B: Wow! ( ) are beautiful.`,ch:["You", "Its", "They", "There"],a:`They`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：ウ（They）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Look at the stars in the sky!（空の星を見て！）
+B: Wow! ( ) are beautiful.（わぁ！きれいだね。）
+
+📌 <b>解き方</b>
+「the <b>stars</b>（星たち）」→ <b>複数</b>の名詞 → 代名詞に置き換えると <b>They</b>
+
+<span class="tip">💡 <b>代名詞の置き換えルール</b>
+・1つ/1人 → it / he / she
+・2つ以上/2人以上 → <b>they</b>
+stars（複数）→ <b>They</b></span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・You（あなたは）→ 文脈的に星の話
+・Its（それの）→ 所有格で、主語になれない
+・There → 「There are beautiful」は文法が変`}
+,{id:213,q:`A: Thank you for your help.
+B: No problem. I'm so happy ( ) you.`,ch:["to help", "help", "helped", "can help"],a:`to help`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：ア（to help）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Thank you for your help.（手伝ってくれてありがとう。）
+B: No problem. I'm so happy ( ) you.
+（どういたしまして。あなたを手伝えて<b>うれしい</b>です。）
+
+📌 <b>解き方</b>
+「I'm happy ＿ you.」→ <b>感情の形容詞 + to ～</b> ＝「～して嬉しい」
+→ <b>to help</b>（手伝えて）
+
+<span class="tip">💡 <b>感情 + to ～ ＝「～して（嬉しい/悲しい）」</b>
+・I'm <b>happy to</b> help you.（手伝えて嬉しい）
+・I'm <b>glad to</b> meet you.（会えて嬉しい）
+・I'm <b>sorry to</b> hear that.（聞いて残念です）
+・I'm <b>surprised to</b> see you.（会えて驚いた）
+⚠️ 感情の形容詞の後は <b>to + 動詞の原形</b>！（不定詞の副詞的用法：原因）</span>`}
+,{id:214,q:`A: Wow! That's a cool bike! Whose bike is that?
+B: It's ( ). I bought it last week.`,ch:["my", "me", "mine", "I"],a:`mine`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：ウ（mine）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Wow! That's a cool bike! Whose bike is that?
+（かっこいい自転車！誰のなの？）
+B: It's ( ). I bought it last week.（私のです。先週買いました。）
+
+📌 <b>解き方</b>
+「It's ＿.」→ 後ろに名詞がない → <b>所有代名詞</b>が必要
+I の所有代名詞 ＝ <b>mine</b>（私のもの）
+
+<span class="tip">💡 <b>Whose ～? への答え方</b>
+It's <b>mine</b>. / It's <b>yours</b>. / It's <b>his</b>. / It's <b>hers</b>.
+⚠️ my は後ろに名詞が必要（my bike）。mine は名詞なしでOK！</span>`}
+,{id:215,q:`A: Do you have any sisters?
+B: Yes, look at this picture! These girls dancing on the stage ( ) my sisters.`,ch:["be", "is", "am", "are"],a:`are`,g:`be動詞・一般動詞`,
+ ex:`<b>正解：エ（are）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Do you have any sisters?（姉妹はいる？）
+B: Yes, look at this picture! These girls dancing on the stage ( ) my sisters.
+（うん、この写真見て！ステージで踊っているこの女の子たちが私の姉妹です。）
+
+📌 <b>解き方</b>
+主語は「These <b>girls</b>」→ <b>複数</b> → be動詞は <b>are</b>
+
+<span class="tip">💡 <b>ここがポイント！「長い主語」に惑わされるな！</b>
+「These girls dancing on the stage」→ 全部まとめて主語です。
+
+日本語に直すと「ステージで踊っているこれらの女の子たちが…」
+　→ 「女の子たち」＝ 複数 → <b>are</b>
+
+⚠️ 「dancing on the stage」は「女の子たち」の説明をしているだけ。
+主語の中心は <b>These girls</b>（複数）なので are を使う！</span>`}
+,{id:216,q:`A: What did you do last weekend?
+B: I went to a temple and ( ) a lot of pictures.`,ch:["take", "taken", "taking", "took"],a:`took`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：エ（took）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: What did you do last weekend?（先週末は何をしたの？）
+B: I went to a temple and ( ) a lot of pictures.
+（お寺に行って、たくさん写真を撮りました。）
+
+📌 <b>解き方</b>
+① 「last weekend」→ <b>過去</b>の話
+② 「went <b>and</b> ( )」→ and でつながる動詞は同じ時制 → <b>過去形</b>
+③ 「写真を撮る」＝ take pictures → 過去形は <b>took</b>
+
+<span class="tip">💡 <b>take の変化（不規則！）</b>
+take → <b>took</b> → taken
+⚠️ 「taked」は間違い！
+
+📝 「写真を撮る」＝ <b>take a picture / take pictures</b></span>`}
+,{id:217,q:`A: Did you see Mike at school yesterday?
+B: I think he ( ) come to school because he was sick yesterday.`,ch:["didn't", "doesn't", "isn't", "wasn't"],a:`didn't`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：ア（didn't）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Did you see Mike at school yesterday?（昨日学校でマイクを見た？）
+B: I think he ( ) come to school because he was sick yesterday.
+（昨日は具合が悪かったから、学校に来なかったと思います。）
+
+📌 <b>解き方</b>
+① 「yesterday」「was sick」→ <b>過去</b>の話
+② 「来なかった」→ 過去の否定 ＝ <b>didn't</b> + 動詞の原形(come)
+
+<span class="tip">💡 <b>過去の否定文の公式</b>
+<b>主語 + didn't + 動詞の原形</b>
+⚠️ didn't の後は<b>必ず原形</b>！ ✕ didn't came → ○ didn't <b>come</b></span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・doesn't → 現在形。yesterday があるので過去
+・isn't / wasn't → be動詞の否定。come は一般動詞なので混ぜるのはNG`}
+,{id:218,q:`A: Did you see the pictures painted by the famous artist?
+B: I wanted to see ( ), but I couldn't because there were many people in front of me.`,ch:["her", "him", "it", "them"],a:`them`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：エ（them）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Did you see the pictures painted by the famous artist?
+（有名な画家が描いた絵を見た？）
+B: I wanted to see ( ), but I couldn't because there were many people in front of me.
+（見たかったけど、前にたくさん人がいて見れませんでした。）
+
+📌 <b>解き方</b>
+「see ＿」→ 動詞の後 → <b>目的格</b>（～を）が必要
+「the <b>pictures</b>」＝ 複数のモノ → 目的格は <b>them</b>
+
+<span class="tip">💡 <b>代名詞の選び方3ステップ</b>
+① 何を指す？ → the pictures（複数のモノ）
+② 文のどの位置？ → 動詞(see)の後 → <b>目的格</b>
+③ 複数の目的格 → <b>them</b></span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・her / him → 「彼女を/彼を」。pictures は人じゃない
+・it → 単数。pictures は複数なので it はダメ`}
+,{id:219,q:`A: Excuse me. ( ) can I go to Midori City Park?
+B: You can take a bus. The bus stop is over there.`,ch:["What", "How", "When", "Where"],a:`How`,g:`疑問詞`,
+ ex:`<b>正解：イ（How）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Excuse me. ( ) can I go to Midori City Park?
+（すみません。みどり市公園にはどうやって行けますか？）
+B: You can take a bus. The bus stop is over there.
+（バスに乗れますよ。バス停はあそこです。）
+
+📌 <b>解き方</b>
+Bが「バスに乗れる」と<b>行き方（方法）</b>を答えている → <b>How</b>
+
+<span class="tip">💡 <b>How ＝ どうやって（方法）</b>
+道案内の定番パターン：
+<b>How can I get to ～?</b>（～にはどうやって行けますか？）</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・What → 「何」で方法は聞けない
+・When → 「いつ」。行き方の話ではない
+・Where → 「どこ」。場所はもう分かっている（Midori City Park）`}
+,{id:220,q:`A: Are you OK? You look very ( ).
+B: I'm not feeling well. I need some rest.`,ch:["tired", "happy", "nice", "beautiful"],a:`tired`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：ア（tired）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Are you OK? You look very ( ).（大丈夫？とても( )に見えるよ。）
+B: I'm not feeling well. I need some rest.（体調がよくないの。休みたい。）
+
+📌 <b>解き方</b>
+Bが「体調がよくない」「休みが必要」→ 体調が悪そうな見た目 ＝ <b>tired</b>（疲れた）
+
+<span class="tip">💡 <b>You look ～ ＝「あなたは～に見える」</b>
+look の後には形容詞が来ます。
+・You look <b>tired</b>.（疲れて見える）/ <b>happy</b>（嬉しそう）/ <b>sad</b>（悲しそう）</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・happy / nice / beautiful → 「体調がよくない」と言っているのに「嬉しそう/素敵/美しい」はおかしい`}
+,{id:221,q:`A: Bob, are you watching TV? You have to clean your room.
+B: Don't worry, Mom. I have already ( ) it.`,ch:["do", "did", "done", "doing"],a:`done`,g:`現在完了`,
+ ex:`<b>正解：ウ（done）</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Bob, are you watching TV? You have to clean your room.
+（ボブ、テレビ見てるの？部屋を掃除しなさい。）
+B: Don't worry, Mom. I have already ( ) it.
+（心配しないで、ママ。もうやったよ。）
+
+📌 <b>解き方</b>
+「have <b>already</b> ( )」→ <b>現在完了形</b>！（have + 過去分詞）
+→ do の過去分詞 ＝ <b>done</b>
+
+<span class="tip">💡 <b>現在完了形の公式</b>
+<b>have/has + 過去分詞</b>
+「already（もう）」は完了用法の目印！
+do → did → <b>done</b>
+
+⚠️ already の位置：have <b>already</b> done（have と過去分詞の間！）</span>
+
+🔍 <b>まちがい選択肢を確認</b>
+・do → 原形。have の後は過去分詞が必要
+・did → 過去形。have の後には使えない
+・doing → ing形。have already の後には不適切`}
+,{id:222,q:`Emma: What did you do yesterday?
+Ryota: I went to a bookstore ( ① ) opened near the station last month. I bought some comic books there.
+Emma: Comic books? You ( ② ) study more. We will have an English test next week.
+Ryota: Don't worry. They are written in English.
+Emma: You study English with comic books? ( ③ ) a good idea!`,ch:["ア what","イ mustn't","ウ have to","エ which","オ how","カ who"],a:["エ","ウ","オ"],g:`関係代名詞・助動詞・感嘆`,
+ ex:`<b>正解：① エ（which）　② ウ（have to）　③ オ（How）</b>
+
+✏️ <b>問題文と日本語訳</b>
+Emma: What did you do yesterday?（昨日は何をしたの？）
+Ryota: I went to a bookstore ( which ) opened near the station last month. I bought some comic books there.
+（先月駅の近くにオープンした本屋に行ったよ。マンガを買ってきた。）
+Emma: Comic books? You ( have to ) study more. We will have an English test next week.
+（マンガ？もっと勉強しないといけないよ。来週英語のテストがあるんだから。）
+Ryota: Don't worry. They are written in English.（大丈夫だよ。英語で書かれてるんだ。）
+Emma: You study English with comic books? ( How ) a good idea!（マンガで英語を勉強するの？なんていい考えなんでしょう！）
+
+📌 <b>解き方</b>
+① a bookstore ( ) opened near the station → 先行詞「物」＋後ろに動詞 → <b>関係代名詞 which</b>
+② You ( ) study more.「もっと勉強しないといけない」→ <b>have to ～</b>（義務・必要）
+　※mustn't（～してはいけない）は「禁止」なので文脈に合わない
+③ ( ) a good idea! → 「なんていい考えなんでしょう！」→ <b>How ＋ 形容詞</b>の感嘆文！
+
+<span class="tip">💡 <b>感嘆文 How vs What</b>
+<b>How ＋ 形容詞/副詞</b> ＋（主語＋動詞）！→ How good it is!
+<b>What ＋ 名詞句</b> ＋（主語＋動詞）！→ What a good idea it is!
+"How a good idea!" → <b>How</b> が正解！</span>
+
+<span class="tip">💡 <b>have to vs mustn't</b>
+have to ～ → 「～しなければならない」（義務）
+mustn't → 「～してはいけない」（禁止）
+「もっと勉強しないといけない」＝ <b>have to study more</b></span>`}
+,{id:223,q:`A: ( ① ) was your speaking test in English class? It was difficult for me.
+B: I did OK. Did you prepare well?
+A: Yes, but I should study harder next time.
+B: Well, I have a good idea. I have a friend ( ② ) speaks English very well. He ( ③ ) English in Australia when he was little.`,ch:["ア studied","イ has studied","ウ who","エ whose","オ which","カ how"],a:["カ","ウ","ア"],g:`文法総合`,
+ ex:`<b>正解：① カ（How）　② ウ（who）　③ ア（studied）</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+A: ( How ) was your speaking test?（スピーキングテスト、どうだった？）
+B: I did OK.（まあまあだったよ。）
+I have a friend ( who ) speaks English very well. He ( studied ) English in Australia when he was little.
+（英語が上手な友達がいるんだ。子どもの頃オーストラリアで英語を勉強したんだよ。）
+
+📌 <b>解き方</b>
+① ( ) was your speaking test? → 感想を聞く → <b>How was ～?</b>（どうだった？）
+② I have a friend ( ) speaks English → 先行詞「人」＋後ろに動詞 → <b>関係代名詞 who</b>
+③ He ( ) English ... when he was little → 「子どもの頃」という過去のサイン → <b>過去形 studied</b>
+　「has studied」（現在完了）は「when + 過去時点」とは一緒に使えない！
+
+<span class="tip">💡 <b>現在完了 vs 過去形</b>
+when + 過去時点（when he was little） → <b>過去形（studied）</b>
+現在完了（has studied）は過去の特定時点を示す when と一緒には使えない。
+How was ～? ＝「～はどうだった？」（感想・評価を聞く定番フレーズ）</span>`}];
+
+const gokeiQ = [
+ {id:200,q:`He is the ( busy ) man in our office, so he always works until late at night.`,bank:["busiest", "busy"],a:`busiest`,g:`比較・最上級`,
+ ex:`<b>正解：busiest</b>
+
+✏️ <b>問題文と日本語訳</b>
+He is the ( ) man in our office, so he always works until late at night.
+（彼はオフィスで<b>一番忙しい</b>人なので、いつも夜遅くまで働いています。）
+
+📌 <b>解き方</b>
+「the ( ) man <b>in</b> our office」→ the + ＿ + in ～ ＝ <b>最上級の3点セット</b>！
+busy → y を i に変えて est → <b>busiest</b>
+
+<span class="tip">💡 <b>子音+y で終わる語の最上級</b>
+y → <b>i</b> に変えて est！
+busy→busi<b>est</b> / easy→easi<b>est</b> / happy→happi<b>est</b></span>`}
+,{id:201,q:`I ( buy ) this computer at that shop yesterday. I really wanted it.`,bank:["bought", "buy"],a:`bought`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：bought</b>
+
+✏️ <b>問題文と日本語訳</b>
+I ( ) this computer at that shop yesterday. I really wanted it.
+（昨日あの店でこのパソコンを<b>買いました</b>。ずっとほしかったんです。）
+
+📌 <b>解き方</b>
+「<b>yesterday</b>」→ 過去のサイン → buy の過去形 ＝ <b>bought</b>
+
+<span class="tip">💡 <b>buy の変化（不規則！）</b>
+buy → <b>bought</b> → bought ⚠️「buyed」は間違い！
+同じパターン：think→thought / bring→brought / catch→caught</span>`}
+,{id:202,q:`They ( be ) watching TV when we visited them.`,bank:["were", "be"],a:`were`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：were</b>
+
+✏️ <b>問題文と日本語訳</b>
+They ( ) watching TV when we visited them.
+（私たちが訪ねた時、彼らはテレビを見ていました。）
+
+📌 <b>解き方</b>
+「( ) watching」→ <b>be動詞 + ～ing ＝ 進行形</b>
+「when we <b>visited</b>」→ 過去 → <b>過去進行形</b>
+主語 They → <b>were</b>
+
+<span class="tip">💡 <b>過去進行形 ＝ was/were + ～ing</b>
+I/he/she/it → <b>was</b> / you/we/they → <b>were</b>
+⚠️ 「when + 過去形」とセットで使うパターンが超頻出！</span>`}
+,{id:203,q:`Oh, no! The bus has just ( leave ). Now I must wait 40 minutes for the next bus.`,bank:["left", "leave"],a:`left`,g:`現在完了`,
+ ex:`<b>正解：left</b>
+
+✏️ <b>問題文と日本語訳</b>
+Oh, no! The bus has just ( ). Now I must wait 40 minutes for the next bus.
+（ああ！バスがちょうど出発してしまった。40分待たなきゃ。）
+
+📌 <b>解き方</b>
+「has <b>just</b> ( )」→ 現在完了形の<b>完了用法</b>（ちょうど～したところ）
+leave の過去分詞 ＝ <b>left</b>
+
+<span class="tip">💡 <b>完了用法の目印</b>：just（ちょうど）/ already（もう）/ yet（まだ/もう）
+leave → left → <b>left</b>（過去形と過去分詞が同じ形！）</span>`}
+,{id:204,q:`A: Is Jack your friend?
+B: Yes. We have ( know ) each other for ten years.`,bank:["known", "know"],a:`known`,g:`現在完了`,
+ ex:`<b>正解：known</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Is Jack your friend?（ジャックは友達？）
+B: Yes. We have ( ) each other for ten years.（うん。10年間お互いを知っています。）
+
+📌 <b>解き方</b>
+「have ( ) ... <b>for</b> ten years」→ 現在完了の<b>継続用法</b>
+know の過去分詞 ＝ <b>known</b>
+
+<span class="tip">💡 <b>継続用法の目印</b>：<b>for</b>+期間 / <b>since</b>+起点
+know→knew→<b>known</b></span>`}
+,{id:205,q:`A: Okinawa soba looks very delicious.
+B: I think this is the ( good ) food of all in Okinawa.`,bank:["best", "good"],a:`best`,g:`比較・最上級`,
+ ex:`<b>正解：best</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Okinawa soba looks very delicious.（沖縄そば、おいしそう。）
+B: I think this is the ( ) food of all in Okinawa.
+（これは沖縄で一番おいしい食べ物だと思います。）
+
+📌 <b>解き方</b>
+「the ( ) ... <b>of all</b>」→ 最上級のサイン！
+good の最上級 ＝ <b>best</b>（不規則変化！）
+
+<span class="tip">💡 <b>絶対暗記！不規則な比較変化</b>
+good → better → <b>best</b> / bad → worse → <b>worst</b> / many/much → more → <b>most</b>
+⚠️ 「goodest」は存在しません！</span>`}
+,{id:206,q:`A: Do you like sports?
+B: Yes. I love ( play ) soccer with my friends very much!`,bank:["playing", "play"],a:`playing`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：playing</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Do you like sports?（スポーツは好き？）
+B: Yes. I love ( ) soccer with my friends very much!
+（うん。友達とサッカーをするのが大好き！）
+
+📌 <b>解き方</b>
+「love ( ) soccer」→ love + <b>～ing</b>（～することが好き）
+play → <b>playing</b>
+
+<span class="tip">💡 <b>love / like / enjoy の後は ～ing！</b>
+特に enjoy の後は<b>必ず ～ing</b>！ ✕ enjoy to play → ○ enjoy <b>playing</b></span>`}
+,{id:207,q:`A: Can you say that again? You speak too fast.
+B: OK. I'll try to speak more ( slow ).`,bank:["slowly", "slow"],a:`slowly`,g:`比較・最上級`,
+ ex:`<b>正解：slowly</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Can you say that again? You speak too fast.（もう一度言って。話すのが速すぎるよ。）
+B: OK. I'll try to speak more ( ).（わかった。もっとゆっくり話すね。）
+
+📌 <b>解き方</b>
+speak（動詞）を修飾 → <b>副詞</b>が必要
+slow（形容詞）→ <b>slowly</b>（副詞）
+「more slowly」＝ もっとゆっくり（副詞の比較級）
+
+<span class="tip">💡 <b>形容詞→副詞：語末に ly をつける</b>
+slow→slow<b>ly</b> / careful→careful<b>ly</b> / easy→easi<b>ly</b></span>`}
+,{id:208,q:`A: Excuse me. I'm looking for a book. Its name is "History of Okinawan Food."
+B: Wait a minute... Well, someone ( borrow ) the book yesterday.
+A: O.K. Thank you.`,bank:["borrowed", "borrow"],a:`borrowed`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：borrowed</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: I'm looking for a book. Its name is "History of Okinawan Food."
+（本を探しています。「沖縄食文化の歴史」です。）
+B: Wait a minute... Well, someone ( ) the book yesterday.
+（ちょっと待って…昨日誰かがその本を借りましたよ。）
+
+📌 <b>解き方</b>
+「<b>yesterday</b>」→ 過去のサイン → borrow + ed ＝ <b>borrowed</b>（規則動詞）
+
+<span class="tip">💡 <b>borrow（借りる）vs lend（貸す）</b>
+borrow ＝ 借りる（自分が受け取る）/ lend ＝ 貸す（相手に渡す）</span>`}
+,{id:209,q:`A: Oh, you are not late for the soccer practice today!
+B: I tried to get up 30 minutes ( early ) than usual today.
+A: Good! Let's begin the practice!`,bank:["earlier", "early"],a:`earlier`,g:`比較・最上級`,
+ ex:`<b>正解：earlier</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Oh, you are not late for the soccer practice today!（今日は遅刻してないね！）
+B: I tried to get up 30 minutes ( ) than usual today.
+（今日はいつもより30分早く起きたんです。）
+
+📌 <b>解き方</b>
+「( ) <b>than</b>」→ <b>比較級</b>のサイン！
+early → y を i に変えて er → <b>earlier</b>
+
+<span class="tip">💡 <b>子音+y の比較級</b>：y → i に変えて er
+early→earli<b>er</b> / easy→easi<b>er</b> / happy→happi<b>er</b></span>`}
+,{id:210,q:`A: What are you doing, Dad?
+B: Look at this baby ( drink ) milk in this picture.
+A: Oh! That's me. So cute!`,bank:["drinking", "drink"],a:`drinking`,g:`分詞`,
+ ex:`<b>正解：drinking</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: What are you doing, Dad?（何してるの、パパ？）
+B: Look at this baby ( ) milk in this picture.
+（この写真のミルクを飲んでいる赤ちゃんを見て。）
+
+📌 <b>解き方</b>
+「this baby ( ) milk」→ baby を後ろから説明 → <b>現在分詞の後置修飾</b>
+drink → <b>drinking</b>（～している赤ちゃん）
+
+<span class="tip">💡 <b>名詞 + ～ing ... ＝「～している○○」</b>
+the boy <b>playing</b> soccer（サッカーをしている男の子）
+⚠️ 進行形(be+ing)ではなく<b>名詞を修飾</b>している！</span>`}
+,{id:211,q:`A: Where did you go today?
+B: I went shopping and watched a movie.
+A: I see. But have you ( do ) your homework?`,bank:["done", "do"],a:`done`,g:`現在完了`,
+ ex:`<b>正解：done</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Where did you go today?（今日どこに行ったの？）
+B: I went shopping and watched a movie.（買い物して映画を見た。）
+A: I see. But have you ( ) your homework?
+（そっか。でも、宿題は<b>やった</b>の？）
+
+📌 <b>解き方</b>
+「have you ( )」→ <b>現在完了形の疑問文</b>
+公式：Have/Has + 主語 + <b>過去分詞</b>？
+do の過去分詞 ＝ <b>done</b>
+
+<span class="tip">💡 <b>現在完了の疑問文</b>
+<b>Have you + 過去分詞 ～?</b>（～したの？）
+答え方：Yes, I have. / No, I haven't.
+do → did → <b>done</b>（3つとも異なる不規則変化！）</span>`}
+,{id:212,q:`A: I want to go to the U.S.
+B: My father has ( be ) to New York once.
+A: Oh, really? I want to ask him about his trip.`,bank:["been", "be"],a:`been`,g:`現在完了`,
+ ex:`<b>正解：been</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: My father has ( ) to New York once.（父は一度ニューヨークに行ったことがあります。）
+
+📌 <b>解き方</b>
+「has ( ) to ～ <b>once</b>」→ 現在完了の<b>経験用法</b>
+「行ったことがある」＝ have <b>been</b> to ～
+
+<span class="tip">💡 <b>超重要！been to vs gone to</b>
+・have <b>been to</b> ～ ＝ 行った<b>ことがある</b>（今ここにいる）
+・have <b>gone to</b> ～ ＝ 行って<b>しまった</b>（もうここにいない）
+⚠️ 意味が全然違う！入試超頻出の引っかけ！</span>`}
+,{id:213,q:`A: Look at this picture. What do you think about it?
+B: It's amazing!
+A: This is the picture ( take ) by my older brother.`,bank:["taken", "take"],a:`taken`,g:`分詞`,
+ ex:`<b>正解：taken</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: This is the picture ( ) by my older brother.
+（これは兄が撮った写真です。）
+
+📌 <b>解き方</b>
+「the picture ( ) <b>by</b> ～」→ <b>過去分詞の後置修飾</b>
+take→took→<b>taken</b>
+
+<span class="tip">💡 <b>過去分詞の後置修飾 頻出パターン</b>
+・a picture <b>taken by</b> ～（～が撮った写真）
+・a book <b>written in</b> English（英語で書かれた本）
+・the city <b>called</b> ～（～と呼ばれる都市）
+⚠️ <b>by があったら過去分詞を疑え！</b></span>`}
+,{id:214,q:`A: Who ( want ) to play tennis this afternoon?
+B: Sam, Wendy and me!
+A: OK. Don't forget your racket. See you later.`,bank:["wants", "want"],a:`wants`,g:`代名詞・語彙・熟語`,
+ ex:`<b>正解：wants</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Who ( ) to play tennis this afternoon?（今日の午後テニスをしたいのは誰？）
+
+📌 <b>解き方</b>
+主語が <b>Who</b> → 三人称単数扱い！ → want + s ＝ <b>wants</b>
+
+<span class="tip">💡 <b>Who が主語の文は三人称単数扱い！</b>
+Who <b>wants</b> ～? / Who <b>lives</b> here?
+⚠️ 答えが複数人でも、Who には三単現の s がつく！</span>`}
+,{id:215,q:`A: Hi, this is Miki speaking. Are you all OK? I heard a big typhoon is coming to Okinawa.
+B: Yes. It's raining hard now and the wind is getting stronger.
+A: Don't go outside. The reporter said it would be the ( bad ) typhoon in seven years.`,bank:["worst", "bad"],a:`worst`,g:`比較・最上級`,
+ ex:`<b>正解：worst</b>
+
+✏️ <b>問題文と日本語訳</b>
+The reporter said it would be the ( ) typhoon in seven years.
+（レポーターは7年間で<b>最悪の</b>台風だと言っていました。）
+
+📌 <b>解き方</b>
+① 「the ( ) typhoon <b>in</b> seven years」→ <b>最上級の3点セット</b>！
+　　 the ＋ ＿ ＋ in ～ ＝ 最上級
+② 「最悪の」＝ bad（悪い）の最上級 ＝ <b>worst</b>
+
+<span class="tip">💡 <b>絶対暗記！bad の変化（不規則！）</b>
+bad → worse → <b>worst</b>
+⚠️「baddest」「worser」「worsest」はすべて間違い！
+
+📝 一緒に覚えよう：
+good → better → <b>best</b>（良い）
+bad → worse → <b>worst</b>（悪い）
+many/much → more → <b>most</b>（多い）</span>`}
+,{id:216,q:`A: I have three cats. Their names are Shiro, Tama, and Mike.
+B: So cute! Are they the same age?
+A: No, Shiro is the ( old ) of the three.`,bank:["oldest", "old"],a:`oldest`,g:`比較・最上級`,
+ ex:`<b>正解：oldest</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: No, Shiro is the ( ) of the three.（シロが3匹の中で一番年上です。）
+
+📌 <b>解き方</b>
+「the ( ) <b>of the three</b>」→ 最上級 → old → <b>oldest</b>
+
+<span class="tip">💡 <b>最上級の目印</b>：in+場所（in Japan）/ <b>of+数</b>（of the three / of all）</span>`}
+,{id:217,q:`A: What did you buy at the store?
+B: I got a book ( write ) in English.`,bank:["written", "write"],a:`written`,g:`分詞`,
+ ex:`<b>正解：written</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: I got a book ( ) in English.（英語で書かれた本を買いました。）
+
+📌 <b>解き方</b>
+「a book ( ) in English」→ <b>過去分詞の後置修飾</b>（書かれた本）
+write→wrote→<b>written</b>
+
+<span class="tip">💡 <b>a book written in ～</b>（～語で書かれた本）は超頻出パターン！</span>`}
+,{id:218,q:`A: Welcome to our party, Ryo!
+B: Hi, Bob. Thank you for ( invite ) me.`,bank:["inviting", "invite"],a:`inviting`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：inviting</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Hi, Bob. Thank you for ( ) me.（招待してくれてありがとう。）
+
+📌 <b>解き方</b>
+「Thank you <b>for</b> ( )」→ for は前置詞 → 後ろは<b>動名詞（～ing）</b>！
+invite → <b>inviting</b>
+
+<span class="tip">💡 <b>前置詞の後は必ず ～ing！</b>
+Thank you for <b>helping</b>. / good at <b>swimming</b> / interested in <b>reading</b>
+⚠️ ✕ for invite → ○ for <b>inviting</b></span>`}
+,{id:219,q:`A: I really like this band.
+B: Oh, I have never ( hear ) their music before.`,bank:["heard", "hear"],a:`heard`,g:`現在完了`,
+ ex:`<b>正解：heard</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Oh, I have never ( ) their music before.
+（彼らの音楽を一度も聞いたことがないんです。）
+
+📌 <b>解き方</b>
+「have <b>never</b> ( )」→ 現在完了の経験用法（否定）→ 過去分詞
+hear→heard→<b>heard</b>
+
+<span class="tip">💡 <b>never ＝「一度も～ない」</b>→ 経験用法の否定
+hear→heard→<b>heard</b>（過去形と過去分詞が同じ！）</span>`}
+,{id:220,q:`A: Look! There is Mt. Fuji.
+B: Wow! I have never ( see ) such a beautiful mountain.`,bank:["seen", "see"],a:`seen`,g:`現在完了`,
+ ex:`<b>正解：seen</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Wow! I have never ( ) such a beautiful mountain.
+（こんなに美しい山は見たことがありません。）
+
+📌 <b>解き方</b>
+「have never ( )」→ 現在完了の経験用法 → 過去分詞
+see→saw→<b>seen</b>
+
+<span class="tip">💡 see→saw→<b>seen</b>
+such a ～ ＝「こんなに～な」</span>`}
+,{id:221,q:`A: It's cold today.
+B: Really? I think it's ( warm ) than yesterday.`,bank:["warmer", "warm"],a:`warmer`,g:`比較・最上級`,
+ ex:`<b>正解：warmer</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Really? I think it's ( ) than yesterday.（昨日より暖かいと思うけど。）
+
+📌 <b>解き方</b>
+「( ) <b>than</b>」→ 比較級！ warm → <b>warmer</b>
+
+<span class="tip">💡 <b>than を見たら比較級！</b> warm→warm<b>er</b> / cold→cold<b>er</b></span>`}
+,{id:222,q:`A: Who is the man ( play ) the guitar on the bench? He is making a beautiful sound.
+B: Oh, he is my brother. He loves music.`,bank:["playing", "play"],a:`playing`,g:`分詞`,
+ ex:`<b>正解：playing</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Who is the man ( ) the guitar on the bench?
+（ベンチでギターを弾いている男の人は誰ですか？）
+
+📌 <b>解き方</b>
+「the man ( ) the guitar」→ 名詞を後ろから修飾 → <b>現在分詞の後置修飾</b>
+play → <b>playing</b>（弾いている男の人）
+
+<span class="tip">💡 <b>名詞 + ～ing ＝「～している○○」</b></span>`}
+,{id:223,q:`A: Will it ( be ) a fine day tomorrow?
+B: I have no idea. Let's check the weather news.`,bank:["be"],a:`be`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：be</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Will it ( ) a fine day tomorrow?（明日は晴れますか？）
+
+📌 <b>解き方</b>
+「<b>Will</b> it ( )」→ 助動詞の後は<b>動詞の原形</b>！
+is/am/are の原形 ＝ <b>be</b>
+
+<span class="tip">💡 <b>助動詞 + be！</b> ✕ will is → ○ will <b>be</b>
+can <b>be</b> / must <b>be</b> / will <b>be</b></span>`}
+,{id:224,q:`A: This castle looks very old.
+B: Actually, it ( build ) five hundred years ago.`,bank:["was built", "build"],a:`was built`,g:`受動態`,
+ ex:`<b>正解：was built</b>
+💡 与えられた語：<b>build</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Actually, it was built five hundred years ago.（実は500年前に建てられたんです。）
+
+📌 <b>解き方</b>
+城は「建てる」側じゃなく「<b>建てられた</b>」側 → <b>受動態</b>
+500 years ago → <b>過去</b> → was/were + 過去分詞
+it（単数）→ <b>was built</b>
+
+<span class="tip">💡 <b>受動態 ＝ be動詞 + 過去分詞</b>
+build→built→<b>built</b></span>`}
+,{id:225,q:`A: Mike, you speak Japanese very well. How about writing?
+B: I'm not good at writing Japanese. It is ( difficult ) than speaking for me.`,bank:["more difficult", "difficult"],a:`more difficult`,g:`比較・最上級`,
+ ex:`<b>正解：more difficult</b>
+💡 与えられた語：<b>difficult</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: It is more difficult than speaking for me.（私には話すより書く方が難しいです。）
+
+📌 <b>解き方</b>
+「( ) <b>than</b>」→ 比較級！
+difficult は長い語（3音節以上）→ <b>more</b> をつける → <b>more difficult</b>
+
+<span class="tip">💡 <b>比較級の作り方</b>
+短い語→ -er（taller）/ 長い語→ <b>more</b>+原形（more difficult, more interesting）
+⚠️ 「difficulter」は間違い！</span>`}
+,{id:226,q:`A: The weather is very bad today.
+B: If it ( be ) sunny today, we could go camping.`,bank:["were", "be"],a:`were`,g:`仮定法`,
+ ex:`<b>正解：were</b>
+💡 与えられた語：<b>be</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: If it were sunny today, we could go camping.
+（もし今日晴れだったら、キャンプに行けるのに。）
+
+📌 <b>解き方</b>
+「If ～, 主語 + <b>could</b>」→ <b>仮定法過去</b>！（現実と反対の想像）
+仮定法では be動詞は主語に関係なく <b>were</b>！
+
+<span class="tip">💡 <b>仮定法過去の公式</b>
+<b>If + 主語 + 過去形, 主語 + would/could + 原形</b>
+⚠️ be動詞は it でも I でも全部 <b>were</b>！ ✕ If it was → ○ If it <b>were</b></span>`}
+,{id:227,q:`A: You and Ayako are good friends.
+B: Yes. We went to the same school. I ( meet ) her five years ago.`,bank:["met", "meet"],a:`met`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：met</b>
+💡 与えられた語：<b>meet</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: I met her five years ago.（5年前に彼女に会いました。）
+
+📌 <b>解き方</b>
+「five years <b>ago</b>」→ 過去のサイン → meet の過去形 ＝ <b>met</b>
+
+<span class="tip">💡 meet→<b>met</b>→met ⚠️「meeted」は間違い！</span>`}
+,{id:228,q:`A: How was your baseball game yesterday?
+B: Our team ( win )! Everyone said it was a great game.`,bank:["won", "win"],a:`won`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：won</b>
+💡 与えられた語：<b>win</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Our team won! Everyone said it was a great game.
+（チームが勝ちました！すごい試合だったとみんな言っていました。）
+
+📌 <b>解き方</b>
+「<b>yesterday</b>」→ 過去のサイン → win の過去形 ＝ <b>won</b>
+
+<span class="tip">💡 win→<b>won</b>→won ⚠️発音注意：wonは「ワン」（oneと同じ音）</span>`}
+,{id:229,q:`A: Did you take these beautiful pictures?
+B: No, I didn't. They ( take ) by my sister last year.`,bank:["were taken", "take"],a:`were taken`,g:`受動態`,
+ ex:`<b>正解：were taken</b>
+💡 与えられた語：<b>take</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: No, I didn't. They were taken by my sister last year.
+（いいえ。姉が去年撮ったものです。）
+
+📌 <b>解き方</b>
+「<b>by</b> my sister」→ <b>受動態</b>のサイン！
+last year → 過去 / They（複数）→ <b>were</b> taken
+
+<span class="tip">💡 <b>受動態（過去）＝ was/were + 過去分詞</b>
+単数→was taken / 複数→<b>were taken</b>
+⚠️ by があったら受動態を疑え！</span>`}
+,{id:230,q:`A: What is your favorite sport?
+B: Soccer! For me, it is the ( exciting ) of all sports!`,bank:["most exciting", "exciting"],a:`most exciting`,g:`比較・最上級`,
+ ex:`<b>正解：most exciting</b>
+💡 与えられた語：<b>exciting</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: For me, it is the most exciting of all sports!
+（私にとって全スポーツの中で一番ワクワクします！）
+
+📌 <b>解き方</b>
+「the ( ) <b>of all</b>」→ 最上級！
+exciting は長い語 → <b>most</b> exciting
+
+<span class="tip">💡 長い語の最上級 ＝ the <b>most</b> + 原形 ⚠️「excitingest」は間違い！</span>`}
+,{id:231,q:`A: You speak English very well!
+B: Thank you. I go to English class every week.
+A: Really? When ( start ) going there?
+B: Three years ago. My teacher is very friendly.`,bank:["did you start", "start"],a:`did you start`,g:`時制（過去・進行・未来）`,
+ ex:`<b>正解：did you start</b>
+💡 与えられた語：<b>start</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: When did you start going there?（いつ通い始めたの？）
+B: Three years ago.（3年前。）
+
+📌 <b>解き方</b>
+答えが「Three years ago」→ <b>過去</b>の話
+When の後に主語(you)が必要 → <b>did you start</b>
+
+<span class="tip">💡 <b>過去の疑問文</b>：疑問詞 + <b>did</b> + 主語 + <b>動詞の原形</b>
+⚠️ did があるから動詞は<b>原形</b>！</span>`}
+,{id:232,q:`A: I visited Hokkaido last month for the first time.
+B: Really? I have never ( be ) there.`,bank:["been", "be"],a:`been`,g:`現在完了`,
+ ex:`<b>正解：been</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Really? I have never been there.（本当？一度も行ったことがないよ。）
+
+📌 <b>解き方</b>
+「have never ( ) <b>there</b>」→ 経験用法 → have <b>been</b> to ～
+⚠️ there は副詞なので to は不要！ have been <b>there</b>（to なし！）
+
+<span class="tip">💡 have been <b>to</b> New York → have been <b>there</b>（to がなくなる！）</span>`}
+,{id:233,q:`A: It was very hot yesterday.
+B: Yes, it was, but today is ( hot ) than yesterday.`,bank:["hotter", "hot"],a:`hotter`,g:`比較・最上級`,
+ ex:`<b>正解：hotter</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: Yes, but today is hotter than yesterday.（でも今日は昨日より暑いよ。）
+
+📌 <b>解き方</b>
+「( ) <b>than</b>」→ 比較級！ hot → t を重ねて er → <b>hotter</b>
+
+<span class="tip">💡 <b>短母音+子音 → 子音を重ねて er</b>
+hot→ho<b>tt</b>er / big→bi<b>gg</b>er / sad→sa<b>dd</b>er</span>`}
+,{id:234,q:`A: Did you know that French is ( speak ) in Canada?
+B: Really? I had no idea.`,bank:["spoken", "speak"],a:`spoken`,g:`受動態`,
+ ex:`<b>正解：spoken</b>
+
+✏️ <b>問題文と日本語訳</b>
+A: Did you know that French is spoken in Canada?
+（カナダでフランス語が話されているって知ってた？）
+
+📌 <b>解き方</b>
+「French <b>is</b> ( )」→ <b>受動態</b>（is + 過去分詞）
+speak→spoke→<b>spoken</b>
+
+<span class="tip">💡 ～ is <b>spoken in</b> ...（～は…で話されている）は超頻出！</span>`}
+,{id:235,q:`A: I saw a man who won ¥100,000 on the quiz show yesterday.
+B: Wow! If I had that money, I ( can ) buy a new smartphone.`,bank:["could", "can"],a:`could`,g:`仮定法`,
+ ex:`<b>正解：could</b>
+
+✏️ <b>問題文と日本語訳</b>
+B: If I had that money, I could buy a new smartphone.
+（もしそのお金があったら、新しいスマホを買えるのに。）
+
+📌 <b>解き方</b>
+「If I <b>had</b> ～, I ( ) ～」→ <b>仮定法過去</b>！
+→ would/could + 原形 → <b>could</b> buy
+
+<span class="tip">💡 <b>仮定法 ＝ 過去形なのに「今」の話</b>
+If I had（過去形だけど今の話）→ 仮定法！</span>`}
+,{id:236,q:`A: Do you know the city ( call ) the Big Apple? — It's New York.`,bank:["called", "call"],a:`called`,g:`分詞`,
+ ex:`<b>正解：called</b>
+
+✏️ <b>問題文と日本語訳</b>
+Do you know the city called the Big Apple?
+（ビッグアップルと呼ばれる都市を知っていますか？→ ニューヨーク）
+
+📌 <b>解き方</b>
+「the city ( ) the Big Apple」→ <b>過去分詞の後置修飾</b>
+call → <b>called</b>（～と呼ばれる）
+
+<span class="tip">💡 <b>the city called ～ ＝「～と呼ばれる都市」</b>は超頻出！</span>`}
+,{id:237,q:`A: I've ( begin ) walking near my house early in the morning. So I feel better these days.`,bank:["begun", "begin"],a:`begun`,g:`現在完了`,
+ ex:`<b>正解：begun</b>
+
+✏️ <b>問題文と日本語訳</b>
+I've begun walking near my house early in the morning.
+（朝早く家の近くを歩くことを<b>始めました</b>。最近は体調が良くなっています。）
+
+📌 <b>解き方</b>
+① 「I've ( )」＝ I <b>have</b> ( ) → <b>現在完了形</b>（have ＋ 過去分詞）
+② begin（始める）の過去分詞 ＝ <b>begun</b>
+③ 「begin ＋ 動名詞」→ begin <b>walking</b>（歩くことを始める）
+
+<span class="tip">💡 <b>begin の変化（不規則！）</b>
+begin → began → <b>begun</b>
+⚠️「begined」は間違い！
+
+📝 <b>現在完了 ＝ have/has ＋ 過去分詞</b>
+I've = I have の短縮形！</span>`}
+,{id:238,q:`A: I have breakfast every day. I believe ( eat ) breakfast is good for our health.`,bank:["eating", "eat"],a:`eating`,g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解：eating</b>
+
+✏️ <b>問題文と日本語訳</b>
+I believe eating breakfast is good for our health.
+（朝食を食べることは健康にいいと信じています。）
+
+📌 <b>解き方</b>
+「( ) breakfast <b>is</b> good」→ ( ) breakfast が文の<b>主語</b>
+「～すること」→ <b>動名詞（～ing）</b> → <b>eating</b>
+
+<span class="tip">💡 <b>動名詞が主語のパターン</b>
+<b>～ing ... is ...</b>（～することは…です）
+<b>Eating</b> breakfast is good.（朝食を食べることは良い）</span>`}
+,{id:239,q:`A: What is the ( long ) river in Japan? — It is the Shinano River.`,bank:["longest", "long"],a:`longest`,g:`比較・最上級`,
+ ex:`<b>正解：longest</b>
+
+✏️ <b>問題文と日本語訳</b>
+What is the longest river in Japan? — It is the Shinano River.
+（日本で一番長い川は？ — 信濃川です。）
+
+📌 <b>解き方</b>
+「the ( ) river <b>in</b> Japan」→ 最上級！ long → <b>longest</b>
+
+<span class="tip">💡 the + <b>-est</b> + in ～ ＝ 最上級の3点セット！</span>`}];
+
+const seijoQ = [
+ {id:200,q:`A: How many times do (ア must　イ have　ウ I　エ tell　オ to) you to clean your room, Mary?
+B: I'm sorry, mom. I'll do it now.`,p:[{"l": "ア", "t": "must"}, {"l": "イ", "t": "have"}, {"l": "ウ", "t": "I"}, {"l": "エ", "t": "tell"}, {"l": "オ", "t": "to"}],a:["ウ", "エ", "イ", "オ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：ウ・エ・イ・オ</b>
+<b>完成文：How many times do I have to tell you to clean your room, Mary?</b>
+（何回あなたに部屋を掃除しなさいと言わなきゃいけないの、メアリー？）
+
+⚠️ <b>使わない語：ア（must）</b>
+
+✏️ <b>組み立て方</b>
+① do の後に主語 → <b>ウ I</b>
+② 「～しなければならない」→ <b>イ have + オ to</b>（have to）
+③ 「言う」→ <b>エ tell</b> you to clean ...
+
+<span class="tip">💡 <b>have to + 動詞の原形 ＝「～しなければならない」</b>
+must と似た意味だけど、ここでは have to を使います。
+⚠️ <b>tell + 人 + to ～</b> ＝「人に～しなさいと言う」も一緒に覚えよう！</span>`}
+,{id:201,q:`A: How do you like the cake?
+B: It is very good. It is the best cake (ア ever　イ I　ウ have　エ that　オ who) eaten.`,p:[{"l": "ア", "t": "ever"}, {"l": "イ", "t": "I"}, {"l": "ウ", "t": "have"}, {"l": "エ", "t": "that"}, {"l": "オ", "t": "who"}],a:["エ", "イ", "ウ", "ア"],g:`現在完了`,
+ ex:`<b>正解の並び順：エ・イ・ウ・ア</b>
+<b>完成文：It is the best cake that I have ever eaten.</b>
+（今まで食べた中で一番おいしいケーキです。）
+
+⚠️ <b>使わない語：オ（who）</b>
+→ cake はモノだから who（人用）は使えません。<b>that</b> を使います。
+
+✏️ <b>組み立て方</b>
+① the best cake の後 → 関係代名詞 <b>エ that</b>
+② <b>イ I + ウ have + ア ever</b> eaten
+
+<span class="tip">💡 <b>最上級 + that + have ever + 過去分詞 ＝ 超頻出！</b>
+「今まで～した中で一番…」のパターン
+the best cake <b>that I have ever eaten</b></span>`}
+,{id:202,q:`A: What are you reading, Nanako?
+B: I'm reading "Rashomon." This is one of the famous books (ア many　イ are　ウ people　エ by　オ read) in Japan.`,p:[{"l": "ア", "t": "many"}, {"l": "イ", "t": "are"}, {"l": "ウ", "t": "people"}, {"l": "エ", "t": "by"}, {"l": "オ", "t": "read"}],a:["イ", "オ", "エ", "ア"],g:`受動態`,
+ ex:`<b>正解の並び順：イ・オ・エ・ア</b>
+<b>完成文：This is one of the famous books are read by many in Japan.</b>
+（これは日本の多くの人に読まれている有名な本のひとつです。）
+
+⚠️ <b>使わない語：ウ（people）</b>
+→ 「many（多くの）」だけで意味が伝わるため、people は不要です。
+
+✏️ <b>組み立て方</b>
+books の後 → <b>イ are + オ read</b>（受動態：読まれている）＋ <b>エ by + ア many</b>（多くの人によって）
+
+<span class="tip">💡 <b>受動態の後置修飾</b>
+books <b>are read by many</b> in Japan ＝「日本の多くの人に読まれている本」
+「many」は「many people（多くの人）」という意味で使われています！</span>`}
+,{id:203,q:`A: I heard you can speak Korean and Chinese.
+B: I learned Korean in high school, and I live in China now.
+A: (ア speak　イ language　ウ you　エ do　オ which) better, Korean or Chinese?
+B: I speak Chinese better now.`,p:[{"l": "ア", "t": "speak"}, {"l": "イ", "t": "language"}, {"l": "ウ", "t": "you"}, {"l": "エ", "t": "do"}, {"l": "オ", "t": "which"}],a:["オ", "エ", "ウ", "イ", "ア"],g:`疑問詞`,
+ ex:`<b>正解の並び順：オ・エ・ウ・イ・ア（5語すべて使用）</b>
+<b>完成文：Which language do you speak better, Korean or Chinese?</b>
+（韓国語と中国語、どちらの方が上手に話せますか？）
+
+✏️ <b>組み立て方</b>
+<b>オ Which + イ language + エ do + ウ you + ア speak</b> better ...?
+
+<span class="tip">💡 <b>Which + 名詞 ＝「どちらの○○」</b>
+Which + 名詞 + do + 主語 + 動詞 ～?</span>`}
+,{id:204,q:`A: What's your plan for tomorrow?
+B: My sister (ア to　イ go　ウ me　エ shopping　オ asked) together.
+A: That sounds fun! Where will you go?`,p:[{"l": "ア", "t": "to"}, {"l": "イ", "t": "go"}, {"l": "ウ", "t": "me"}, {"l": "エ", "t": "shopping"}, {"l": "オ", "t": "asked"}],a:["オ", "ウ", "ア", "イ", "エ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：オ・ウ・ア・イ・エ（5語すべて使用）</b>
+<b>完成文：My sister asked me to go shopping together.</b>
+（姉が一緒に買い物に行こうと頼みました。）
+
+✏️ <b>組み立て方</b>
+My sister → <b>オ asked + ウ me + ア to + イ go + エ shopping</b>
+
+<span class="tip">💡 <b>ask + 人 + to + 動詞 ＝「人に～するよう頼む」</b>
+asked <b>me to go</b> → 整序で毎年出る超頻出パターン！
+ask / tell / want + 人 + to ～ をセットで暗記！</span>`}
+,{id:205,q:`A: I think the writer is smart.
+B: Why do you think so?
+A: Because the book (ア is　イ she　ウ last year　エ which　オ wrote) very popular with people of all ages.`,p:[{"l": "ア", "t": "is"}, {"l": "イ", "t": "she"}, {"l": "ウ", "t": "last year"}, {"l": "エ", "t": "which"}, {"l": "オ", "t": "wrote"}],a:["エ", "イ", "オ", "ウ", "ア"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：エ・イ・オ・ウ・ア（5語すべて使用）</b>
+<b>完成文：Because the book which she wrote last year is very popular with people of all ages.</b>
+（彼女が去年書いた本はあらゆる年代に大人気だからです。）
+
+✏️ <b>組み立て方</b>
+the book → <b>エ which + イ she + オ wrote + ウ last year + ア is</b> popular...
+
+<span class="tip">💡 <b>関係代名詞の後 → 本文の動詞が来る！</b>
+the book [which she wrote last year] <b>is</b> popular
+⚠️ 関係代名詞のカタマリが終わったら、本文の動詞（is）！</span>`}
+,{id:209,q:`A: I think I've seen that man before.
+B: Who are you talking about?
+A: The (ア care　イ man　ウ is　エ who　オ taking) of the dog over there.
+B: Oh, he is Mr. Higa. He is my science teacher.`,p:[{"l": "ア", "t": "care"}, {"l": "イ", "t": "man"}, {"l": "ウ", "t": "is"}, {"l": "エ", "t": "who"}, {"l": "オ", "t": "taking"}],a:["イ", "エ", "ウ", "オ", "ア"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：イ・エ・ウ・オ・ア（5語すべて使用）</b>
+<b>完成文：The man who is taking care of the dog over there.</b>
+（あそこで犬の世話をしている男の人。）
+
+✏️ <b>組み立て方</b>
+The → <b>イ man + エ who + ウ is + オ taking + ア care</b> of the dog
+
+<span class="tip">💡 <b>関係代名詞 who + 進行形</b>
+the man <b>who is taking</b> care of ～
+📝 <b>take care of ～ ＝「～の世話をする」</b>（熟語！丸暗記！）</span>`}
+,{id:210,q:`A: Who runs the fastest in your soccer club?
+B: Keisuke does.
+A: What about Yuto?
+B: He runs fast, too. But he (ア run　イ fast　ウ not　エ can　オ as) as Keisuke.`,p:[{"l": "ア", "t": "run"}, {"l": "イ", "t": "fast"}, {"l": "ウ", "t": "not"}, {"l": "エ", "t": "can"}, {"l": "オ", "t": "as"}],a:["エ", "ウ", "ア", "オ", "イ"],g:`比較・最上級`,
+ ex:`<b>正解の並び順：エ・ウ・ア・オ・イ（5語すべて使用）</b>
+<b>完成文：He can not run as fast as Keisuke.</b>
+（彼はケイスケほど速く走れません。）
+
+✏️ <b>組み立て方</b>
+He → <b>エ can + ウ not + ア run + オ as + イ fast</b> as Keisuke
+
+<span class="tip">💡 <b>not as ～ as ... ＝「…ほど～ない」</b>
+⚠️ as と as の間は<b>必ず原級</b>！ faster ✕ → fast ○</span>`}
+,{id:211,q:`A: How was school today?
+B: P.E. class was so fun. But it was too cold outside. I still feel cold now.
+A: Do you (ア hot　イ drink　ウ something　エ want　オ to)?
+B: Yes! Thank you.`,p:[{"l": "ア", "t": "hot"}, {"l": "イ", "t": "drink"}, {"l": "ウ", "t": "something"}, {"l": "エ", "t": "want"}, {"l": "オ", "t": "to"}],a:["エ", "オ", "イ", "ウ", "ア"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：エ・オ・イ・ウ・ア（5語すべて使用）</b>
+<b>完成文：Do you want to drink something hot?</b>
+（何か温かい飲み物がほしいですか？）
+
+✏️ <b>組み立て方</b>
+Do you → <b>エ want + オ to + イ drink + ウ something + ア hot</b>?
+
+<span class="tip">💡 <b>something + 形容詞 の語順に注意！</b>
+⚠️ 日本語と逆！ ✕ hot something → ○ something <b>hot</b>
+「何か冷たいもの」→ something <b>cold</b>（形容詞は後ろ！）</span>`}
+,{id:215,q:`A: Do you remember (ア school festival　イ held　ウ when　エ our　オ was) last year?
+B: No, I don't. Let's ask our teacher.`,p:[{"l": "ア", "t": "school festival"}, {"l": "イ", "t": "held"}, {"l": "ウ", "t": "when"}, {"l": "エ", "t": "our"}, {"l": "オ", "t": "was"}],a:["エ", "ア", "ウ", "オ", "イ"],g:`間接疑問文`,
+ ex:`<b>正解の並び順：エ・ア・ウ・オ・イ（5語すべて使用）</b>
+<b>完成文：Do you remember when our school festival was held last year?</b>
+（去年の学園祭がいつ行われたか覚えていますか？）
+
+✏️ <b>組み立て方</b>
+remember → <b>ウ when + エ our + ア school festival + オ was + イ held</b>
+
+<span class="tip">💡 <b>間接疑問文 ＝ 疑問詞 + 主語 + 動詞</b>（普通の語順に戻す！）
+when our school festival <b>was held</b>（受動態）</span>`}
+,{id:216,q:`A: Let's go shopping after school today.
+B: I'm sorry I can't. My mother (ア me　イ come　ウ to　エ back　オ told) by 6 p.m.`,p:[{"l": "ア", "t": "me"}, {"l": "イ", "t": "come"}, {"l": "ウ", "t": "to"}, {"l": "エ", "t": "back"}, {"l": "オ", "t": "told"}],a:["オ", "ア", "ウ", "イ", "エ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：オ・ア・ウ・イ・エ（5語すべて使用）</b>
+<b>完成文：My mother told me to come back by 6 p.m.</b>
+（母に6時までに帰ってきなさいと言われました。）
+
+✏️ <b>組み立て方</b>
+My mother → <b>オ told + ア me + ウ to + イ come + エ back</b>
+
+<span class="tip">💡 <b>tell + 人 + to ～ ＝「人に～しろと言う」</b>
+come back ＝「帰ってくる/戻る」</span>`}
+,{id:217,q:`A: You have a nice camera.
+B: Thanks. This (ア the camera　イ gave　ウ is　エ me　オ my father) on my birthday.`,p:[{"l": "ア", "t": "the camera"}, {"l": "イ", "t": "gave"}, {"l": "ウ", "t": "is"}, {"l": "エ", "t": "me"}, {"l": "オ", "t": "my father"}],a:["ア", "ウ", "オ", "イ", "エ"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：ア・ウ・オ・イ・エ（5語すべて使用）</b>
+<b>完成文：This is the camera my father gave me on my birthday.</b>
+（これは父が誕生日にくれたカメラです。）
+
+✏️ <b>組み立て方</b>
+This → <b>ウ is + ア the camera + オ my father + イ gave + エ me</b>
+
+<span class="tip">💡 <b>関係代名詞の省略！</b>
+the camera <b>(which)</b> my father gave me
+名詞のすぐ後に「主語+動詞」→ 関係代名詞が省略されている！</span>`}
+,{id:221,q:`A: (ア it　イ been　ウ since　エ raining　オ has) last night.
+B: Don't forget to bring an umbrella.`,p:[{"l": "ア", "t": "it"}, {"l": "イ", "t": "been"}, {"l": "ウ", "t": "since"}, {"l": "エ", "t": "raining"}, {"l": "オ", "t": "has"}],a:["ア", "オ", "イ", "エ", "ウ"],g:`時制（過去・進行・未来）`,
+ ex:`<b>正解の並び順：ア・オ・イ・エ・ウ（5語すべて使用）</b>
+<b>完成文：It has been raining since last night.</b>
+（昨夜からずっと雨が降り続いています。）
+
+✏️ <b>組み立て方</b>
+<b>ア It + オ has + イ been + エ raining + ウ since</b> last night
+
+<span class="tip">💡 <b>現在完了進行形 ＝ have/has + been + ～ing</b>
+「ずっと～し続けている」 since ＝「～以来」（継続のサイン）</span>`}
+,{id:222,q:`A: Can you (ア the post office　イ where　ウ me　エ tell　オ is)?
+B: Certainly. Go straight down this street and turn right at the store.`,p:[{"l": "ア", "t": "the post office"}, {"l": "イ", "t": "where"}, {"l": "ウ", "t": "me"}, {"l": "エ", "t": "tell"}, {"l": "オ", "t": "is"}],a:["エ", "ウ", "イ", "ア", "オ"],g:`間接疑問文`,
+ ex:`<b>正解の並び順：エ・ウ・イ・ア・オ（5語すべて使用）</b>
+<b>完成文：Can you tell me where the post office is?</b>
+（郵便局がどこにあるか教えてくれますか？）
+
+✏️ <b>組み立て方</b>
+Can you → <b>エ tell + ウ me + イ where + ア the post office + オ is</b>?
+
+<span class="tip">💡 <b>間接疑問文は語順が変わる！</b>
+普通：Where <b>is</b> the post office?
+間接：where the post office <b>is</b>
+⚠️ Can you tell me where ～ is? は入試超頻出！</span>`}
+,{id:223,q:`A: Mr. Smith is very popular.
+B: I think so, too. (ア interesting　イ he　ウ us　エ tells　オ stories) in his class.`,p:[{"l": "ア", "t": "interesting"}, {"l": "イ", "t": "he"}, {"l": "ウ", "t": "us"}, {"l": "エ", "t": "tells"}, {"l": "オ", "t": "stories"}],a:["イ", "エ", "ウ", "オ", "ア"],g:`代名詞・語彙・熟語`,
+ ex:`<b>正解の並び順：イ・エ・ウ・オ・ア（5語すべて使用）</b>
+<b>完成文：He tells us interesting stories in his class.</b>
+（彼は授業で面白い話をしてくれます。）
+
+✏️ <b>組み立て方</b>
+<b>イ He + エ tells + ウ us + ア interesting + オ stories</b>
+
+<span class="tip">💡 <b>第4文型（SVOO）：tell + 人 + モノ</b>
+tells <b>us</b>（人）<b>stories</b>（モノ）</span>`}
+,{id:224,q:`A: Sam, students must clean the classroom by themselves in Japan.
+B: Really? I didn't know that. (ア we　イ to　ウ don't　エ clean　オ have) our classroom in America.`,p:[{"l": "ア", "t": "we"}, {"l": "イ", "t": "to"}, {"l": "ウ", "t": "don't"}, {"l": "エ", "t": "clean"}, {"l": "オ", "t": "have"}],a:["ア", "ウ", "オ", "イ", "エ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：ア・ウ・オ・イ・エ（5語すべて使用）</b>
+<b>完成文：We don't have to clean our classroom in America.</b>
+（アメリカでは教室を掃除する必要がありません。）
+
+✏️ <b>組み立て方</b>
+<b>ア We + ウ don't + オ have + イ to + エ clean</b>
+
+<span class="tip">💡 <b>don't have to ＝「～する必要がない」</b>
+⚠️ must not（禁止！）とは全然意味が違う！
+don't have to ＝ しなくてもいい（自由）/ must not ＝ 絶対ダメ（禁止）</span>`}
+,{id:225,q:`A: I've just arrived in Kyoto. I want to see everything!
+B: Oh, how (ア you　イ long　ウ going to　エ stay　オ are) here?
+A: For seven days.`,p:[{"l": "ア", "t": "you"}, {"l": "イ", "t": "long"}, {"l": "ウ", "t": "going to"}, {"l": "エ", "t": "stay"}, {"l": "オ", "t": "are"}],a:["イ", "オ", "ア", "ウ", "エ"],g:`疑問詞`,
+ ex:`<b>正解の並び順：イ・オ・ア・ウ・エ（5語すべて使用）</b>
+<b>完成文：Oh, how long are you going to stay here?</b>
+（どのくらいここに滞在する予定ですか？）
+
+✏️ <b>組み立て方</b>
+how → <b>イ long + オ are + ア you + ウ going to + エ stay</b>
+
+<span class="tip">💡 <b>How long ＝「どのくらい（期間）」</b>
+答えが For seven days. → 期間をたずねる → How long!
+be going to の疑問文 ＝ Are you going to ～?</span>`}
+,{id:226,q:`A: Did you know (ア are　イ Canada　ウ and French　エ English　オ spoken in)?
+B: No, I didn't. That's interesting.`,p:[{"l": "ア", "t": "are"}, {"l": "イ", "t": "Canada"}, {"l": "ウ", "t": "and French"}, {"l": "エ", "t": "English"}, {"l": "オ", "t": "spoken in"}],a:["エ", "ウ", "ア", "オ", "イ"],g:`間接疑問文`,
+ ex:`<b>正解の並び順：エ・ウ・ア・オ・イ（5語すべて使用）</b>
+<b>完成文：Did you know English and French are spoken in Canada?</b>
+（カナダで英語とフランス語が話されていると知ってた？）
+
+✏️ <b>組み立て方</b>
+Did you know → <b>エ English + ウ and French + ア are + オ spoken in + イ Canada</b>
+
+<span class="tip">💡 <b>受動態 ＝ be動詞 + 過去分詞</b>
+are spoken in ～ ＝「～で話されている」</span>`}
+,{id:230,q:`A: I have a question about this math problem.
+B: Oh, you should ask Yuji. He (ア is　イ very　ウ math　エ at　オ good).`,p:[{"l": "ア", "t": "is"}, {"l": "イ", "t": "very"}, {"l": "ウ", "t": "math"}, {"l": "エ", "t": "at"}, {"l": "オ", "t": "good"}],a:["ア", "オ", "イ", "エ", "ウ"],g:`be動詞・一般動詞`,
+ ex:`<b>正解の並び順：ア・オ・イ・エ・ウ（5語すべて使用）</b>
+<b>完成文：He is very good at math.</b>
+（彼は数学がとても得意です。）
+
+✏️ <b>組み立て方</b>
+He → <b>ア is + イ very + オ good + エ at + ウ math</b>
+
+<span class="tip">💡 <b>be good at ～ ＝「～が得意」</b>
+at の後が動詞なら<b>～ing</b>！ good at <b>playing</b> soccer</span>`}
+,{id:231,q:`A: It is (ア for　イ to　ウ write　エ difficult　オ me) English messages. I speak better.
+B: That's true. You speak English well.`,p:[{"l": "ア", "t": "for"}, {"l": "イ", "t": "to"}, {"l": "ウ", "t": "write"}, {"l": "エ", "t": "difficult"}, {"l": "オ", "t": "me"}],a:["エ", "ア", "オ", "イ", "ウ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：エ・ア・オ・イ・ウ（5語すべて使用）</b>
+<b>完成文：It is difficult for me to write English messages.</b>
+（私にとって英語のメッセージを書くのは難しいです。）
+
+✏️ <b>組み立て方</b>
+It is → <b>エ difficult + ア for + オ me + イ to + ウ write</b>
+
+<span class="tip">💡 <b>It is ＿ for 人 to ～ ＝ 超頻出！</b>
+It is + 形容詞 + for + 人 + to + 動詞の原形
+＝「人にとって～するのは…だ」
+⚠️ <b>for と to が選択肢にあったらこの構文！</b></span>`}
+,{id:232,q:`A: Do you think Nana will come? She lives far from here.
+B: I'm not sure, but I think she (ア because　イ come　ウ it's　エ won't　オ raining).`,p:[{"l": "ア", "t": "because"}, {"l": "イ", "t": "come"}, {"l": "ウ", "t": "it's"}, {"l": "エ", "t": "won't"}, {"l": "オ", "t": "raining"}],a:["エ", "イ", "ア", "ウ", "オ"],g:`代名詞・語彙・熟語`,
+ ex:`<b>正解の並び順：エ・イ・ア・ウ・オ（5語すべて使用）</b>
+<b>完成文：I think she won't come because it's raining.</b>
+（雨が降っているので彼女は来ないと思います。）
+
+✏️ <b>組み立て方</b>
+I think she → <b>エ won't + イ come + ア because + ウ it's + オ raining</b>
+
+<span class="tip">💡 <b>because + 主語 + 動詞</b> ＝「なぜなら～だから」
+won't ＝ will not（～しないだろう）</span>`}
+,{id:233,q:`A: I think the science homework was very difficult.
+B: I (ア my sister　イ to　ウ me　エ help　オ asked) with my homework. She is good at science.`,p:[{"l": "ア", "t": "my sister"}, {"l": "イ", "t": "to"}, {"l": "ウ", "t": "me"}, {"l": "エ", "t": "help"}, {"l": "オ", "t": "asked"}],a:["オ", "ア", "イ", "エ", "ウ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：オ・ア・イ・エ・ウ（5語すべて使用）</b>
+<b>完成文：I asked my sister to help me with my homework.</b>
+（姉に宿題を手伝ってくれるよう頼みました。）
+
+✏️ <b>組み立て方</b>
+I → <b>オ asked + ア my sister + イ to + エ help + ウ me</b>
+
+<span class="tip">💡 <b>ask + 人 + to ～ ＝「人に～するよう頼む」</b>（超頻出！）</span>`}
+,{id:234,q:`A: (ア recommended　イ which　ウ was　エ the book　オ you) really interesting.
+B: I'm glad to hear that.`,p:[{"l": "ア", "t": "recommended"}, {"l": "イ", "t": "which"}, {"l": "ウ", "t": "was"}, {"l": "エ", "t": "the book"}, {"l": "オ", "t": "you"}],a:["エ", "イ", "オ", "ア", "ウ"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：エ・イ・オ・ア・ウ（5語すべて使用）</b>
+<b>完成文：The book which you recommended was really interesting.</b>
+（あなたがおすすめした本はとても面白かった。）
+
+✏️ <b>組み立て方</b>
+<b>エ the book + イ which + オ you + ア recommended + ウ was</b> really interesting
+
+<span class="tip">💡 <b>関係代名詞 which（目的格）</b>
+which の後に「主語+動詞」→ 目的格！
+⚠️ 関係代名詞節が終わったら本文の動詞（was）！</span>`}
+,{id:235,q:`A: Billy's piano playing is wonderful!
+B: I (ア play　イ wish　ウ could　エ I　オ the piano) like him.
+A: Just practice every day. You can do it!`,p:[{"l": "ア", "t": "play"}, {"l": "イ", "t": "wish"}, {"l": "ウ", "t": "could"}, {"l": "エ", "t": "I"}, {"l": "オ", "t": "the piano"}],a:["イ", "エ", "ウ", "ア", "オ"],g:`仮定法`,
+ ex:`<b>正解の並び順：イ・エ・ウ・ア・オ（5語すべて使用）</b>
+<b>完成文：I wish I could play the piano like him.</b>
+（彼のようにピアノが弾けたらいいのになぁ。）
+
+✏️ <b>組み立て方</b>
+I → <b>イ wish + エ I + ウ could + ア play + オ the piano</b>
+
+<span class="tip">💡 <b>I wish + 主語 + 過去形 ＝「～だったらいいのになぁ」</b>
+⚠️ wish の後は仮定法（過去形）！現実には弾けないから wish を使う</span>`}
+,{id:236,q:`My mother (ア using　イ told　ウ to　エ must　オ me　カ stop) my smartphone at dinner.`,p:[{"l": "ア", "t": "using"}, {"l": "イ", "t": "told"}, {"l": "ウ", "t": "to"}, {"l": "エ", "t": "must"}, {"l": "オ", "t": "me"}, {"l": "カ", "t": "stop"}],a:["イ", "オ", "ウ", "カ", "ア"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：イ・オ・ウ・カ・ア</b>
+<b>完成文：My mother told me to stop using my smartphone at dinner.</b>
+（母に夕食中のスマホをやめなさいと言われました。）
+
+⚠️ <b>使わない語：エ（must）</b>
+
+✏️ <b>組み立て方</b>
+My mother → <b>イ told + オ me + ウ to + カ stop + ア using</b>
+
+<span class="tip">💡 <b>tell + 人 + to ～</b> ＋ <b>stop + ～ing</b> の合体！
+⚠️ stop の後は<b>必ず ～ing</b>！ ✕ stop to use → ○ stop <b>using</b></span>`}
+,{id:237,q:`The (ア who　イ cake　ウ made　エ is　オ your mother　カ that) delicious. — Thank you.`,p:[{"l": "ア", "t": "who"}, {"l": "イ", "t": "cake"}, {"l": "ウ", "t": "made"}, {"l": "エ", "t": "is"}, {"l": "オ", "t": "your mother"}, {"l": "カ", "t": "that"}],a:["イ", "カ", "オ", "ウ", "エ"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：イ・カ・オ・ウ・エ</b>
+<b>完成文：The cake that your mother made is delicious.</b>
+（お母さんが作ったケーキはおいしいです。）
+
+⚠️ <b>使わない語：ア（who）</b>
+→ cake はモノ！ who（人用）は使えません。that を使います。
+
+✏️ <b>組み立て方</b>
+The → <b>イ cake + カ that + オ your mother + ウ made + エ is</b> delicious
+
+<span class="tip">💡 <b>関係代名詞の使い分け</b>
+人→who / モノ→which / 両方→that</span>`}
+,{id:238,q:`My hamburger is gone! Do (ア the hamburger　イ know　ウ ate　エ how　オ you　カ who)?`,p:[{"l": "ア", "t": "the hamburger"}, {"l": "イ", "t": "know"}, {"l": "ウ", "t": "ate"}, {"l": "エ", "t": "how"}, {"l": "オ", "t": "you"}, {"l": "カ", "t": "who"}],a:["オ", "イ", "カ", "ウ", "ア"],g:`間接疑問文`,
+ ex:`<b>正解の並び順：オ・イ・カ・ウ・ア</b>
+<b>完成文：Do you know who ate the hamburger?</b>
+（誰がハンバーガーを食べたか知ってる？）
+
+⚠️ <b>使わない語：エ（how）</b>
+
+✏️ <b>組み立て方</b>
+Do → <b>オ you + イ know + カ who + ウ ate + ア the hamburger</b>?
+
+<span class="tip">💡 <b>who が主語の間接疑問文 → 語順そのまま！</b>
+Do you know <b>who ate</b> ～?（whoが主語だから入れ替え不要）</span>`}
+,{id:242,q:`A: Excuse me, (ア I　イ can　ウ many　エ books　オ how) borrow here?
+B: Five. You can keep them for two weeks.
+A: Thank you very much.`,p:[{"l": "ア", "t": "I"}, {"l": "イ", "t": "can"}, {"l": "ウ", "t": "many"}, {"l": "エ", "t": "books"}, {"l": "オ", "t": "how"}],a:["オ", "ウ", "エ", "イ", "ア"],g:`疑問詞`,
+ ex:`<b>正解の並び順：オ・ウ・エ・イ・ア（5語すべて使用）</b>
+<b>完成文：Excuse me, how many books can I borrow here?</b>
+（すみません、ここでは何冊借りられますか？）
+
+✏️ <b>組み立て方</b>
+<b>オ how + ウ many + エ books + イ can + ア I</b> borrow here?
+
+<span class="tip">💡 <b>How many + 複数名詞 + can ～?</b>
+How many <b>books</b> can I ～?（何冊～できますか？）</span>`}
+,{id:243,q:`A: Is this a birthday present from your parents?
+B: Yes. They gave me (ア France　イ watch　ウ made　エ a　オ in).
+A: Wow, it's cute!`,p:[{"l": "ア", "t": "France"}, {"l": "イ", "t": "watch"}, {"l": "ウ", "t": "made"}, {"l": "エ", "t": "a"}, {"l": "オ", "t": "in"}],a:["エ", "イ", "ウ", "オ", "ア"],g:`分詞`,
+ ex:`<b>正解の並び順：エ・イ・ウ・オ・ア（5語すべて使用）</b>
+<b>完成文：They gave me a watch made in France.</b>
+（フランス製の時計をくれました。）
+
+✏️ <b>組み立て方</b>
+gave me → <b>エ a + イ watch + ウ made + オ in + ア France</b>
+
+<span class="tip">💡 <b>made in ～ ＝「～製」</b>（過去分詞の後置修飾）
+a watch <b>made in</b> France ＝ フランス製の時計</span>`}
+,{id:244,q:`A: The math test was very difficult.
+B: Really? It was (ア me　イ easy　ウ answer　エ to　オ for) all the questions.
+A: Oh, I didn't have time to finish the test.`,p:[{"l": "ア", "t": "me"}, {"l": "イ", "t": "easy"}, {"l": "ウ", "t": "answer"}, {"l": "エ", "t": "to"}, {"l": "オ", "t": "for"}],a:["イ", "オ", "ア", "エ", "ウ"],g:`助動詞・不定詞・動名詞`,
+ ex:`<b>正解の並び順：イ・オ・ア・エ・ウ（5語すべて使用）</b>
+<b>完成文：It was easy for me to answer all the questions.</b>
+（私にとって全問に答えるのは簡単でした。）
+
+✏️ <b>組み立て方</b>
+It was → <b>イ easy + オ for + ア me + エ to + ウ answer</b>
+
+<span class="tip">💡 <b>It is ＿ for 人 to ～ の公式</b>（ここでは過去形 was）
+⚠️ for と to が選択肢にあったらこの構文を疑え！</span>`}
+// --- 以下、追加問題 ---
+,{id:206,q:`A: I think young people should eat more vegetables.
+B: ( ア I イ too. ウ agree エ Having オ fruits) is also good for them.`,p:[{"l": "ア", "t": "I"}, {"l": "イ", "t": "too."}, {"l": "ウ", "t": "agree,"}, {"l": "エ", "t": "Having"}, {"l": "オ", "t": "fruits"}],a:["ウ","ア","イ","エ","オ"],g:`接続表現・文構造`,
+ ex:`<b>正解の並び順：ウ・ア・イ（I agree, too.）残りエ・オは別の文の先頭</b>
+
+✏️ <b>完成文と日本語訳</b>
+B: I agree, too. Having fruits is also good for them.
+（私もそう思います。果物を食べることも体に良いですよ。）
+
+📌 <b>解き方</b>
+①「I agree, too.」→「私もそう思います」= 同意の表現
+②「Having fruits is also good」→ 動名詞（Having）が主語
+
+<span class="tip">💡 <b>I agree. / I think so, too.</b>（同意の定番表現）
+動名詞が主語：Having breakfast is important.（朝食を食べることが大切）</span>`}
+,{id:207,q:`A: What's your plan for tomorrow?
+B: My sister ( ア to イ go ウ me エ shopping オ asked) together.`,p:[{"l": "ア", "t": "to"}, {"l": "イ", "t": "go"}, {"l": "ウ", "t": "me"}, {"l": "エ", "t": "shopping"}, {"l": "オ", "t": "asked"}],a:["オ","ウ","ア","イ","エ"],g:`第4文型・第5文型`,
+ ex:`<b>正解の並び順：オ・ウ・ア・イ・エ</b>
+
+✏️ <b>完成文と日本語訳</b>
+My sister asked me to go shopping together.
+（姉が一緒に買い物に行こうと誘ってくれました。）
+
+📌 <b>解き方</b>
+ask ＋ 人 ＋ to ＋ 動詞原形 ＝「人に～するよう頼む」
+→ asked me to go shopping
+
+<span class="tip">💡 <b>ask 人 to ～</b>（人に～するよう頼む）
+tell 人 to ～（人に～するよう言う）
+want 人 to ～（人に～してほしい）
+この形は超頻出！</span>`}
+,{id:208,q:`A: I think the writer is smart.
+B: Why do you think so?
+A: Because the book ( ア is イ she ウ last year エ which オ wrote) very popular with people of all ages.`,p:[{"l": "ア", "t": "is"}, {"l": "イ", "t": "she"}, {"l": "ウ", "t": "last year"}, {"l": "エ", "t": "which"}, {"l": "オ", "t": "wrote"}],a:["エ","イ","オ","ウ","ア"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：エ・イ・オ・ウ・ア</b>
+
+✏️ <b>完成文と日本語訳</b>
+Because the book which she wrote last year is very popular with people of all ages.
+（なぜなら、彼女が去年書いた本があらゆる年代にとても人気があるからです。）
+
+📌 <b>解き方</b>
+the book → <b>エ which + イ she + オ wrote + ウ last year</b> → ア is popular...
+関係代名詞 which の後は「主語 + 動詞」の語順！
+
+<span class="tip">💡 <b>関係代名詞のカタマリ</b>
+the book [which she wrote last year] <b>is</b> popular
+カタマリが終わったら本文の動詞（is）が来る！</span>`}
+,{id:248,q:`A: I have a question about this math problem.
+B: Oh, you should ask Yuji. He ( ア is イ very ウ math エ at オ good).`,p:[{"l": "ア", "t": "is"}, {"l": "イ", "t": "very"}, {"l": "ウ", "t": "math"}, {"l": "エ", "t": "at"}, {"l": "オ", "t": "good"}],a:["ア","イ","オ","エ","ウ"],g:`be good at`,
+ ex:`<b>正解の並び順：ア・イ・オ・エ・ウ</b>
+
+✏️ <b>完成文と日本語訳</b>
+He is very good at math.（彼は数学がとても得意です。）
+
+📌 <b>解き方</b>
+be good at ＋ 名詞/動名詞 ＝「～が得意」
+→ is + very + good + at + math
+
+<span class="tip">💡 <b>be good at ～</b>（～が得意）
+be good at math / be good at playing tennis
+反対は be bad at ～（～が苦手）</span>`}
+,{id:212,q:`A: ( ア it イ been ウ since エ raining オ has) last night.
+B: Don't forget to bring an umbrella.`,p:[{"l": "ア", "t": "it"}, {"l": "イ", "t": "been"}, {"l": "ウ", "t": "since"}, {"l": "エ", "t": "raining"}, {"l": "オ", "t": "has"}],a:["ア","オ","イ","エ","ウ"],g:`現在完了進行形`,
+ ex:`<b>正解の並び順：ア・オ・イ・エ・ウ</b>
+
+✏️ <b>完成文と日本語訳</b>
+It has been raining since last night.（昨夜からずっと雨が降っています。）
+
+📌 <b>解き方</b>
+has been ～ing ＝ 現在完了進行形（ずっと～している）
+since ＋ 過去の時点 ＝「〜以来」
+
+<span class="tip">💡 <b>現在完了進行形 = have/has + been + ～ing</b>
+It has been raining since last night.
+「昨夜からずっと雨が降り続けている」→ 今も降っているイメージ！</span>`}
+,{id:213,q:`A: Can you ( ア the post office イ where ウ me エ tell オ is)?
+B: Certainly. Go straight down this street and turn right at the store.`,p:[{"l": "ア", "t": "the post office"}, {"l": "イ", "t": "where"}, {"l": "ウ", "t": "me"}, {"l": "エ", "t": "tell"}, {"l": "オ", "t": "is"}],a:["エ","ウ","イ","ア","オ"],g:`間接疑問文`,
+ ex:`<b>正解の並び順：エ・ウ・イ・ア・オ</b>
+
+✏️ <b>完成文と日本語訳</b>
+Can you tell me where the post office is?（郵便局がどこにあるか教えてもらえますか？）
+
+📌 <b>解き方</b>
+tell ＋ 人 ＋ 疑問詞 ＋ 主語 ＋ 動詞（間接疑問文）
+「where is the post office?」→「where the post office is」（語順が変わる！）
+
+<span class="tip">💡 <b>間接疑問文 = 疑問詞 + 主語 + 動詞</b>（普通の語順に戻す！）
+Where is the post office? → tell me <b>where the post office is</b>
+⚠️ 疑問文の語順（Is / Where + is）をそのまま使わない！</span>`}
+,{id:214,q:`A: Mr. Smith is very popular.
+B: I think so, too. ( ア interesting イ he ウ us エ tells オ stories) in his class.`,p:[{"l": "ア", "t": "interesting"}, {"l": "イ", "t": "he"}, {"l": "ウ", "t": "us"}, {"l": "エ", "t": "tells"}, {"l": "オ", "t": "stories"}],a:["イ","エ","ウ","オ","ア"],g:`第4文型（SVOO）`,
+ ex:`<b>正解の並び順：イ・エ・ウ・オ・ア</b>
+
+✏️ <b>完成文と日本語訳</b>
+He tells us interesting stories in his class.（彼は授業でいつも面白い話をしてくれます。）
+
+📌 <b>解き方</b>
+tell ＋ 人 ＋ もの/こと ＝「人に～を話す」（第4文型）
+→ he + tells + us + interesting stories
+
+<span class="tip">💡 <b>第4文型 SVOO</b>
+tell 人 もの → tell us interesting stories（私たちに面白い話を）
+give 人 もの → give me a book（私に本を）</span>`}
+,{id:218,q:`A: I have a question about this math problem.
+B: Oh, you should ask Yuji. He ( ア is イ very ウ math エ at オ good).
+A: Thanks! I'll ask him later.`,p:[{"l": "ア", "t": "is"}, {"l": "イ", "t": "very"}, {"l": "ウ", "t": "math"}, {"l": "エ", "t": "at"}, {"l": "オ", "t": "good"}],a:["ア","イ","オ","エ","ウ"],g:`be good at`,
+ ex:`<b>正解の並び順：ア・イ・オ・エ・ウ</b>
+
+✏️ <b>完成文と日本語訳</b>
+He is very good at math.（彼は数学がとても得意です。）
+
+<span class="tip">💡 be good at ＋ 科目/スポーツ/動名詞
+He is good at <b>math</b>.（数学が得意）
+She is good at <b>playing</b> tennis.（テニスが得意）</span>`}
+,{id:219,q:`A: It is ( ア for イ to ウ write エ difficult オ me) English messages. I speak better.
+B: That's true. You speak English well.`,p:[{"l": "ア", "t": "for"}, {"l": "イ", "t": "to"}, {"l": "ウ", "t": "write"}, {"l": "エ", "t": "difficult"}, {"l": "オ", "t": "me"}],a:["エ","ア","オ","イ","ウ"],g:`It is ... for 人 to ～`,
+ ex:`<b>正解の並び順：エ・ア・オ・イ・ウ</b>
+
+✏️ <b>完成文と日本語訳</b>
+It is difficult for me to write English messages.（英語のメッセージを書くのは私には難しいです。）
+
+📌 <b>解き方</b>
+It is ＋ 形容詞 ＋ for 人 ＋ to ＋ 動詞原形
+→ difficult + for me + to write
+
+<span class="tip">💡 <b>It is ＿ for 人 to ～</b>の公式
+It is <b>easy</b> for me to speak English.（英語を話すのは簡単）
+It is <b>difficult</b> for him to get up early.（早起きは彼には難しい）</span>`}
+,{id:220,q:`A: Do you think Nana will come? She lives far from here.
+B: I'm not sure, but I think she ( ア because イ come ウ it's エ won't オ raining).`,p:[{"l": "ア", "t": "because"}, {"l": "イ", "t": "come"}, {"l": "ウ", "t": "it's"}, {"l": "エ", "t": "won't"}, {"l": "オ", "t": "raining"}],a:["エ","イ","ア","ウ","オ"],g:`接続詞because`,
+ ex:`<b>正解の並び順：エ・イ・ア・ウ・オ</b>
+
+✏️ <b>完成文と日本語訳</b>
+I think she won't come because it's raining.（雨が降っているから、彼女は来ないと思います。）
+
+📌 <b>解き方</b>
+won't ＝ will not（～しないだろう）
+because ＋ 理由（節）
+→ won't come + because + it's raining
+
+<span class="tip">💡 <b>won't = will not</b>（未来の否定）
+because ＋ 主語 ＋ 動詞（理由を表す接続詞）
+She won't come <b>because</b> it's raining.（雨が降っているから来ない）</span>`}
+,{id:249,q:`A: Do you remember ( ア school festival イ held ウ when エ our オ was) last year?
+B: No, I don't. Let's ask our teacher.`,p:[{"l": "ア", "t": "school festival"}, {"l": "イ", "t": "held"}, {"l": "ウ", "t": "when"}, {"l": "エ", "t": "our"}, {"l": "オ", "t": "was"}],a:["ウ","エ","ア","オ","イ"],g:`間接疑問文・受動態`,
+ ex:`<b>正解の並び順：ウ・エ・ア・オ・イ</b>
+
+✏️ <b>完成文と日本語訳</b>
+Do you remember when our school festival was held last year?（去年の学園祭がいつ行われたか覚えていますか？）
+
+📌 <b>解き方</b>
+remember + 疑問詞節（間接疑問文）
+when + our school festival + was held（受動態）
+
+<span class="tip">💡 <b>間接疑問文 ＋ 受動態</b>
+「when was our school festival held?」→ 間接疑問文にすると
+「when <b>our school festival was held</b>」（語順注意！）</span>`}
+,{id:227,q:`A: Let's go shopping after school today.
+B: I'm sorry I can't. My mother ( ア me イ come ウ to エ back オ told) by 6 p.m.`,p:[{"l": "ア", "t": "me"}, {"l": "イ", "t": "come"}, {"l": "ウ", "t": "to"}, {"l": "エ", "t": "back"}, {"l": "オ", "t": "told"}],a:["オ","ア","ウ","イ","エ"],g:`tell 人 to ～`,
+ ex:`<b>正解の並び順：オ・ア・ウ・イ・エ</b>
+
+✏️ <b>完成文と日本語訳</b>
+My mother told me to come back by 6 p.m.（母に6時までに帰ってきなさいと言われました。）
+
+📌 <b>解き方</b>
+tell ＋ 人 ＋ to ＋ 動詞原形 ＝「人に～するよう言う」
+→ told + me + to come back
+
+<span class="tip">💡 <b>tell 人 to ～</b>（人に～するよう言う）
+My mother <b>told me to</b> come back by 6.（6時までに帰るよう言われた）
+ask 人 to ～（頼む）/ want 人 to ～（してほしい）</span>`}
+,{id:228,q:`A: You have a nice camera.
+B: Thanks. This ( ア the camera イ gave ウ is エ me オ my father) on my birthday.`,p:[{"l": "ア", "t": "the camera"}, {"l": "イ", "t": "gave"}, {"l": "ウ", "t": "is"}, {"l": "エ", "t": "me"}, {"l": "オ", "t": "my father"}],a:["ウ","ア","オ","イ","エ"],g:`第4文型（SVOO）`,
+ ex:`<b>正解の並び順：ウ・ア・オ・イ・エ</b>
+
+✏️ <b>完成文と日本語訳</b>
+This is the camera my father gave me on my birthday.（これは誕生日に父がくれたカメラです。）
+
+📌 <b>解き方</b>
+This is the camera [my father gave me]（関係代名詞の省略）
+that/which が省略されて「my father gave me」が直接続く！
+
+<span class="tip">💡 <b>目的格の関係代名詞は省略できる！</b>
+the camera [<b>that</b> my father gave me]
+→ the camera [my father gave me]（thatを省略）
+give ＋ 人 ＋ もの → gave <b>me</b> the camera（第4文型）</span>`}
+,{id:229,q:`A: I heard you can speak Korean and Chinese.
+B: I learned Korean in high school, and I live in China now.
+A: ( ア speak イ language ウ you エ do オ which) better, Korean or Chinese?
+B: I speak Chinese better now.`,p:[{"l": "ア", "t": "speak"}, {"l": "イ", "t": "language"}, {"l": "ウ", "t": "you"}, {"l": "エ", "t": "do"}, {"l": "オ", "t": "which"}],a:["オ","イ","エ","ウ","ア"],g:`間接疑問文・疑問詞`,
+ ex:`<b>正解の並び順：オ・イ・エ・ウ・ア</b>
+
+✏️ <b>完成文と日本語訳</b>
+Which language do you speak better, Korean or Chinese?（韓国語と中国語、どちらの言語がより得意ですか？）
+
+📌 <b>解き方</b>
+Which ＋ 名詞 ＋ do you ～? ＝「どちらの～を…しますか？」
+→ Which language + do you speak better?
+
+<span class="tip">💡 <b>Which + 名詞</b>（どちらの〜）
+Which <b>language</b> do you speak?
+Which <b>book</b> do you like?
+A or B? の選択肢がつくことが多い！</span>`}
+,{id:239,q:`A: Did you finish your English homework for summer vacation?
+ア No. The last question is very difficult.
+イ Sounds good. We can go to the library.
+ウ I agree. Let's try to finish it together.`,ch:["ア","イ","ウ"],a:["ア","イ","ウ"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：ア・イ・ウ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+Did you finish your English homework for summer vacation?（夏休みの英語の宿題、終わった？）
+↓
+<b>ア</b> No. The last question is very difficult.（まだ。最後の問題がとても難しくて。）
+↓
+<b>イ</b> Sounds good. We can go to the library.（そうだね。図書館に行けるよ。）
+↓
+<b>ウ</b> I agree. Let's try to finish it together.（賛成！一緒に終わらせよう。）
+
+<span class="tip">💡 <b>会話の流れ</b>
+①問題提起（宿題まだ）→②提案（図書館）→③同意（一緒に）
+Sounds good. ＝「いいね！」（It sounds good の短縮）</span>`}
+,{id:240,q:`May I help you?
+ア No problem. Can I try it on?
+イ Yes. I'm looking for a black jacket.
+ウ Let me see. We have only a large size.`,ch:["ア","イ","ウ"],a:["イ","ウ","ア"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+May I help you?（いらっしゃいませ。）
+↓
+<b>イ</b> Yes. I'm looking for a black jacket.（はい、黒いジャケットを探しています。）
+↓
+<b>ウ</b> Let me see. We have only a large size.（少々お待ちください。ラージサイズしかございません。）
+↓
+<b>ア</b> No problem. Can I try it on?（問題ありません。試着できますか？）
+
+<span class="tip">💡 <b>ショッピングの定番フレーズ</b>
+I'm looking for ～.（～を探しています）
+try it on ＝ 試着する（try on it ではなく try it on！代名詞は間に入る）</span>`}
+,{id:241,q:`You look sad. What's wrong?
+ア You're right. Thanks. I will.
+イ You should go to the police and tell them about that.
+ウ I have lost my bag that I bought yesterday. Everything is in it.`,ch:["ア","イ","ウ"],a:["ウ","イ","ア"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+You look sad. What's wrong?（悲しそうだね。どうしたの？）
+↓
+<b>ウ</b> I have lost my bag that I bought yesterday. Everything is in it.（昨日買ったバッグをなくしてしまいました。全部入っていたのに。）
+↓
+<b>イ</b> You should go to the police and tell them about that.（警察に行ってそのことを伝えるべきだよ。）
+↓
+<b>ア</b> You're right. Thanks. I will.（そうだね。ありがとう。そうします。）
+
+<span class="tip">💡 <b>I have lost ～</b>（現在完了・結果）
+「なくしてしまった（今もない状態）」→ 現在完了形！
+You should ～.（～すべきだよ）→ アドバイスの定番</span>`}
+,{id:245,q:`A: I think I've seen that man before.
+B: Who are you talking about?
+A: The ( ア care イ man ウ is エ who オ taking) of the dog over there.
+B: Oh, he is Mr. Higa. He is my science teacher.`,p:[{"l": "ア", "t": "care"}, {"l": "イ", "t": "man"}, {"l": "ウ", "t": "is"}, {"l": "エ", "t": "who"}, {"l": "オ", "t": "taking"}],a:["イ","エ","ウ","オ","ア"],g:`関係代名詞`,
+ ex:`<b>正解の並び順：イ・エ・ウ・オ・ア</b>
+
+✏️ <b>完成文と日本語訳</b>
+The man who is taking care of the dog over there.（あそこで犬の世話をしているあの人。）
+
+📌 <b>解き方</b>
+The man → <b>エ who + ウ is + オ taking + ア care</b> of the dog
+take care of ～ ＝「～の世話をする」（3語でセット！）
+
+<span class="tip">💡 <b>関係代名詞 who＋進行形</b>
+The man [who is taking care of the dog]（犬の世話をしている男の人）
+take care of ～ をバラバラにしないように注意！</span>`}
+,{id:246,q:`A: Who runs the fastest in your soccer club?
+B: Keisuke does.
+A: What about Yuto?
+B: He runs fast, too. But he ( ア run イ fast ウ not エ can オ as) as Keisuke.`,p:[{"l": "ア", "t": "run"}, {"l": "イ", "t": "fast"}, {"l": "ウ", "t": "not"}, {"l": "エ", "t": "can"}, {"l": "オ", "t": "as"}],a:["エ","ウ","ア","オ","イ"],g:`as ... as 原級比較`,
+ ex:`<b>正解の並び順：エ・ウ・ア・オ・イ</b>
+
+✏️ <b>完成文と日本語訳</b>
+He can not run as fast as Keisuke.（彼はケイスケほど速く走れません。）
+
+📌 <b>解き方</b>
+not as ＋ 形容詞/副詞 ＋ as ＝「～ほど…ではない」
+→ can not run + as fast as Keisuke
+
+<span class="tip">💡 <b>原級比較の否定</b>
+He can not run <b>as fast as</b> Keisuke.（ケイスケほど速くない）
+A is not as tall as B. ＝「AはBほど背が高くない」</span>`}
+,{id:247,q:`A: How was school today?
+B: P.E. class was so fun. But it was too cold outside. I still feel cold now.
+A: Do you ( ア hot イ drink ウ something エ want オ to)?
+B: Yes! Thank you.`,p:[{"l": "ア", "t": "hot"}, {"l": "イ", "t": "drink"}, {"l": "ウ", "t": "something"}, {"l": "エ", "t": "want"}, {"l": "オ", "t": "to"}],a:["エ","ウ","オ","イ","ア"],g:`want to ～・不定詞`,
+ ex:`<b>正解の並び順：エ・ウ・オ・イ・ア</b>
+
+✏️ <b>完成文と日本語訳</b>
+Do you want something to drink hot?（何か温かい飲み物はいりますか？）
+
+📌 <b>解き方</b>
+want ＋ something ＋ to ＋ 動詞原形 ＝「～するための何か」
+want + something to drink（飲むための何か＝飲み物）
+
+<span class="tip">💡 <b>something to ～</b>（～するための何か）
+something to eat（食べるもの）
+something to drink（飲むもの）
+something to do（することリスト）</span>`}];
+
+const kaiwaQ = [
+ {id:100,ctx:``,ch:["ア Thank you, mom! I'll never do it again.", "イ Oh, no! It's already too late.", "ウ Then, I'll take you to school this time.", "エ Wake up! You'll miss the bus to school."],a:["エ", "イ", "ウ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Wake up! You'll miss the bus to school.（起きて！バスに乗り遅れるよ。）
+<b>イ</b> Oh, no! It's already too late.（やだ！もう遅すぎる。）
+<b>ウ</b> Then, I'll take you to school this time.（じゃあ今回は学校まで送るよ。）
+<b>ア</b> Thank you, mom! I'll never do it again.（ありがとうママ！もう二度としない。）
+
+<span class="tip">💡 <b>会話の流れ ＝ 起こす → 焦る → 解決 → お礼</b>
+① <b>エ</b>「起きて！」と声をかける
+② <b>イ</b>「遅い！」と焦る
+③ <b>ウ</b>「送ってあげる」と提案（Then がヒント）
+④ <b>ア</b>「ありがとう」で締めくくり</span>`}
+,{id:101,ctx:``,ch:["ア Would you like to go to Hawaii again?", "イ It was great. My host family was friendly and I made a lot of friends there.", "ウ Yes, I'd love to.", "エ Welcome back, Miyuki! How was your homestay in Hawaii?"],a:["エ", "イ", "ア", "ウ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ア・ウ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Welcome back, Miyuki! How was your homestay in Hawaii?（おかえり、みゆき！ハワイのホームステイどうだった？）
+<b>イ</b> It was great. My host family was friendly and I made a lot of friends there.
+（最高！ホストファミリーは親切で友達もたくさんできた。）
+<b>ア</b> Would you like to go to Hawaii again?（また行きたい？）
+<b>ウ</b> Yes, I'd love to.（うん、ぜひ！）
+
+<span class="tip">💡 <b>How was ～? → 感想を答える → 話が発展</b>
+「Would you like to ～?」（～したいですか？）に対して
+「I'd love to.」（ぜひ！）で答えるパターンは超頻出！</span>`}
+,{id:102,ctx:``,ch:["ア Well, there is one mistake here, but you did a good job.", "イ I see. I'll be more careful next time. Thank you, Mr. Miyagi.", "ウ I'm so happy! Oh, 99 points! What question did I miss?", "エ You got the most points in this class, Sayaka!"],a:["エ", "ウ", "ア", "イ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・ア・イ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> You got the most points in this class, Sayaka!（クラスで一番の点数だよ、さやか！）
+<b>ウ</b> I'm so happy! Oh, 99 points! What question did I miss?（嬉しい！あ、99点！どこ間違えた？）
+<b>ア</b> Well, there is one mistake here, but you did a good job.（ここに1つ間違いがあるけど、よくできたよ。）
+<b>イ</b> I see. I'll be more careful next time. Thank you, Mr. Miyagi.（わかりました。次はもっと気をつけます。）
+
+<span class="tip">💡 <b>ほめる → 嬉しい反応 → 詳しい説明 → 今後の決意</b>
+「What question did I miss?」で質問 → 先生が答える → 生徒が感謝</span>`}
+,{id:103,ctx:``,ch:["ア Yes. That's right.", "イ It's November 25th.", "ウ Wow, it's just one month before Christmas!", "エ When is your birthday, Ken?"],a:["エ", "イ", "ウ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> When is your birthday, Ken?（誕生日はいつ、ケン？）
+<b>イ</b> It's November 25th.（11月25日だよ。）
+<b>ウ</b> Wow, it's just one month before Christmas!（わぁ、クリスマスのちょうど1ヶ月前だね！）
+<b>ア</b> Yes. That's right.（うん、そうだよ。）
+
+<span class="tip">💡 <b>When ～? → 日付を答える → 反応 → 確認</b>
+質問に答えてから話が発展するパターン</span>`}
+,{id:104,ctx:``,ch:["ア Sounds good. Can I try them on?", "イ Well, we have three kinds of white ones.", "ウ Yes, please. I'm looking for white tennis shoes.", "エ Hi. Can I help you?"],a:["エ", "ウ", "イ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Hi. Can I help you?（いらっしゃいませ。）
+<b>ウ</b> Yes, please. I'm looking for white tennis shoes.（はい。白いテニスシューズを探しています。）
+<b>イ</b> Well, we have three kinds of white ones.（白いものは3種類ありますよ。）
+<b>ア</b> Sounds good. Can I try them on?（いいですね。試着してもいいですか？）
+
+<span class="tip">💡 <b>買い物の定番パターン</b>
+① Can I help you?（店員のあいさつ）
+② I'm looking for ～.（～を探しています）
+③ We have ～.（～があります）
+④ Can I try ～ on?（試着していい？）
+📝 <b>try on ＝ 試着する</b>（代名詞は間に入れる：try <b>them</b> on）</span>`}
+,{id:105,ctx:``,ch:["ア No! You should stay inside. You can't go out.", "イ Well, may I play video games then?", "ウ But it's not raining now. Mom, can I go out, please?", "エ Mike, don't go outside. It'll rain soon."],a:["エ", "ウ", "ア", "イ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・ア・イ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Mike, don't go outside. It'll rain soon.（マイク、外に出ちゃダメ。もうすぐ雨だよ。）
+<b>ウ</b> But it's not raining now. Mom, can I go out, please?（でも今は降ってないよ。出ていい？）
+<b>ア</b> No! You should stay inside. You can't go out.（ダメ！中にいなさい。）
+<b>イ</b> Well, may I play video games then?（じゃあ、ゲームしていい？）
+
+<span class="tip">💡 <b>禁止 → 反論 → 再拒否 → 代替案</b>
+「then」（じゃあ）＝ 前の話を受けて別の提案をするときのキーワード</span>`}
+,{id:106,ctx:``,ch:["ア No. The last question is very difficult.", "イ Sounds good. We can go to the library.", "ウ I agree. Let's try to finish it together.", "エ Did you finish your English homework for summer vacation?"],a:["エ", "ア", "ウ", "イ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ア・ウ・イ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Did you finish your English homework for summer vacation?（夏休みの英語の宿題終わった？）
+<b>ア</b> No. The last question is very difficult.（いいえ。最後の問題がとても難しくて。）
+<b>ウ</b> I agree. Let's try to finish it together.（そうだよね。一緒に終わらせよう。）
+<b>イ</b> Sounds good. We can go to the library.（いいね。図書館に行こう。）
+
+<span class="tip">💡 <b>質問 → 問題提起 → 共感＋提案 → 同意</b>
+「I agree」＝「そうだよね」（相手の発言に共感）→「Let's ～」で提案
+「Sounds good」＝「いいね」（提案を受けての同意）← 必ず<b>誰かの提案の後</b>に来る！</span>`}
+,{id:107,ctx:``,ch:["ア No problem. Can I try it on?", "イ Yes. I'm looking for a black jacket.", "ウ Let me see. We have only a large size.", "エ May I help you?"],a:["エ", "イ", "ウ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> May I help you?（いらっしゃいませ。）
+<b>イ</b> Yes. I'm looking for a black jacket.（はい。黒いジャケットを探しています。）
+<b>ウ</b> Let me see. We have only a large size.（えーと。Lサイズしかありません。）
+<b>ア</b> No problem. Can I try it on?（大丈夫です。試着していいですか？）
+
+<span class="tip">💡 <b>買い物パターン</b>
+May I help you? ＝ Can I help you? と同じ意味
+「I'm looking for ～」→「We have ～」→「Can I try it on?」の流れ</span>`}
+,{id:108,ctx:``,ch:["ア You're right. Thanks. I will.", "イ You should go to the police and tell them about that.", "ウ I have lost my bag that I bought yesterday. Everything is in it.", "エ You look sad. What's wrong?"],a:["エ", "ウ", "イ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> You look sad. What's wrong?（悲しそうだね。どうしたの？）
+<b>ウ</b> I have lost my bag that I bought yesterday. Everything is in it.
+（昨日買ったカバンをなくしちゃった。全部入ってたの。）
+<b>イ</b> You should go to the police and tell them about that.（警察に行って伝えた方がいいよ。）
+<b>ア</b> You're right. Thanks. I will.（そうだよね。ありがとう。そうする。）
+
+<span class="tip">💡 <b>心配 → 悩みを話す → アドバイス → 受け入れ</b>
+「What's wrong?」（どうしたの？）への答えは<b>困っていること</b>
+「You should ～」（～した方がいい）→ アドバイスのパターン</span>`}
+,{id:109,ctx:``,ch:["ア How about going to see it together next Sunday?", "イ That sounds good. See you then.", "ウ No, but I want to.", "エ Have you seen that movie yet?"],a:["エ", "ウ", "ア", "イ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・ア・イ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Have you seen that movie yet?（もうあの映画見た？）
+<b>ウ</b> No, but I want to.（いいえ、でも見たい。）
+<b>ア</b> How about going to see it together next Sunday?（次の日曜日に一緒に見に行かない？）
+<b>イ</b> That sounds good. See you then.（いいね。じゃあその時に。）
+
+<span class="tip">💡 <b>質問 → 答え → 提案 → 同意</b>
+「How about ～ing?」（～するのはどう？）＝ 誘いの表現
+「That sounds good.」（いいね）＝ 誘いを受ける表現</span>`}
+,{id:110,ctx:``,ch:["ア Shall we go there?", "イ Me, too. There is a good restaurant near here.", "ウ Yes, let's go!", "エ It's almost noon. I'm hungry."],a:["エ", "イ", "ア", "ウ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ア・ウ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> It's almost noon. I'm hungry.（もうすぐお昼。おなか空いた。）
+<b>イ</b> Me, too. There is a good restaurant near here.（私も。この近くにいいレストランがあるよ。）
+<b>ア</b> Shall we go there?（そこに行きましょうか？）
+<b>ウ</b> Yes, let's go!（うん、行こう！）
+
+<span class="tip">💡 <b>Shall we ～? → Let's ～! のセット</b>
+Shall we ～?（～しましょうか？）への答え方：
+・Yes, let's! / Sure! / Sounds good!（賛成）
+・No, let's not.（やめておこう）</span>`}
+,{id:111,ctx:``,ch:["ア Oh, I found it. Thank you.", "イ I'm looking for my pen, Dad.", "ウ I saw it under the desk.", "エ What are you doing, Mary?"],a:["エ", "イ", "ウ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> What are you doing, Mary?（何してるの、メアリー？）
+<b>イ</b> I'm looking for my pen, Dad.（ペンを探してるの、パパ。）
+<b>ウ</b> I saw it under the desk.（机の下にあったよ。）
+<b>ア</b> Oh, I found it. Thank you.（あ、見つけた。ありがとう。）
+
+<span class="tip">💡 <b>What are you doing? → 説明 → 解決 → お礼</b>
+「I'm looking for ～」＝「～を探している」（進行形）</span>`}
+,{id:112,ctx:``,ch:["ア It's math. Help me, please. Could you answer all the questions for me?", "イ Oh really? What subject is it?", "ウ Dad, I have a lot of homework today.", "エ No. You must do it by yourself."],a:["ウ", "イ", "ア", "エ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：ウ・イ・ア・エ</b>
+
+✏️ <b>完成した会話と日本語訳（父と娘）</b>
+<b>ウ</b> Dad, I have a lot of homework today.（パパ、今日宿題がたくさんあるの。）
+<b>イ</b> Oh really? What subject is it?（本当？何の教科？）
+<b>ア</b> It's math. Help me, please. Could you answer all the questions for me?
+（数学。手伝って。全部の問題を解いてくれない？）
+<b>エ</b> No. You must do it by yourself.（ダメ。自分でやりなさい。）
+
+<span class="tip">💡 <b>相談 → 質問 → お願い → 断り</b>
+「by yourself」＝「自分自身で」
+「Could you ～?」＝「～してくれますか？」（丁寧なお願い）</span>`}
+,{id:113,ctx:``,ch:["ア You should see a doctor.", "イ You don't look well, Amy. What's wrong?", "ウ I have a fever and a headache.", "エ OK. I will."],a:["イ", "ウ", "ア", "エ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：イ・ウ・ア・エ</b>
+
+✏️ <b>完成した会話と日本語訳（体調をたずねる）</b>
+<b>イ</b> You don't look well, Amy. What's wrong?（調子悪そうだね、エイミー。どうしたの？）
+<b>ウ</b> I have a fever and a headache.（熱があって頭が痛いんです。）
+<b>ア</b> You should see a doctor.（病院に行った方がいいよ。）
+<b>エ</b> OK. I will.（わかりました。そうします。）
+
+<span class="tip">💡 <b>体調の会話パターン</b>
+What's wrong? → 症状を答える → アドバイス → 受け入れ
+📝 <b>have a fever</b>（熱がある）/ <b>have a headache</b>（頭痛）/ <b>see a doctor</b>（医者に診てもらう）</span>`}
+,{id:114,ctx:``,ch:["ア No problem. Here you are.", "イ Can I borrow your Pokémon GO guide book?", "ウ Sure. What is it?", "エ Hi Ken, can I ask you a favor?"],a:["エ", "ウ", "イ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳（本を借りる）</b>
+<b>エ</b> Hi Ken, can I ask you a favor?（ケン、お願いがあるんだけど。）
+<b>ウ</b> Sure. What is it?（もちろん。何？）
+<b>イ</b> Can I borrow your Pokémon GO guide book?（ポケモンGOの攻略本を借りていい？）
+<b>ア</b> No problem. Here you are.（いいよ。はいどうぞ。）
+
+<span class="tip">💡 <b>お願いの会話パターン</b>
+「Can I ask you a favor?」（お願いしてもいい？）→ 定番のお願い表現
+「Here you are.」（はいどうぞ）→ 物を渡すときの表現</span>`}
+,{id:115,ctx:``,ch:["ア I said Leonard. We always call him Leo.", "イ That's Leonard.", "ウ Sorry?", "エ Who's that boy in your class?"],a:["エ", "イ", "ウ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> Who's that boy in your class?（あのクラスの男の子は誰？）
+<b>イ</b> That's Leonard.（レオナルドだよ。）
+<b>ウ</b> Sorry?（え、なんて？）
+<b>ア</b> I said Leonard. We always call him Leo.（レオナルドだよ。みんなレオって呼んでるんだ。）
+
+<span class="tip">💡 <b>聞き返しの表現</b>
+「Sorry?」/「Pardon?」＝「え？もう一度言って？」
+「I said ～」＝「～って言ったんだよ」（聞き返しへの答え方）</span>`}
+,{id:116,ctx:``,ch:["ア Please tell him to call me this afternoon.", "イ He's out now. Can I take a message?", "ウ May I speak to Mr. Jones?", "エ Good morning. This is ABC Language School."],a:["エ", "ウ", "イ", "ア"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳（電話）</b>
+<b>エ</b> Good morning. This is ABC Language School.（おはようございます。ABC語学学校です。）
+<b>ウ</b> May I speak to Mr. Jones?（ジョーンズ先生とお話しできますか？）
+<b>イ</b> He's out now. Can I take a message?（今外出中です。伝言を受けましょうか？）
+<b>ア</b> Please tell him to call me this afternoon.（今日の午後、電話をくださるよう伝えてください。）
+
+<span class="tip">💡 <b>電話の定番表現（超頻出！）</b>
+・This is ～ speaking.（こちらは～です）
+・May I speak to ～?（～さんはいますか？）
+・He/She is out now.（今、外出中です）
+・Can I take a message?（伝言を受けましょうか？）
+・Please tell him/her to ～.（～するよう伝えてください）</span>`}
+,{id:117,ctx:``,ch:["ア Well, I have been sick since this morning.", "イ OK. I will.", "ウ Really? You can go home right now.", "エ You look very tired."],a:["エ", "ア", "ウ", "イ"],s:4,g:`会話表現`,
+ ex:`<b>正解の順番：エ・ア・ウ・イ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+<b>エ</b> You look very tired.（とても疲れて見えるよ。）
+<b>ア</b> Well, I have been sick since this morning.（実は今朝からずっと体調が悪くて。）
+<b>ウ</b> Really? You can go home right now.（本当？今すぐ帰っていいよ。）
+<b>イ</b> OK. I will.（わかりました。そうします。）
+
+<span class="tip">💡 <b>心配 → 体調不良を話す → 許可 → 受け入れ</b>
+「have been sick since ～」＝ 現在完了で「～からずっと具合が悪い」
+「You can go home.」＝「帰っていいよ」（許可）</span>`}
+,{id:118,ctx:`You look very happy. ①`,ch:["ア This is a picture of it.","イ Three years ago.","ウ This is your guitar.","エ For three years.","オ What's up?"],a:["オ","ア","エ"],s:3,g:`会話表現`,
+ ex:`<b>正解の並び順：① オ　② ア　③ エ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+Kaori: You look very happy. <b>①オ What's up?</b>（すごくうれしそうだね。どうしたの？）
+James: It was my birthday yesterday.（昨日、誕生日だったんだ。）
+Kaori: Really? Happy birthday!（本当？お誕生日おめでとう！）
+James: Thank you. I got a new guitar from my father. Look! <b>②ア This is a picture of it.</b>（ありがとう。父から新しいギターをもらったんだ。ほら、これがその写真。）
+Kaori: It's cool. I know you play the guitar. How long have you played it?（かっこいい！ギター弾くの知ってるよ。どのくらい弾いてるの？）
+James: <b>③エ For three years.</b> It's a lot of fun.（3年間です。とても楽しいよ。）
+
+📌 <b>選択肢の分析</b>
+ア This is a picture of it. → 「ほら、これがその写真」（ギターの話の後）✅
+イ Three years ago. → 「3年前」（「いつから」への答えだと時制のズレがある）❌
+ウ This is your guitar. → 「これはあなたのギター」（あなたの？→ 不自然）❌
+エ For three years. → 「3年間」（How long → for ～ で答える！）✅
+オ What's up? → 「どうしたの？」（幸せそうな相手への自然な問いかけ）✅
+
+<span class="tip">💡 <b>How long have you ～?（どのくらい～していますか？）への答え方</b>
+「For ＋ 期間」→ For three years.（3年間）
+「Since ＋ 時点」→ Since I was ten.（10歳の時から）
+「Three years ago」は過去のある時点を表し、期間ではない！</span>`}
+,{id:119,ctx:`A: May I help you?`,ch:["ア What is his favorite color?","イ I have a problem.","ウ Yes, I want to get a T-shirt for Father's Day.","エ No, I can't find it.","オ OK. Here you are."],a:["ウ","ア","オ"],s:3,g:`会話表現`,
+ ex:`<b>正解の並び順：① ウ　② ア　③ オ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+A: May I help you?（いらっしゃいませ。）
+B: <b>①ウ Yes, I want to get a T-shirt for Father's Day.</b>（はい、父の日のためにTシャツを買いたいんです。）
+A: That's wonderful! <b>②ア What is his favorite color?</b>（素晴らしいですね！お父様の好きな色は何ですか？）
+B: He likes blue, so can I see that blue one?（青が好きなので、あの青いものを見せてもらえますか？）
+A: <b>③オ OK. Here you are.</b> What do you think?（はい、どうぞ。いかがですか？）
+B: I like it! Thank you.（気に入りました！ありがとうございます。）
+
+📌 <b>選択肢の分析</b>
+ア What is his favorite color? → お父様の好きな色を聞く（Tシャツ購入後の自然な質問）✅
+イ I have a problem. → 「困ってます」（May I help you?への変な答え）❌
+ウ Yes, I want to get a T-shirt for Father's Day. → 購入目的を伝える（最初の答えとして自然）✅
+エ No, I can't find it. → 「見つけられない」（文脈に合わない）❌
+オ OK. Here you are. → 「はい、どうぞ」（商品を渡す時の表現）✅
+
+<span class="tip">💡 <b>ショッピングの定番フレーズ</b>
+May I help you? ＝「いらっしゃいませ」（直訳：お手伝いしましょうか？）
+Here you are. ＝「はい、どうぞ」（物を渡す時）
+What do you think? ＝「いかがですか？」（感想を聞く時）</span>`}
+,{id:120,ctx:``,ch:["ア Why do you want to work at the hospital?","イ I want to help sick people, especially children.","ウ What will you do to make your dream come true?","エ Working with students is a lot of fun.","オ What do you want to be in the future?"],a:["オ","イ","ウ"],s:3,g:`会話表現`,
+ ex:`<b>正解の並び順：① オ　② イ　③ ウ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+Mr.Brown: <b>①オ What do you want to be in the future?</b>（将来、何になりたいですか？）
+Saki: I want to be a doctor.（医者になりたいです。）
+Mr.Brown: That's a great goal! Can you tell me the reason?（それは素晴らしい目標ですね！理由を教えてもらえますか？）
+Saki: <b>②イ I want to help sick people, especially children.</b> When I was a child, I was saved by a kind doctor.（病気の人、特に子どもたちを助けたいんです。子どもの頃、優しい先生に助けてもらったので。）
+Mr.Brown: I think that's a wonderful reason. <b>③ウ What will you do to make your dream come true?</b>（それは素晴らしい理由だと思います。夢を叶えるためにどうしますか？）
+Saki: I will study hard to go to college.（大学に行くために一生懸命勉強します。）
+
+📌 <b>選択肢の分析</b>
+ア Why do you want to work at the hospital? → 病院で働く理由（でも話の流れとズレる）❌
+イ I want to help sick people, especially children. → 理由を答えている（Can you tell me the reason?の後）✅
+ウ What will you do to make your dream come true? → 夢の実現方法を聞く（最後の質問として自然）✅
+エ Working with students is a lot of fun. → 先生の発言として不自然（話の流れに合わない）❌
+オ What do you want to be in the future? → 将来の夢を聞く（最初の質問として自然）✅
+
+<span class="tip">💡 <b>make your dream come true ＝ 夢を叶える</b>
+make ＋ 目的語 ＋ 動詞の原形（使役動詞）
+「make your dream come true」→「あなたの夢を実現させる」
+save ＝ 「救う」（医療文脈では「命を救う」）</span>`}];
+
+// Vocab, Grammar Ref, etc
+const vocabData={"goを使った熟語": [{"w": "go to bed", "m": "寝る"}, {"w": "go out", "m": "外出する"}, {"w": "go away", "m": "立ち去る"}, {"w": "go back", "m": "戻る，帰る"}, {"w": "go shopping", "m": "買い物に行く"}, {"w": "go fishing", "m": "釣りに行く"}, {"w": "go ~ing", "m": "～しに行く"}], "lookを使った熟語": [{"w": "look at ～", "m": "～を見る"}, {"w": "look for ～", "m": "～を探す"}, {"w": "look like ～", "m": "～に似ている"}, {"w": "look forward to ～", "m": "～を楽しみに待つ"}, {"w": "look after ～", "m": "～の世話をする"}], "takeを使った熟語": [{"w": "take off", "m": "（服を）脱ぐ"}, {"w": "take care", "m": "注意する"}, {"w": "take a bath", "m": "風呂に入る"}, {"w": "take a walk", "m": "散歩する"}, {"w": "take a picture/photo", "m": "写真を撮る"}, {"w": "take care of ～", "m": "～の世話をする"}], "getを使った熟語": [{"w": "get up", "m": "起きる"}, {"w": "get to school", "m": "学校に着く"}, {"w": "get back", "m": "戻る，帰る"}, {"w": "get home", "m": "帰宅する"}, {"w": "get on the bus", "m": "バスに乗る"}, {"w": "get off the train", "m": "電車を降りる"}], "comeを使った熟語": [{"w": "come in", "m": "入る"}, {"w": "come home", "m": "帰宅する"}, {"w": "come back", "m": "帰ってくる，戻ってくる"}, {"w": "come true", "m": "実現する"}, {"w": "come from ～", "m": "～の出身である"}, {"w": "Come on!", "m": "がんばって！/さあ，早く！"}], "動詞+up/down/on/off": [{"w": "give up", "m": "あきらめる"}, {"w": "grow up", "m": "成長する"}, {"w": "put on", "m": "身につける"}, {"w": "put off", "m": "延期する"}, {"w": "sit down", "m": "すわる"}, {"w": "stand up", "m": "立ち上がる"}, {"w": "cut down", "m": "切り倒す"}, {"w": "pick up", "m": "車で迎えに行く/拾う"}, {"w": "turn on the TV", "m": "テレビをつける"}, {"w": "turn off the TV", "m": "テレビを消す"}], "動詞+前置詞の熟語": [{"w": "listen to ～", "m": "～を聞く"}, {"w": "wait for ～", "m": "～を待つ"}, {"w": "talk about ～", "m": "～について話す"}, {"w": "talk with ～", "m": "～と話す"}, {"w": "agree with ～", "m": "～に賛成する"}, {"w": "arrive in/at ～", "m": "～に着く"}, {"w": "stay at ～", "m": "～に滞在する"}], "そのほかの動詞の熟語": [{"w": "have a good time", "m": "楽しい時を過ごす"}, {"w": "do your best", "m": "全力をつくす"}, {"w": "help me with ～", "m": "（私の）～を手伝う"}, {"w": "help each other", "m": "お互いを助ける"}, {"w": "one after another", "m": "次々に"}], "be動詞の熟語（超頻出！）": [{"w": "be kind to ～", "m": "～に親切だ"}, {"w": "be famous for ～", "m": "～で有名だ"}, {"w": "be interested in ～", "m": "～に興味がある"}, {"w": "be good at ～", "m": "～が得意だ"}, {"w": "be different from ～", "m": "～と違う"}, {"w": "be late for ～", "m": "～に遅れる"}, {"w": "be full of ～", "m": "～でいっぱいだ"}, {"w": "be afraid of ～", "m": "～を恐れる"}, {"w": "be proud of ～", "m": "～を自慢に思う"}, {"w": "be able to ～", "m": "～できる"}, {"w": "be born", "m": "生まれる"}, {"w": "be covered with ～", "m": "～でおおわれている"}, {"w": "be glad/happy to ～", "m": "～してうれしい"}, {"w": "be surprised at ～", "m": "～に驚く"}, {"w": "be known to ～", "m": "～に知られている"}, {"w": "be made of ～", "m": "～でできている（材料）"}], "副詞の働きをする熟語": [{"w": "for example", "m": "例えば"}, {"w": "of course", "m": "もちろん"}, {"w": "at last", "m": "ついに"}, {"w": "at first", "m": "最初は"}, {"w": "after school", "m": "放課後"}, {"w": "at home", "m": "家で"}, {"w": "over there", "m": "向こうで"}, {"w": "one day", "m": "ある日"}, {"w": "a lot", "m": "たくさん，とても"}, {"w": "for a long time", "m": "長い間"}, {"w": "for the first time", "m": "初めて"}, {"w": "all over the world", "m": "世界中で"}, {"w": "not ～at all", "m": "少しも～ない"}, {"w": "on my way to school", "m": "学校へ行く途中で"}, {"w": "as soon as ～", "m": "～するとすぐに"}], "形容詞の働きをする熟語": [{"w": "a lot of ～", "m": "たくさんの～"}, {"w": "lots of ～", "m": "たくさんの～"}, {"w": "a few ～", "m": "2，3の～/少しの～"}, {"w": "thousands of ～", "m": "何千もの～"}, {"w": "a kind of ～", "m": "一種の～"}, {"w": "a cup of tea", "m": "カップ1杯のお茶"}, {"w": "a glass of water", "m": "コップ1杯の水"}], "そのほかの熟語": [{"w": "thanks to ～", "m": "～のおかげで"}, {"w": "because of ～", "m": "～のために（理由）"}, {"w": "in front of ～", "m": "～の前で"}, {"w": "between A and B", "m": "AとBの間に"}, {"w": "both A and B", "m": "AもBも両方とも"}, {"w": "far from ～", "m": "～から遠くに"}], "会話表現：あいさつ・お礼": [{"w": "How are you? — I'm fine, thank you.", "m": "お元気ですか？—元気です"}, {"w": "Nice to meet you.", "m": "はじめまして"}, {"w": "Good morning/afternoon/evening.", "m": "おはよう/こんにちは/こんばんは"}, {"w": "See you. / Goodbye.", "m": "またね/さようなら"}, {"w": "Thank you very much. — You're welcome.", "m": "ありがとう—どういたしまして"}, {"w": "I'm sorry. — That's all right.", "m": "ごめんなさい—いいですよ"}, {"w": "No problem. / Not at all. / That's OK.", "m": "問題ないよ/どういたしまして"}], "会話表現：電話": [{"w": "This is Aya. (電話で)", "m": "こちらは彩です"}, {"w": "May I speak to ～?", "m": "～さんとお話できますか"}, {"w": "Speaking.", "m": "私です（電話で本人が出た時）"}, {"w": "Sorry, he's out.", "m": "すみません、外出中です"}, {"w": "Shall I take a message?", "m": "伝言をうかがいましょうか"}, {"w": "I'll call back later.", "m": "あとでかけ直します"}, {"w": "Hold on, please. / Just a minute.", "m": "少々お待ちください"}, {"w": "Who's calling, please?", "m": "どちら様ですか"}, {"w": "Can I leave a message?", "m": "伝言をお願いできますか"}, {"w": "You have the wrong number.", "m": "番号が違います"}], "会話表現：道案内": [{"w": "Excuse me. Could you tell me the way to ～?", "m": "すみません。～への道を教えて"}, {"w": "Go straight.", "m": "まっすぐ行く"}, {"w": "Turn right/left.", "m": "右/左に曲がる"}, {"w": "You'll see it on your left/right.", "m": "左/右手に見えます"}, {"w": "Where is the library?", "m": "図書館はどこですか"}, {"w": "Is there a station near here?", "m": "この近くに駅はありますか"}, {"w": "How can I get to the hospital?", "m": "病院へはどう行けますか"}, {"w": "I'm sorry, I don't know. / I'm a stranger here.", "m": "すみません、わかりません"}], "会話表現：買い物": [{"w": "May I help you?", "m": "いらっしゃいませ"}, {"w": "I'm looking for ～.", "m": "～を探しています"}, {"w": "How much is it?", "m": "いくらですか"}, {"w": "Can I try it on?", "m": "試着してもいいですか"}, {"w": "I'll take it.", "m": "これにします"}, {"w": "Here you are.", "m": "はい、どうぞ"}], "会話表現：誘う・提案する": [{"w": "Why don't you join us?", "m": "参加しませんか"}, {"w": "Sounds good.", "m": "いいですね"}, {"w": "How about ～ing?", "m": "～するのはどうですか"}, {"w": "I'd love to.", "m": "ぜひそうしたいです"}, {"w": "Would you like to ～?", "m": "～しませんか（丁寧）"}, {"w": "Sorry, but I'm busy today.", "m": "すみませんが今日は忙しいです"}, {"w": "Shall we go shopping?", "m": "買い物に行きましょうか"}, {"w": "Let's play soccer.", "m": "サッカーをしましょう"}, {"w": "Yes, let's. / That's a good idea. / Why not?", "m": "承諾の表現3パターン"}, {"w": "Would you like something to drink?", "m": "飲み物はいかがですか"}], "不規則動詞（ABC型：全部違う）": [{"w": "break→broke→broken", "m": "こわす"}, {"w": "do→did→done", "m": "する"}, {"w": "eat→ate→eaten", "m": "食べる"}, {"w": "know→knew→known", "m": "知っている"}, {"w": "see→saw→seen", "m": "見える"}, {"w": "sing→sang→sung", "m": "歌う"}, {"w": "speak→spoke→spoken", "m": "話す"}, {"w": "take→took→taken", "m": "取る，撮る"}, {"w": "write→wrote→written", "m": "書く"}, {"w": "give→gave→given", "m": "与える"}, {"w": "go→went→gone", "m": "行く"}, {"w": "drink→drank→drunk", "m": "飲む"}, {"w": "begin→began→begun", "m": "始める"}, {"w": "draw→drew→drawn", "m": "描く"}, {"w": "drive→drove→driven", "m": "運転する"}, {"w": "fall→fell→fallen", "m": "落ちる"}, {"w": "fly→flew→flown", "m": "飛ぶ"}, {"w": "forget→forgot→forgotten", "m": "忘れる"}, {"w": "grow→grew→grown", "m": "成長する"}, {"w": "ride→rode→ridden", "m": "乗る"}, {"w": "rise→rose→risen", "m": "のぼる"}, {"w": "show→showed→shown", "m": "見せる"}, {"w": "swim→swam→swum", "m": "泳ぐ"}, {"w": "throw→threw→thrown", "m": "投げる"}, {"w": "wear→wore→worn", "m": "着ている"}, {"w": "choose→chose→chosen", "m": "選ぶ"}], "不規則動詞（ABB型：過去形=過去分詞）": [{"w": "make→made→made", "m": "作る"}, {"w": "build→built→built", "m": "建てる"}, {"w": "hear→heard→heard", "m": "聞く"}, {"w": "find→found→found", "m": "見つける"}, {"w": "buy→bought→bought", "m": "買う"}, {"w": "catch→caught→caught", "m": "捕まえる"}, {"w": "teach→taught→taught", "m": "教える"}, {"w": "think→thought→thought", "m": "考える"}, {"w": "bring→brought→brought", "m": "持ってくる"}, {"w": "feel→felt→felt", "m": "感じる"}, {"w": "keep→kept→kept", "m": "保つ"}, {"w": "leave→left→left", "m": "去る，出発する"}, {"w": "lose→lost→lost", "m": "失う，負ける"}, {"w": "meet→met→met", "m": "会う"}, {"w": "sell→sold→sold", "m": "売る"}, {"w": "send→sent→sent", "m": "送る"}, {"w": "sit→sat→sat", "m": "すわる"}, {"w": "sleep→slept→slept", "m": "眠る"}, {"w": "spend→spent→spent", "m": "過ごす，使う"}, {"w": "stand→stood→stood", "m": "立つ"}, {"w": "tell→told→told", "m": "伝える，言う"}, {"w": "understand→understood→understood", "m": "理解する"}, {"w": "win→won→won", "m": "勝つ"}, {"w": "hold→held→held", "m": "握る，開く"}, {"w": "say→said→said", "m": "言う"}, {"w": "pay→paid→paid", "m": "払う"}, {"w": "have→had→had", "m": "持つ"}, {"w": "get→got→got(ten)", "m": "得る"}], "不規則動詞（ABA型/AAA型）": [{"w": "come→came→come", "m": "来る"}, {"w": "run→ran→run", "m": "走る"}, {"w": "become→became→become", "m": "～になる"}, {"w": "cut→cut→cut", "m": "切る"}, {"w": "put→put→put", "m": "置く"}, {"w": "read→read→read", "m": "読む ※過去形の発音は「レッド」"}, {"w": "set→set→set", "m": "置く，セットする"}, {"w": "hit→hit→hit", "m": "打つ"}, {"w": "hurt→hurt→hurt", "m": "傷つける"}, {"w": "shut→shut→shut", "m": "閉める"}, {"w": "spread→spread→spread", "m": "広げる"}], "比較変化（規則）": [{"w": "tall→taller→tallest", "m": "高い（ふつう：+er/est）"}, {"w": "large→larger→largest", "m": "大きい（語尾e：+r/st）"}, {"w": "easy→easier→easiest", "m": "簡単な（子音+y：yをiに変えてer/est）"}, {"w": "hot→hotter→hottest", "m": "暑い（短母音+子音：子音を重ねてer/est）"}, {"w": "big→bigger→biggest", "m": "大きい（同上）"}, {"w": "new→newer→newest", "m": "新しい"}, {"w": "nice→nicer→nicest", "m": "すてきな"}, {"w": "busy→busier→busiest", "m": "忙しい"}, {"w": "early→earlier→earliest", "m": "早い"}, {"w": "long→longer→longest", "m": "長い"}, {"w": "old→older→oldest", "m": "古い，年をとった"}, {"w": "young→younger→youngest", "m": "若い"}, {"w": "fast→faster→fastest", "m": "速い"}, {"w": "high→higher→highest", "m": "高い"}, {"w": "cold→colder→coldest", "m": "寒い"}, {"w": "warm→warmer→warmest", "m": "暖かい"}, {"w": "short→shorter→shortest", "m": "短い"}, {"w": "slow→slower→slowest", "m": "遅い"}, {"w": "hard→harder→hardest", "m": "難しい"}], "比較変化（more/most型）": [{"w": "famous→more famous→most famous", "m": "有名な"}, {"w": "interesting→more ～→most ～", "m": "おもしろい"}, {"w": "important→more ～→most ～", "m": "重要な"}, {"w": "difficult→more ～→most ～", "m": "難しい"}, {"w": "useful→more ～→most ～", "m": "役に立つ"}, {"w": "popular→more ～→most ～", "m": "人気のある"}, {"w": "careful→more ～→most ～", "m": "注意深い"}, {"w": "exciting→more ～→most ～", "m": "わくわくする"}, {"w": "beautiful→more ～→most ～", "m": "美しい"}, {"w": "slowly→more ～→most ～", "m": "ゆっくり（副詞）"}], "比較変化（不規則）": [{"w": "good/well→better→best", "m": "よい/じょうずに"}, {"w": "bad/ill→worse→worst", "m": "悪い"}, {"w": "many/much→more→most", "m": "多い/多くの"}, {"w": "little→less→least", "m": "少ない"}], "月の名前（January～December）": [{"w": "January", "m": "1月"}, {"w": "February", "m": "2月"}, {"w": "March", "m": "3月"}, {"w": "April", "m": "4月"}, {"w": "May", "m": "5月"}, {"w": "June", "m": "6月"}, {"w": "July", "m": "7月"}, {"w": "August", "m": "8月"}, {"w": "September", "m": "9月"}, {"w": "October", "m": "10月"}, {"w": "November", "m": "11月"}, {"w": "December", "m": "12月"}], "序数（first～twelfth）": [{"w": "first", "m": "1番目の"}, {"w": "second", "m": "2番目の"}, {"w": "third", "m": "3番目の"}, {"w": "fourth", "m": "4番目の"}, {"w": "fifth", "m": "5番目の"}, {"w": "sixth", "m": "6番目の"}, {"w": "seventh", "m": "7番目の"}, {"w": "eighth", "m": "8番目の"}, {"w": "ninth", "m": "9番目の"}, {"w": "tenth", "m": "10番目の"}, {"w": "eleventh", "m": "11番目の"}, {"w": "twelfth", "m": "12番目の"}], "曜日（Sunday～Saturday）": [{"w": "Sunday", "m": "日曜日"}, {"w": "Monday", "m": "月曜日"}, {"w": "Tuesday", "m": "火曜日"}, {"w": "Wednesday", "m": "水曜日"}, {"w": "Thursday", "m": "木曜日"}, {"w": "Friday", "m": "金曜日"}, {"w": "Saturday", "m": "土曜日"}], "時間・季節・自然": [{"w": "morning", "m": "午前"}, {"w": "afternoon", "m": "午後"}, {"w": "evening", "m": "夕方"}, {"w": "night", "m": "夜"}, {"w": "day", "m": "1日"}, {"w": "week", "m": "1週間"}, {"w": "month", "m": "1か月"}, {"w": "year", "m": "1年"}, {"w": "season", "m": "季節"}, {"w": "spring", "m": "春"}, {"w": "summer", "m": "夏"}, {"w": "fall", "m": "秋"}, {"w": "winter", "m": "冬"}, {"w": "country", "m": "国"}, {"w": "earth", "m": "地球"}, {"w": "sea", "m": "海"}], "家族": [{"w": "family", "m": "家族"}, {"w": "father", "m": "父"}, {"w": "mother", "m": "母"}, {"w": "brother", "m": "兄・弟"}, {"w": "sister", "m": "姉・妹"}, {"w": "grandfather", "m": "祖父"}, {"w": "grandmother", "m": "祖母"}, {"w": "uncle", "m": "おじ"}, {"w": "aunt", "m": "おば"}, {"w": "parents", "m": "両親"}, {"w": "child", "m": "子ども"}], "スポーツ・教科": [{"w": "sport", "m": "スポーツ"}, {"w": "baseball", "m": "野球"}, {"w": "soccer", "m": "サッカー"}, {"w": "basketball", "m": "バスケットボール"}, {"w": "tennis", "m": "テニス"}, {"w": "player", "m": "選手"}, {"w": "team", "m": "チーム"}, {"w": "member", "m": "メンバー"}, {"w": "game", "m": "試合"}, {"w": "subject", "m": "教科"}, {"w": "Japanese", "m": "国語"}, {"w": "Science", "m": "理科"}, {"w": "English", "m": "英語"}, {"w": "Social Studies", "m": "社会"}, {"w": "Math", "m": "数学"}, {"w": "Music", "m": "音楽"}, {"w": "P.E.", "m": "体育"}], "人を表す名詞": [{"w": "teacher", "m": "教師"}, {"w": "friend", "m": "友達"}, {"w": "singer", "m": "歌手"}, {"w": "boy", "m": "少年"}, {"w": "girl", "m": "少女"}, {"w": "cook", "m": "料理人"}, {"w": "doctor", "m": "医師"}, {"w": "student", "m": "生徒"}, {"w": "man", "m": "男性"}, {"w": "woman", "m": "女性"}], "場所・建物": [{"w": "school", "m": "学校"}, {"w": "station", "m": "駅"}, {"w": "library", "m": "図書館"}, {"w": "hospital", "m": "病院"}, {"w": "museum", "m": "博物館"}, {"w": "park", "m": "公園"}, {"w": "restaurant", "m": "レストラン"}, {"w": "post office", "m": "郵便局"}], "身近な名詞": [{"w": "coffee", "m": "コーヒー"}, {"w": "tea", "m": "お茶"}, {"w": "water", "m": "水"}, {"w": "homework", "m": "宿題"}, {"w": "money", "m": "お金"}, {"w": "news", "m": "ニュース"}], "重要な基本動詞": [{"w": "like sports", "m": "スポーツが好き"}, {"w": "play soccer", "m": "サッカーをする"}, {"w": "go to the park", "m": "公園へ行く"}, {"w": "come to Japan", "m": "日本へ来る"}, {"w": "live in Tokyo", "m": "東京に住む"}, {"w": "want a bike", "m": "自転車が欲しい"}, {"w": "wash the dishes", "m": "皿を洗う"}, {"w": "study English", "m": "英語を勉強する"}, {"w": "make a cake", "m": "ケーキを作る"}, {"w": "read a book", "m": "本を読む"}, {"w": "write a letter", "m": "手紙を書く"}, {"w": "find a job", "m": "仕事を見つける"}, {"w": "know Ken", "m": "ケンを知っている"}, {"w": "visit China", "m": "中国を訪れる"}], "haveのいろいろな意味": [{"w": "have a CD", "m": "CDを持っている"}, {"w": "have a sister", "m": "姉がいる"}, {"w": "have lunch", "m": "昼食を食べる"}, {"w": "have a question", "m": "質問がある"}, {"w": "have a bird", "m": "鳥を飼っている"}, {"w": "have a party", "m": "パーティーを開く"}, {"w": "have lots of snow", "m": "雪がたくさん降る"}], "take / getのいろいろな意味": [{"w": "take an egg", "m": "卵を手に取る"}, {"w": "take a bus", "m": "バスに乗っていく"}, {"w": "take ten minutes", "m": "10分かかる"}, {"w": "take him to the zoo", "m": "彼を動物園へ連れていく"}, {"w": "get information", "m": "情報を得る"}, {"w": "get cold", "m": "寒くなる"}, {"w": "get a hat", "m": "帽子を買う"}, {"w": "get to the station", "m": "駅に着く"}, {"w": "get an e-mail", "m": "メールを受け取る"}], "使い分けに注意する動詞": [{"w": "speak French", "m": "フランス語を話す（言語）"}, {"w": "tell the truth", "m": "真実を話す（伝える）"}, {"w": "talk with Miki", "m": "ミキと話す（おしゃべり）"}, {"w": "see stars", "m": "星が見える（自然に）"}, {"w": "watch TV", "m": "テレビを見る（じっと）"}, {"w": "look at the tree", "m": "木を見る（意識的に）"}, {"w": "hear a noise", "m": "物音を聞く（自然に）"}, {"w": "listen to music", "m": "音楽を聞く（意識的に）"}, {"w": "ask Ken's address", "m": "ケンの住所を聞く（尋ねる）"}, {"w": "teach English", "m": "英語を教える（知識を）"}, {"w": "tell her the way", "m": "彼女に道を教える（情報を）"}], "セットで覚える動詞": [{"w": "ask / answer", "m": "尋ねる / 答える"}, {"w": "learn / teach", "m": "習う / 教える"}, {"w": "open / close", "m": "開ける / 閉める"}, {"w": "buy / sell", "m": "買う / 売る"}, {"w": "take / bring", "m": "持っていく / 持ってくる"}, {"w": "begin, start / finish, end", "m": "始める / 終える"}, {"w": "remember / forget", "m": "覚えている / 忘れる"}, {"w": "win / lose", "m": "勝つ / 負ける"}], "その他の重要動詞": [{"w": "enjoy the party", "m": "パーティーを楽しむ"}, {"w": "eat pizza", "m": "ピザを食べる"}, {"w": "drink tea", "m": "紅茶を飲む"}, {"w": "cook dinner", "m": "夕食を作る"}, {"w": "practice the piano", "m": "ピアノを練習する"}, {"w": "clean the room", "m": "部屋を掃除する"}, {"w": "call Lisa", "m": "リサに電話する"}, {"w": "sing a song", "m": "歌を歌う"}, {"w": "work hard", "m": "熱心に働く"}, {"w": "leave home", "m": "家を出る"}, {"w": "stay in Paris", "m": "パリに滞在する"}, {"w": "drive a car", "m": "車を運転する"}, {"w": "feel happy", "m": "幸せに感じる"}, {"w": "help my friend", "m": "友達を手伝う"}, {"w": "need help", "m": "助けを必要とする"}, {"w": "love animals", "m": "動物を愛する"}], "数・量を表す形容詞": [{"w": "many cars", "m": "たくさんの車（数えられる）"}, {"w": "much milk", "m": "多量の牛乳（数えられない）"}, {"w": "some cars / some milk", "m": "いくつかの車 / いくらかの牛乳"}, {"w": "a few cars", "m": "2、3台の車（少しある）"}, {"w": "a little milk", "m": "少量の牛乳（少しある）"}, {"w": "few cars", "m": "ほとんどない車"}, {"w": "little milk", "m": "ほとんどない牛乳"}], "いろいろな形容詞": [{"w": "old / new", "m": "古い / 新しい"}, {"w": "good / bad", "m": "良い / 悪い"}, {"w": "big, large / little, small", "m": "大きい / 小さい"}, {"w": "long / short", "m": "長い / 短い"}, {"w": "same / different", "m": "同じ / 異なる"}, {"w": "old / young", "m": "年をとった / 若い"}, {"w": "right / wrong", "m": "正しい / 間違った"}, {"w": "busy / free", "m": "忙しい / 暇な"}, {"w": "easy / difficult, hard", "m": "簡単な / 難しい"}, {"w": "hot / cold", "m": "暑い（熱い） / 寒い・冷たい"}, {"w": "famous", "m": "有名な"}, {"w": "popular", "m": "人気のある"}, {"w": "favorite", "m": "お気に入りの"}, {"w": "interesting", "m": "興味深い"}, {"w": "beautiful", "m": "美しい"}, {"w": "sorry", "m": "すまなく思って"}, {"w": "important", "m": "大切な"}, {"w": "exciting", "m": "わくわくさせる"}, {"w": "tired", "m": "疲れた"}, {"w": "kind", "m": "親切な"}, {"w": "useful", "m": "役に立つ"}], "頻度を表す副詞": [{"w": "always", "m": "いつも"}, {"w": "usually", "m": "たいてい"}, {"w": "often", "m": "しばしば"}, {"w": "sometimes", "m": "ときどき"}, {"w": "never", "m": "決して〜ない"}], "様子を表す副詞": [{"w": "sing well", "m": "上手に歌う"}, {"w": "run fast", "m": "速く走る"}, {"w": "get up early", "m": "早く起きる"}, {"w": "go to bed late", "m": "遅く寝る"}, {"w": "speak slowly", "m": "ゆっくり話す"}, {"w": "study hard", "m": "熱心に勉強する"}], "その他の重要な副詞": [{"w": "too", "m": "肯定文の末尾で「～も」/ 形容詞の前で「～すぎる」"}, {"w": "also", "m": "～もまた（文中で使う）"}, {"w": "either", "m": "～もまたない（否定文で使う）"}, {"w": "again", "m": "再び"}, {"w": "next week", "m": "来週"}, {"w": "last Sunday", "m": "この前の日曜日"}, {"w": "ten days ago", "m": "10日前"}], "規則動詞の過去形・過去分詞": [{"w": "help→helped", "m": "助ける"}, {"w": "watch→watched", "m": "見る"}, {"w": "like→liked", "m": "好む"}, {"w": "love→loved", "m": "愛する"}, {"w": "use→used", "m": "使う"}, {"w": "live→lived", "m": "住む"}, {"w": "study→studied", "m": "勉強する（y→ied）"}, {"w": "try→tried", "m": "試す（y→ied）"}, {"w": "carry→carried", "m": "運ぶ（y→ied）"}, {"w": "cry→cried", "m": "泣く（y→ied）"}, {"w": "stop→stopped", "m": "止まる（子音を重ねる）"}, {"w": "plan→planned", "m": "計画する（子音を重ねる）"}, {"w": "drop→dropped", "m": "落とす（子音を重ねる）"}], "be動詞の変化": [{"w": "I am / I was / I have been", "m": "私は～である"}, {"w": "You are / You were / You have been", "m": "あなたは～である"}, {"w": "He is / He was / He has been", "m": "彼は～である（3人称単数）"}], "3人称単数現在形のつくり方": [{"w": "do→does", "m": "する"}, {"w": "go→goes", "m": "行く（-es）"}, {"w": "give→gives", "m": "与える"}, {"w": "come→comes", "m": "来る"}, {"w": "start→starts", "m": "始める"}, {"w": "work→works", "m": "働く"}, {"w": "watch→watches", "m": "見る（-es）"}, {"w": "finish→finishes", "m": "終える（-es）"}, {"w": "study→studies", "m": "勉強する（y→ies）"}, {"w": "try→tries", "m": "試す（y→ies）"}, {"w": "carry→carries", "m": "運ぶ（y→ies）"}, {"w": "cry→cries", "m": "泣く（y→ies）"}, {"w": "have→has", "m": "持っている（不規則）"}], "動詞のing形のつくり方": [{"w": "do→doing", "m": "する"}, {"w": "listen→listening", "m": "聞く"}, {"w": "cook→cooking", "m": "料理する"}, {"w": "read→reading", "m": "読む"}, {"w": "study→studying", "m": "勉強する（yはそのまま+ing）"}, {"w": "wash→washing", "m": "洗う"}, {"w": "make→making", "m": "作る（eを取ってing）"}, {"w": "take→taking", "m": "取る（eを取ってing）"}, {"w": "use→using", "m": "使う（eを取ってing）"}, {"w": "write→writing", "m": "書く（eを取ってing）"}, {"w": "run→running", "m": "走る（子音を重ねてing）"}, {"w": "swim→swimming", "m": "泳ぐ（子音を重ねてing）"}, {"w": "sit→sitting", "m": "座る（子音を重ねてing）"}, {"w": "cut→cutting", "m": "切る（子音を重ねてing）"}], "名詞の複数形": [{"w": "girl→girls", "m": "女の子（ふつう：+s）"}, {"w": "week→weeks", "m": "週（ふつう：+s）"}, {"w": "class→classes", "m": "クラス（-es）"}, {"w": "box→boxes", "m": "箱（-es）"}, {"w": "watch→watches", "m": "腕時計（-es）"}, {"w": "dish→dishes", "m": "皿（-es）"}, {"w": "piano→pianos", "m": "ピアノ（+s）"}, {"w": "potato→potatoes", "m": "じゃがいも（-es）"}, {"w": "country→countries", "m": "国（y→ies）"}, {"w": "city→cities", "m": "都市（y→ies）"}, {"w": "leaf→leaves", "m": "葉っぱ（f→ves）"}, {"w": "knife→knives", "m": "ナイフ（fe→ves）"}, {"w": "child→children", "m": "子ども（不規則）"}, {"w": "foot→feet", "m": "足（不規則）"}, {"w": "man→men", "m": "男性（不規則）"}, {"w": "woman→women", "m": "女性（不規則）"}], "代名詞（主格・所有格・目的格・所有代名詞）": [{"w": "I / my / me / mine", "m": "私は / 私の / 私を / 私のもの"}, {"w": "you / your / you / yours", "m": "あなたは / あなたの / あなたを / あなたのもの"}, {"w": "he / his / him / his", "m": "彼は / 彼の / 彼を / 彼のもの"}, {"w": "she / her / her / hers", "m": "彼女は / 彼女の / 彼女を / 彼女のもの"}, {"w": "it / its / it / –", "m": "それは / その / それを"}, {"w": "we / our / us / ours", "m": "私たちは / 私たちの / 私たちを / 私たちのもの"}, {"w": "they / their / them / theirs", "m": "彼らは / 彼らの / 彼らを / 彼らのもの"}], "数や量を表す熟語": [{"w": "one of my friends", "m": "私の友人の一人"}, {"w": "some of my friends", "m": "私の友人の何人か"}, {"w": "most of my friends", "m": "私の友人のほとんど"}, {"w": "all of my friends", "m": "私の友人のすべて"}, {"w": "a lot of books", "m": "たくさんの本"}, {"w": "lots of money", "m": "たくさんのお金"}, {"w": "hundreds of children", "m": "何百人もの子どもたち"}, {"w": "thousands of people", "m": "何千人もの人々"}, {"w": "a few students", "m": "2、3人の生徒"}, {"w": "a little sugar", "m": "少量の砂糖"}, {"w": "a cup of tea", "m": "カップ一杯の紅茶"}, {"w": "a glass of water", "m": "コップ一杯の水"}, {"w": "a piece of paper", "m": "一枚の紙"}, {"w": "a pair of socks", "m": "一足の靴下"}], "時・場所を表す熟語": [{"w": "from nine to five", "m": "9時から5時まで"}, {"w": "between twelve and one", "m": "12時と1時の間に"}, {"w": "after school", "m": "放課後"}, {"w": "in the future", "m": "将来は"}, {"w": "one day", "m": "ある日"}, {"w": "some day", "m": "いつか"}, {"w": "every day", "m": "毎日"}, {"w": "all day", "m": "一日中"}, {"w": "over there", "m": "向こうで"}, {"w": "in front of the tree", "m": "木の前に"}, {"w": "at home", "m": "家で"}, {"w": "at that time", "m": "そのとき"}, {"w": "far from here", "m": "ここから遠く"}, {"w": "at first", "m": "最初は"}, {"w": "at last", "m": "ついに"}, {"w": "at once", "m": "すぐに"}, {"w": "for the first time", "m": "初めて"}, {"w": "after a while", "m": "しばらくして"}, {"w": "for a long time", "m": "長い間"}, {"w": "all over the world", "m": "世界中で"}], "その他の重要熟語（追加）": [{"w": "for example", "m": "例えば"}, {"w": "of course", "m": "もちろん"}, {"w": "each other", "m": "お互い"}, {"w": "thanks to the rain", "m": "雨のおかげで"}, {"w": "because of the rain", "m": "雨のために"}, {"w": "as soon as it rains", "m": "雨が降るとすぐに"}, {"w": "one after another", "m": "次々に"}, {"w": "a kind of flower", "m": "一種の花"}, {"w": "both my sister and I", "m": "姉も私も両方とも"}, {"w": "either my brother or I", "m": "兄か私かどちらか"}, {"w": "on my way to the store", "m": "お店に行く途中で"}, {"w": "eat a lot", "m": "たくさん食べる"}, {"w": "not ～ at all", "m": "少しも～ない"}, {"w": "can't wait any more", "m": "これ以上待てない"}, {"w": "like rabbits very much", "m": "うさぎがとても好き"}, {"w": "such as peaches", "m": "例えば桃のような"}], "意味の似ている熟語": [{"w": "go/come/get home", "m": "家に帰る（3通り）"}, {"w": "speak to/with Ann", "m": "アンと話す"}, {"w": "get to / arrive at the airport", "m": "空港に到着する"}, {"w": "take care of / look after my dog", "m": "犬の世話をする"}, {"w": "want to / would like to drink tea", "m": "お茶を飲みたい"}, {"w": "go/get back to my desk", "m": "席に戻る"}, {"w": "make/become friends with John", "m": "ジョンと友達になる"}, {"w": "take/have a break", "m": "ひと休みする"}, {"w": "be/come from Okinawa", "m": "沖縄出身"}, {"w": "walk to school / go to school on foot", "m": "歩いて学校へ行く"}]};
+
+const grammarRef=[
+{gr:"中1",t:"be動詞（am/is/are）",d:"<b>「〜です」「〜にいる/ある」</b>。主語と後の語句を<b>イコールで結ぶ</b>。<table class=\"gref-tbl\"><tr><th>主語</th><th>現在</th><th>過去</th><th>否定(現在)</th></tr><tr><td>I</td><td><b>am</b></td><td>was</td><td>am not</td></tr><tr><td>you/複数</td><td><b>are</b></td><td>were</td><td>aren't</td></tr><tr><td>he/she/it/単数</td><td><b>is</b></td><td>was</td><td>isn't</td></tr></table><span class=\"gref-tip\">💡 短縮形：I'm / He's / You're / wasn't / weren't</span>",e:"I <b>am</b> a student.（私は学生です）\nShe <b>is</b> kind.（彼女は親切です）\nWe <b>are</b> in Okinawa.（私たちは沖縄にいます）"},
+{gr:"中1",t:"一般動詞",d:"be動詞以外の<b>すべての動詞</b>。play, study, eatなど。<b>動作や気持ち</b>を表す。<br>否定：<b>don't+原形</b>。3単現：<b>doesn't+原形</b>。過去：<b>didn't+原形</b><span class=\"gref-warn\">⚠️ be動詞と一般動詞は絶対に混ぜない！ ✕ I am play / ✕ I don't am</span>",e:"I <b>play</b> tennis.（私はテニスをします）\nI <b>don't like</b> math.（私は数学が好きではない）"},
+{gr:"中1",t:"be動詞の疑問文",d:"<b>be動詞を文頭に出す</b>だけ！<br>📌 <b>Is</b> he a student? / <b>Are</b> you happy?<br><span class=\"gref-warn\">⚠️ 答えのYes/Noの後は<b>代名詞+be動詞</b>！<br>✕ Yes, Tom is. → ○ Yes, <b>he</b> is.</span><br><span class=\"gref-tip\">💡 入試で狙われる：主語をhe/she/theyに<b>置き換えて</b>答える！</span>",e:"<b>Are</b> you a student? — Yes, I <b>am</b>.（あなたは学生？—はい）\n<b>Is</b> she from Tokyo? — No, she <b>isn't</b>.（彼女は東京出身？—いいえ）"},
+{gr:"中1",t:"一般動詞の疑問文（Do/Does）",d:"<b>Do/Does/Did</b>を文頭に、動詞は<b>原形に戻す</b>！<table class=\"gref-tbl\"><tr><th>主語</th><th>現在</th><th>過去</th></tr><tr><td>I/you/複数</td><td><b>Do</b> you play?</td><td rowspan=\"2\"><b>Did</b> you play?</td></tr><tr><td>3人称単数</td><td><b>Does</b> he play?</td></tr></table><span class=\"gref-warn\">⚠️ Does/Didがあったら動詞の<b>sもedも消える</b>！<br>✕ Does she <b>plays</b> → ○ Does she <b>play</b></span>",e:"<b>Do</b> you like music?（音楽好き？）\n<b>Does</b> he play soccer?（彼はサッカーする？）"},
+{gr:"中1",t:"疑問詞（What/Who/Where/When/Why/How）",d:"疑問詞は文の<b>先頭</b>に置く。<table class=\"gref-tbl\"><tr><th>疑問詞</th><th>意味</th><th>答え方の例</th></tr><tr><td><b>What</b></td><td>何</td><td>モノ・事</td></tr><tr><td><b>Who</b></td><td>誰</td><td>人</td></tr><tr><td><b>Where</b></td><td>どこ</td><td>場所</td></tr><tr><td><b>When</b></td><td>いつ</td><td>時</td></tr><tr><td><b>Why</b></td><td>なぜ</td><td>Because〜</td></tr><tr><td><b>How</b></td><td>どう</td><td>方法・様子</td></tr></table><span class=\"gref-tip\">💡 How many（いくつ）/ How much（いくら）/ How long（期間）/ How old（年齢）</span>",e:"<b>What</b> do you want?（何がほしい？）\n<b>Where</b> does he live?（彼はどこに住んでる？）\n<b>How old</b> are you?（何歳？）"},
+{gr:"中1",t:"人称代名詞と所有代名詞",d:"<table class=\"gref-tbl\"><tr><th></th><th>主格<br>(〜は)</th><th>所有格<br>(〜の)</th><th>目的格<br>(〜を)</th><th>所有代名詞<br>(〜のもの)</th></tr><tr><td>私</td><td><b>I</b></td><td>my</td><td>me</td><td>mine</td></tr><tr><td>あなた</td><td><b>you</b></td><td>your</td><td>you</td><td>yours</td></tr><tr><td>彼</td><td><b>he</b></td><td>his</td><td>him</td><td>his</td></tr><tr><td>彼女</td><td><b>she</b></td><td>her</td><td>her</td><td>hers</td></tr><tr><td>それ</td><td><b>it</b></td><td>its</td><td>it</td><td>-</td></tr><tr><td>私たち</td><td><b>we</b></td><td>our</td><td>us</td><td>ours</td></tr><tr><td>彼ら</td><td><b>they</b></td><td>their</td><td>them</td><td>theirs</td></tr></table><span class=\"gref-tip\">💡 <b>his</b>だけ所有格と所有代名詞が同じ形！ <b>her</b>は所有格と目的格が同じ形！</span>",e:"<b>I</b> like <b>him</b>.（私は彼が好き）\nIt's <b>mine</b>.（それは私のものです）\nThis is <b>her</b> bag.（これは彼女のカバン）"},
+{gr:"中1",t:"指示代名詞（this/that/these/those）",d:"<table class=\"gref-tbl\"><tr><th></th><th>単数</th><th>複数</th></tr><tr><td>近い</td><td><b>this</b>（これ）</td><td><b>these</b>（これら）</td></tr><tr><td>遠い</td><td><b>that</b>（あれ）</td><td><b>those</b>（あれら）</td></tr></table>",e:"<b>This</b> is my book.（これは私の本です）\n<b>Those</b> are his shoes.（あれらは彼の靴です）"},
+{gr:"中1",t:"命令文・Let's",d:"<b>主語を省略</b>して動詞の原形で始める。<br>📌 <b>Open</b> the window. / <b>Don't</b> run.（否定はDon't+原形）<br>📌 <b>Be</b> quiet.（be動詞も原形！）/ <b>Let's</b> go.（提案）<br><span class=\"gref-tip\">💡 頻出：<b>Let's ～, shall we?</b> / <b>命令文, will you?</b>（付加疑問文とセット）</span>",e:"<b>Open</b> the window.（窓を開けなさい）\n<b>Don't</b> be late.（遅れるな）\n<b>Let's</b> play soccer!（サッカーしよう！）"},
+{gr:"中1",t:"助動詞 can/will",d:"助動詞の後は<b>必ず動詞の原形</b>！主語が何でも形は変わらない。<table class=\"gref-tbl\"><tr><th>助動詞</th><th>意味</th><th>否定</th></tr><tr><td><b>can</b></td><td>～できる</td><td>can't</td></tr><tr><td><b>will</b></td><td>～するだろう/つもり</td><td>won't</td></tr><tr><td><b>may</b></td><td>～してもよい/かもしれない</td><td>may not</td></tr><tr><td><b>shall</b></td><td>～しましょうか</td><td></td></tr></table><span class=\"gref-warn\">⚠️ 助動詞+<b>be</b>！ ✕ will is → ○ will <b>be</b></span>",e:"I <b>can</b> speak English.（英語を話せる）\nShe <b>will</b> come tomorrow.（彼女は明日来るだろう）"},
+{gr:"中1",t:"一般動詞の過去形",d:"規則動詞→<b>-ed</b>。不規則動詞→暗記！<br>疑問文：<b>Did</b>+原形? / 否定文：<b>didn't</b>+原形<br>📝 edの付け方：ふつう→ed / eで終わる→d / 子音+y→yをiにしてed / 短母音+子音→子音を重ねてed<span class=\"gref-warn\">⚠️ Did/didn'tのあとは<b>必ず原形</b>！ ✕ Did you went → ○ Did you <b>go</b></span>",e:"I <b>played</b> soccer yesterday.（昨日サッカーをした）\n<b>Did</b> you <b>eat</b> lunch?（昼ごはん食べた？）"},
+{gr:"中1",t:"be動詞の過去形（was/were）",d:"<table class=\"gref-tbl\"><tr><th>主語</th><th>過去形</th><th>否定</th></tr><tr><td>I/he/she/it/単数</td><td><b>was</b></td><td>wasn't</td></tr><tr><td>you/we/they/複数</td><td><b>were</b></td><td>weren't</td></tr></table><span class=\"gref-tip\">💡 <b>過去のサイン</b>を見つけたらwas/wereに！<br>yesterday / last～ / ～ago / when I was～ / then</span><br><span class=\"gref-warn\">⚠️ 仮定法では主語に関係なく<b>were</b>！</span>",e:"I <b>was</b> happy.（私はうれしかった）\nThey <b>were</b> in the park.（彼らは公園にいた）"},
+{gr:"中1",t:"現在進行形（be+〜ing）",d:"「今〜しているところ」。<b>be動詞+ing形</b>。<br>📝 ingの付け方4パターン：<br>ふつう→ing(playing) / eで終わる→e消す(making) / 短母音+子音→重ねる(running,swimming) / ieで終わる→yingに(die→dying)<span class=\"gref-tip\">💡 study→studying（yはそのまま！edの時だけyをiに変える）</span>",e:"I <b>am studying</b> English now.（今英語を勉強している）\n<b>Is</b> he <b>playing</b> soccer?（彼はサッカーしてる？）"},
+{gr:"中1",t:"過去進行形（was/were+〜ing）",d:"「あの時～していた」＝<b>was/were+～ing</b><br><span class=\"gref-tip\">💡 <b>超頻出パターン</b>：<br>I was sleeping <b>when</b> he called.<br>→ 過去進行形+<b>when</b>+過去形のセット！<br>「電話が来た<b>とき</b>、寝て<b>いた</b>」</span><br><span class=\"gref-warn\">⚠️ 過去形＝終わった動作 / 過去進行形＝その時まさに<b>途中だった</b></span>",e:"I <b>was studying</b> at that time.（その時勉強していた）\nThey <b>were watching</b> TV when I came.（私が来た時、彼らはテレビを見ていた）"},
+{gr:"中1",t:"未来表現（will/be going to）",d:"<b>will</b>＝その場の判断 / <b>be going to</b>＝前からの予定<table class=\"gref-tbl\"><tr><th></th><th>肯定</th><th>否定</th><th>疑問</th></tr><tr><td>will</td><td>I will go.</td><td>I won't go.</td><td>Will you go?</td></tr><tr><td>be going to</td><td>I am going to go.</td><td>I'm not going to go.</td><td>Are you going to go?</td></tr></table><span class=\"gref-tip\">💡 入試では<b>書き換え</b>で出る！will = be going to</span>",e:"I <b>will</b> call you later.（あとで電話するよ）\nWe <b>are going to</b> have a party.（パーティーをする予定だ）"},
+{gr:"中1",t:"三人称単数現在形（3単現のs）",d:"I/you<b>以外の単数</b>が主語→現在形の動詞に<b>s/es</b>。<br>📝 ふつう→<b>s</b> / s,sh,ch,x,o→<b>es</b> / 子音+y→<b>ies</b> / have→<b>has</b><br><span class=\"gref-warn\">⚠️ Doesがあったらsは<b>消える</b>！<br>She <b>plays</b>. → Does she <b>play</b>?</span><br><span class=\"gref-tip\">💡 人名/my father/the dog/it/this →全部<b>3人称単数</b>！</span>",e:"She <b>plays</b> tennis.（彼女はテニスをする）\n<b>Does</b> he <b>like</b> music?（彼は音楽が好き？）"},
+{gr:"中2",t:"接続詞 when/if/that",d:"<b>when</b>＝「～のとき」/ <b>if</b>＝「もし～なら」/ <b>that</b>＝「～ということ」<br><span class=\"gref-warn\">⚠️ <b>超重要（毎年出る！）</b>：<br>when/if節の中は<b>未来でも現在形</b>！<br>✕ when I <b>will</b> arrive → ○ when I <b>arrive</b><br>✕ if it <b>will</b> rain → ○ if it <b>rains</b></span><br><span class=\"gref-tip\">💡 thatは<b>省略できる</b>！ I think (that) he is right.</span>",e:"<b>When</b> I got home, mother was cooking.（帰宅した時、母が料理していた）\n<b>If</b> you are free, let's play.（暇なら遊ぼう）\nI think <b>that</b> English is fun.（英語は楽しいと思う）"},
+{gr:"中2",t:"接続詞 because/while",d:"<b>because</b>＝「なぜなら」（理由）/ <b>while</b>＝「～の間に」（同時進行）<br><span class=\"gref-warn\">⚠️ <b>because</b>+<b>文</b>(主語+動詞) / <b>because of</b>+<b>名詞</b><br>because it rained ≠ because of the rain</span><br><span class=\"gref-tip\">💡 Why～? → <b>Because～.</b>で返す！並べ替え超頻出！</span>",e:"I stayed home <b>because</b> it was raining.（雨だったから家にいた）\n<b>While</b> I was sleeping, he came.（私が寝ている間に彼が来た）"},
+{gr:"中2",t:"There is/are〜",d:"「〜がある/いる」。<b>後の名詞</b>が単数か複数かで決まる！<table class=\"gref-tbl\"><tr><th></th><th>単数</th><th>複数</th></tr><tr><td>現在</td><td>There <b>is</b></td><td>There <b>are</b></td></tr><tr><td>過去</td><td>There <b>was</b></td><td>There <b>were</b></td></tr></table>",e:"There <b>is</b> a park near here.（この近くに公園がある）\nThere <b>are</b> many students.（たくさんの生徒がいる）"},
+{gr:"中2",t:"不定詞の名詞的用法（to+動詞＝〜すること）",d:"to+原形で「〜すること」。主語にも目的語にもなる！<br>📌 <b>To study</b> is important.（主語）/ I want <b>to play</b>.（目的語）<br>📌 頻出動詞：want/like/try/start/need/hope/begin/decide + to〜<br><span class=\"gref-warn\">⚠️ <b>3用法の見分け</b>が入試で問われる！<br>名詞的＝「〜すること」/ 形容詞的＝「〜するための」/ 副詞的＝「〜するために」</span><br><span class=\"gref-tip\">💡 enjoy/finish/stopの後は不定詞✕→動名詞！</span>",e:"I want <b>to be</b> a doctor.（医者になりたい）\nHe began <b>to run</b>.（彼は走り始めた）"},
+{gr:"中2",t:"不定詞の形容詞的用法",d:"「<b>～するための/すべき</b>」名詞を<b>後ろから</b>修飾。<br>📌 something <b>to eat</b>（食べるもの）/ time <b>to study</b>（勉強する時間）<br><span class=\"gref-tip\">💡 <b>something/anything + 形容詞 + to～</b> の語順注意！<br>something <b>cold</b> to drink ← coldが名詞の後！</span><br><span class=\"gref-warn\">⚠️ 3用法見分け：名詞のすぐ後にto～→<b>形容詞的</b></span>",e:"I have homework <b>to do</b>.（やるべき宿題がある）\nGive me something <b>to eat</b>.（何か食べるものをちょうだい）"},
+{gr:"中2",t:"不定詞の副詞的用法",d:"①<b>目的</b>「～するために」②<b>原因</b>「～して（嬉しい等）」<br>📌 目的：I went to the library <b>to study</b>.<br>📌 原因：I'm glad <b>to hear</b> that.<br><span class=\"gref-tip\">💡 <b>感情の形容詞</b>(happy/glad/sad/sorry/surprised)+to～ →<b>副詞的用法（原因）</b>！</span><br><span class=\"gref-warn\">⚠️ Why～?に<b>To+動詞</b>で答えられる→目的の副詞的用法！</span>",e:"I came <b>to see</b> you.（目的）\nI was surprised <b>to hear</b> the news.（原因）"},
+{gr:"中2",t:"動名詞（〜ing＝〜すること）",d:"動詞にingをつけて名詞化。主語・目的語・前置詞の後で使う。<span class=\"gref-warn\">⚠️ enjoy/finish/stop/mindの後は<b>必ず動名詞</b>！ ✕ enjoy to play → ○ enjoy <b>playing</b></span><span class=\"gref-tip\">💡 前置詞(for/at/in/of/about/without)の後も必ず〜ing！<br>Thank you for <b>helping</b> me. / be good at <b>playing</b></span>",e:"<b>Reading</b> books is important.（読書は大切だ）\nI enjoy <b>playing</b> tennis.（テニスを楽しむ）\nThank you for <b>inviting</b> me.（招待ありがとう）"},
+{gr:"中2",t:"比較級（-er than / more〜than）",d:"2つを比べて「〜の方が…」。短い語→<b>-er</b>。長い語(famous,interesting等)→<b>more</b>。<br>📝 erの付け方：ふつう→er / eで終わる→r / 子音+y→yをiにしてer / 短母音+子音→重ねてer<span class=\"gref-warn\">⚠️ 不規則：good→<b>better</b> / bad→<b>worse</b> / many/much→<b>more</b></span>",e:"Tom is <b>taller than</b> Ken.（トムはケンより背が高い）\nThis is <b>more interesting than</b> that.（これはあれよりおもしろい）"},
+{gr:"中2",t:"最上級（the -est / the most）",d:"3つ以上で「<b>一番</b>～」。<b>the</b>忘れずに！<br>📌 場所→<b>in</b>(in Japan) / 数→<b>of</b>(of all / of the three)<br><span class=\"gref-tip\">💡 <b>最上級の目印3点セット</b>：<br>① <b>the</b>がある ② -est/most ③ <b>in～/of～</b><br>→3つ揃ったら最上級確定！</span><br><span class=\"gref-warn\">⚠️ 不規則：good→<b>best</b> / bad→<b>worst</b> / many/much→<b>most</b></span>",e:"<b>The best</b> food <b>of</b> all.（全部の中で一番おいしい料理）\n<b>The highest</b> mountain <b>in</b> Japan.（日本で一番高い山）"},
+{gr:"中2",t:"原級比較（as〜as）",d:"「〜と<b>同じくらい</b>…」。2つのasの間に<b>原級</b>を入れる。<br>📌 否定：<b>not as〜as</b>＝「…ほど〜でない」<br><span class=\"gref-tip\">💡 <b>書き換え超頻出</b>！<br>He is <b>not as tall as</b> Ken. = Ken is <b>taller than</b> him.<br>→ 主語が入れ替わる！</span><br><span class=\"gref-warn\">⚠️ asとasの間は<b>必ず原級</b>！-erや-estを入れるな！</span>",e:"She is <b>as tall as</b> her mother.（彼女は母と同じくらい背が高い）\nHe is <b>not as fast as</b> Ken.（彼はケンほど速くない）"},
+{gr:"中2",t:"SVOO（第4文型：人にモノを）",d:"<b>動詞+人+モノ</b>＝「人にモノを～」<br>📌 give/show/teach/tell/send/buy/make<br><span class=\"gref-tip\">💡 <b>書き換え超頻出</b>！<br>give <b>him</b> a book = give a book <b>to him</b><br>buy <b>her</b> a bag = buy a bag <b>for her</b></span><br><span class=\"gref-warn\">⚠️ <b>to</b>：give/show/teach/tell/send<br><b>for</b>：buy/make/cook/get → toかforかで出る！</span>",e:"She <b>gave me a present</b>.（彼女は私にプレゼントをくれた）\nPlease <b>show me your ticket</b>.（チケットを見せてください）"},
+{gr:"中2",t:"SVOC（第5文型：OをCにする）",d:"<b>動詞+O+C</b>＝「OをCにする/呼ぶ」。<b>O=C</b>の関係が成り立つ！<br>📌 <b>call</b> him Ken（him=Ken）/ <b>make</b> me happy（me=happy）<br>📌 <b>name</b> the dog Pochi / <b>keep</b> the room clean<br><span class=\"gref-tip\">💡 O=Cの確認が入試での見分けポイント！</span>",e:"We <b>call</b> him <b>Ken</b>.（私たちは彼をケンと呼ぶ）\nThis song <b>makes</b> me <b>happy</b>.（この歌は私を幸せにする）"},
+{gr:"中2",t:"受動態（be動詞+過去分詞）",d:"「〜される/された」。<b>be動詞+過去分詞</b>（+by〜）。<br>過去分詞は受動態・現在完了・名詞修飾で使う超重要な形！<span class=\"gref-tip\">💡 頻出連語丸暗記：be interested <b>in</b> / be surprised <b>at</b> / be known <b>to</b> / be made <b>of</b>(材料) / be made <b>from</b>(原料) / be covered <b>with</b> / be filled <b>with</b> / be born</span>",e:"English <b>is spoken</b> in many countries.（英語は多くの国で話されている）\nI <b>am interested in</b> manga.（私は漫画に興味がある）"},
+{gr:"中2",t:"感嘆文（What a〜! / How〜!）",d:"<table class=\"gref-tbl\"><tr><th>パターン</th><th>構造</th><th>例</th></tr><tr><td><b>What</b></td><td>What (a)+形容詞+名詞!</td><td>What a nice day!</td></tr><tr><td><b>How</b></td><td>How+形容詞/副詞!</td><td>How beautiful!</td></tr></table><span class=\"gref-tip\">💡 名詞があればWhat / なければHow</span>",e:"<b>What a</b> beautiful flower<b>!</b>（なんて美しい花！）\n<b>How</b> fast<b>!</b>（なんて速いの！）"},
+{gr:"中3",t:"現在完了：経験（have+過去分詞）",d:"「〜したことがある」。<table class=\"gref-tbl\"><tr><th>用法</th><th>キーワード</th><th>意味</th></tr><tr><td><b>⭐経験</b></td><td>ever/never/once/twice/before</td><td>～したことがある</td></tr><tr><td>完了</td><td>just/already/yet</td><td>もう～した</td></tr><tr><td>継続</td><td>for/since</td><td>ずっと～している</td></tr></table><span class=\"gref-warn\">⚠️ have <b>been to</b>〜＝行ったことがある(今ここにいる)<br>have <b>gone to</b>〜＝行ってしまった(もうここにいない)<br>→ 意味が全然違う！入試超頻出の引っかけ！</span>",e:"I have <b>never been</b> to Hokkaido.（北海道に一度も行ったことがない）\nHave you <b>ever</b> eaten soba?（そばを食べたことある？）"},
+{gr:"中3",t:"現在完了：完了（have+過去分詞）",d:"「<b>もう～した/ちょうど～したところ</b>」<br>📌 キーワード：<b>just</b>（ちょうど）/ <b>already</b>（もう・肯定文）/ <b>yet</b>（疑問文＝もう / 否定文＝まだ）<br><span class=\"gref-tip\">💡 <b>yetの使い分け</b>が出る！<br>疑問：Have you finished <b>yet</b>?（<b>もう</b>終わった？）<br>否定：I haven't finished <b>yet</b>.（<b>まだ</b>終わってない）</span><br><span class=\"gref-warn\">⚠️ alreadyの位置：have <b>already</b> done（haveと過去分詞の間！）</span>",e:"The bus has <b>just</b> left.（バスがちょうど出たところ）\nHave you finished <b>yet</b>?（もう終わった？）"},
+{gr:"中3",t:"現在完了：継続（have+過去分詞）",d:"「<b>ずっと～している</b>」<br>📌 <b>for+期間</b>（for 3 years）/ <b>since+起点</b>（since 2020）/ <b>How long ～?</b><br><span class=\"gref-tip\">💡 <b>forとsince</b>の見分け：<br>for＋<b>数字を含む期間</b>（for 3 years / for a long time）<br>since＋<b>始まりの時点</b>（since 2020 / since I was a child）</span><br><span class=\"gref-warn\">⚠️ 状態動詞(know/live/be)→現在完了<br>動作動詞(study/run)→<b>現在完了進行形</b>！</span>",e:"I have lived here <b>for</b> ten years.（ここに10年住んでいる）\nFriends <b>since</b> 2020.（2020年からの友達）"},
+{gr:"中3",t:"現在完了進行形（have been〜ing）",d:"「<b>ずっと〜し続けている</b>」。<b>動作</b>の継続に使う。<br>📌 I have <b>been studying</b> for 3 hours.<br><span class=\"gref-tip\">💡 使い分け：<b>状態</b>動詞(know/live/be)→現在完了 / <b>動作</b>動詞(study/run)→現在完了進行形</span><br><span class=\"gref-warn\">⚠️ for/sinceと一緒に使う点は継続用法と同じ！</span>",e:"I have <b>been studying</b> for 3 hours.（3時間ずっと勉強している）\nIt has <b>been raining</b> since morning.（朝からずっと雨が降っている）"},
+{gr:"中3",t:"現在分詞の後置修飾（〜ing）",d:"名詞を後ろから「<b>〜している○○</b>」と説明。<br>📌 the boy <b>playing</b> tennis / the girl <b>singing</b> on the stage<br><span class=\"gref-warn\">⚠️ 進行形と間違えるな！<br>進行形：The boy <b>is playing</b> tennis.（文の動詞）<br>後置修飾：The boy <b>playing</b> tennis <b>is</b> my friend.（名詞を修飾）</span><br><span class=\"gref-tip\">💡 〜ing（している）vs 過去分詞（された）の使い分けが入試に出る！</span>",e:"The man <b>playing</b> the guitar is my brother.（ギターを弾いている男の人は私の兄だ）"},
+{gr:"中3",t:"過去分詞の後置修飾",d:"名詞を後ろから「<b>～された○○</b>」と説明。<br>📌 a book <b>written</b> in English / the picture <b>taken</b> by him / the city <b>called</b> Naha<br><span class=\"gref-tip\">💡 超頻出パターン丸暗記！<br><b>made in</b>～（～製）/ <b>written in</b>～（～語で書かれた）/ <b>spoken in</b>～ / <b>called</b>～（～と呼ばれる）</span><br><span class=\"gref-warn\">⚠️ <b>by</b>があったら過去分詞の後置修飾か受動態！</span>",e:"a book <b>written</b> in English（英語で書かれた本）\nthe city <b>called</b> the Big Apple（ビッグアップルと呼ばれる都市）"},
+{gr:"中3",t:"関係代名詞の主格（who/which/that）",d:"<table class=\"gref-tbl\"><tr><th></th><th>人</th><th>モノ・動物</th><th>両方OK</th></tr><tr><td><b>主格</b></td><td>who</td><td>which</td><td>that</td></tr><tr><td><b>目的格</b></td><td>whom</td><td>which</td><td>that(省略可)</td></tr><tr><td><b>所有格</b></td><td colspan=\"3\">whose</td></tr></table>名詞を後ろから文で説明。(　)の直後に<b>動詞</b>が来たら→<b>主格</b>。<br>人→<b>who</b> / モノ・動物→<b>which</b> / どちらでもOK→<b>that</b><span class=\"gref-tip\">💡 見分けテク：(　)の後が動詞→主格 / (　)の後が主語+動詞→目的格</span>",e:"a friend <b>who speaks</b> English（英語を話す友達）\nthe cat <b>which was</b> born last week（先週生まれた猫）"},
+{gr:"中3",t:"関係代名詞の目的格（省略可能）",d:"(　)の後に<b>主語+動詞</b>→<b>目的格</b>！<b>省略できる</b>！<br>📌 the book (which) <b>I bought</b> / the girl (whom) <b>he likes</b><br><span class=\"gref-tip\">💡 <b>省略の見分け</b>：名詞のすぐ後に主語+動詞→関係代名詞が省略！<br>This is the cake <b>my mother made</b>.</span><br><span class=\"gref-warn\">⚠️ 整序で最頻出！関係代名詞節の後に<b>本文の動詞</b>が来る！</span>",e:"the camera <b>(which) my father gave</b> me（父がくれたカメラ）"},
+{gr:"中3",t:"関係代名詞の所有格（whose）",d:"<b>whose</b>＝「～の」。人にもモノにも使える。<br>📌 the boy <b>whose</b> father is a doctor / the house <b>whose</b> roof is red<br><span class=\"gref-tip\">💡 見分け：(　)の後に<b>名詞</b>→<b>whose</b>！<br>who→後に動詞 / which→後に動詞 / <b>whose→後に名詞</b></span><br><span class=\"gref-warn\">⚠️ whose ≠ who's(=who is) 音は同じで意味が違う！</span>",e:"a boy <b>whose</b> father is a doctor（父親が医者の男の子）"},
+{gr:"中3",t:"It is (for人) to〜（形式主語構文）",d:"「人にとって〜するのは…だ」＝<b>It is+形容詞+for+人+to+動詞</b><br><span class=\"gref-tip\">💡 <b>整序の超頻出</b>！語順丸暗記：<br>It is→形容詞→for→人→to→動詞の原形<br>forとtoが選択肢にあったらこの構文！</span><br><span class=\"gref-warn\">⚠️ 人の性格→forが<b>of</b>に！ It is kind <b>of</b> you to help me.</span>",e:"It is <b>difficult for me to</b> write English.（私にとって英語を書くのは難しい）"},
+{gr:"中3",t:"too〜to…（〜すぎて…できない）",d:"<b>too+形容詞+to+動詞</b>＝「〜<b>すぎて</b>…<b>できない</b>」<br>📌 too tired <b>to</b> study<br><span class=\"gref-tip\">💡 <b>書き換え超頻出！</b><br>too〜to… = <b>so〜that can't…</b><br>too tired to study = so tired that I can't study</span><br><span class=\"gref-warn\">⚠️ not〜enough to…も書き換えパターン！</span>",e:"I'm <b>too tired to</b> study.（疲れすぎて勉強できない）"},
+{gr:"中3",t:"原形不定詞（help/make/let+人+原形）",d:"<b>make/let/help+人+動詞の原形</b>（toなし！）<table class=\"gref-tbl\"><tr><th>動詞</th><th>意味</th><th>例</th></tr><tr><td><b>make</b></td><td>～させる（強制）</td><td>make him clean</td></tr><tr><td><b>let</b></td><td>～させてあげる（許可）</td><td>let me go</td></tr><tr><td><b>help</b></td><td>～を手伝う</td><td>help me carry</td></tr></table><span class=\"gref-warn\">⚠️ tell/ask/wantは<b>to必要</b>！ make/let/helpは<b>toなし</b>！</span>",e:"Please <b>help me carry</b> this.（これを運ぶのを手伝って）\nMy mother <b>made me clean</b> my room.（母に部屋を掃除させられた）"},
+{gr:"中3",t:"tell/ask/want 人 to〜",d:"<b>tell/ask/want+人+to+動詞</b><table class=\"gref-tbl\"><tr><th>動詞</th><th>意味</th><th>例</th></tr><tr><td><b>tell</b></td><td>〜しろと言う</td><td>told me <b>to</b> study</td></tr><tr><td><b>ask</b></td><td>〜してと頼む</td><td>asked me <b>to</b> help</td></tr><tr><td><b>want</b></td><td>〜してほしい</td><td>wants me <b>to</b> come</td></tr></table><span class=\"gref-warn\">⚠️ この3つは<b>to必要</b>！make/let/helpは<b>toなし</b>！整序で<b>毎年出る</b>！</span>",e:"Mother <b>told me to</b> come home.（母に帰って来なさいと言われた）\nShe <b>asked me to</b> help her.（彼女に手伝ってと頼まれた）"},
+{gr:"中3",t:"間接疑問文",d:"疑問の内容を文中に入れる。<b>疑問詞+主語+動詞</b>（普通の語順に戻す！）<br>📌 I know <b>where he lives</b>. / Tell me <b>what you want</b>.<br><span class=\"gref-warn\">⚠️ <b>語順ひっくり返る</b>のが最大のポイント！<br>普通：Where <b>does</b> he live?<br>間接：where he <b>lives</b> ← doesが消えてsが戻る！</span><br><span class=\"gref-tip\">💡 疑問詞+to+動詞もセット！<br>what to buy / how to get there / where to go<br>⚠️ <b>why to～は存在しない</b>！</span>",e:"Do you know <b>where he lives</b>?（彼がどこに住んでいるか知ってる？）"},
+{gr:"中3",t:"疑問詞＋不定詞（how to / what to）",d:"<b>疑問詞＋to＋動詞の原形</b>＝「何を・どこで・いつ・どうやって～すべきか」<table class=\"gref-tbl\"><tr><th>表現</th><th>意味</th><th>例</th></tr><tr><td><b>how to</b></td><td>～の<b>しかた</b></td><td>how to make a cake</td></tr><tr><td><b>what to</b></td><td><b>何を</b>～すべきか</td><td>what to buy</td></tr><tr><td><b>where to</b></td><td><b>どこで</b>～すべきか</td><td>where to go</td></tr><tr><td><b>when to</b></td><td><b>いつ</b>～すべきか</td><td>when to start</td></tr></table><span class=\"gref-warn\">⚠️ <b>why to～は存在しない</b>！whyだけは使えない！</span>",e:"I don't know <b>how to</b> get there.（そこへの行き方がわからない）\nPlease tell me <b>what to</b> do.（何をすべきか教えて）"},
+{gr:"中3",t:"付加疑問文",d:"「～ですよね？」と確認。<b>肯定→否定の付加 / 否定→肯定の付加</b><br>📌 You are a student, <b>aren't you</b>?<br>📌 He can't swim, <b>can he</b>?<br><span class=\"gref-tip\">💡 <b>作り方3ステップ</b>：<br>①肯定文→付加は<b>否定</b>。否定文→付加は<b>肯定</b><br>②主語を<b>代名詞</b>に(Tom→he)<br>③be動詞/助動詞をそのまま。一般動詞→do/does/did</span><br><span class=\"gref-warn\">⚠️ Let's→<b>shall we</b>? / 命令文→<b>will you</b>?</span>",e:"You are a student, <b>aren't you</b>?（あなたは学生ですよね？）"},
+{gr:"中3",t:"have to/must/don't have to/must not",d:"<table class=\"gref-tbl\"><tr><th></th><th>意味</th></tr><tr><td><b>must</b></td><td>～しなければならない</td></tr><tr><td><b>have to</b></td><td>～しなければならない</td></tr><tr><td><b>must not</b></td><td>～しては<b>いけない（禁止！）</b></td></tr><tr><td><b>don't have to</b></td><td>～する<b>必要はない（自由）</b></td></tr></table><span class=\"gref-warn\">⚠️ must notとdon't have toは意味が<b>真逆</b>！</span>",e:"You <b>don't have to</b> come.（来なくてもいい）\nYou <b>must not</b> run here.（走るな！）"},
+{gr:"中3",t:"仮定法過去",d:"「もし～なら…だろうに」＝<b>現実と反対</b>を想像。<br>📌 <b>If+過去形, 主語+would/could+原形</b><br><span class=\"gref-warn\">⚠️ be動詞は主語に関係なく<b>were</b>！<br>✕ If I was → ○ If I <b>were</b></span><br><span class=\"gref-tip\">💡 見分け：過去形なのに「今の話」→<b>仮定法</b>！<br>If I <b>had</b> money, I <b>could</b> buy it.<br>→hadは過去形だけど「今」の話→仮定法！</span>",e:"If I had money, I <b>could</b> buy it.（お金があれば買えるのに）\nIf I <b>were</b> you, I <b>would</b> study harder.（もし私があなたなら、もっと勉強するのに）"},
+{gr:"中3",t:"I wish+仮定法",d:"<b>I wish+主語+過去形</b>＝「～だったら<b>いいのになぁ</b>」（現実は違う）<br>📌 I wish I <b>could</b> fly.（飛べたらいいのに）<br>📌 I wish I <b>were</b> taller.（背が高かったらなぁ）<br><span class=\"gref-tip\">💡 <b>I wish I could～</b>は整序の超頻出！丸暗記！</span><br><span class=\"gref-warn\">⚠️ hope（実現可能）≠ wish（実現不可能）<br>I <b>hope</b> it will be sunny. / I <b>wish</b> I were a bird.</span>",e:"I wish I <b>could</b> fly.（飛べたらいいのに）\nI wish I <b>were</b> taller.（もっと背が高ければなぁ）"},
+];
+
+// ============================================================
+// APP LOGIC
+// ============================================================
+let S={mode:null,qs:[],idx:0,score:0,wrong:[],streak:0,total:0,answered:false,convSlot:0,convFilled:[],orderSel:[]};
+
+function init(){
+  document.getElementById('tc').textContent=tekigoQ.length+'問';
+  document.getElementById('gc').textContent=gokeiQ.length+'問';
+  document.getElementById('sc').textContent=seijoQ.length+'問';
+  document.getElementById('kc').textContent=kaiwaQ.length+'問';
+  try{S.total=parseInt(localStorage.getItem('jc_t')||'0');S.streak=parseInt(localStorage.getItem('jc_s')||'0')}catch(e){}
+  updStats();buildGrammarHome();buildGrammarRef();buildVocab();
+}
+
+function updStats(){
+  document.getElementById('streakCount').textContent=S.streak;
+  document.getElementById('totalCorrect').textContent=S.total;
+  try{localStorage.setItem('jc_t',S.total);localStorage.setItem('jc_s',S.streak)}catch(e){}
+}
+
+function showPage(p){if(p!=='results')SFX.play('click');
+  document.querySelectorAll('.pg').forEach(x=>x.classList.remove('on'));
+  document.querySelectorAll('.nav-i').forEach(x=>x.classList.remove('on'));
+  var m={home:'homePage',grammar:'grammarPage',vocab:'vocabPage',quiz:'quizPage',results:'resultsPage'};
+  document.getElementById(m[p]).classList.add('on');
+  var b=document.querySelector('.nav-i[data-p="'+p+'"]');if(b)b.classList.add('on');
+}
+
+function goHome(){showPage('home')}
+
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+
+function buildGrammarHome(){
+  var all=[];
+  tekigoQ.forEach(function(q){all.push({g:q.g,orig:q})});
+  gokeiQ.forEach(function(q){all.push({g:q.g,orig:q})});
+  seijoQ.forEach(function(q){all.push({g:q.g,orig:q})});
+  kaiwaQ.forEach(function(q){all.push({g:q.g,orig:q})});
+  var gm={};all.forEach(function(x){if(!gm[x.g])gm[x.g]=[];gm[x.g].push(x)});
+  // 添付の文法体系に基づく学年別・表示順の定義
+  var gradeOrder={
+    "中1":["be動詞・一般動詞","時制（過去・進行・未来）","代名詞・語彙・熟語","疑問詞"],
+    "中2":["助動詞・不定詞・動名詞","比較・最上級","受動態","会話表現"],
+    "中3":["現在完了","間接疑問文","分詞","関係代名詞","仮定法"]
+  };
+  var cols=['#FF6B9D','#A07CE8','#4ECDA5','#FFA15C','#5CB8FF','#FFD644','#FF8A9E','#7ECBA1'];
+  var h='';var ci=0;
+  ['中1','中2','中3'].forEach(function(gr){
+    var ordered=gradeOrder[gr];if(!ordered||ordered.length===0)return;
+    var gc=gr==='中1'?'g1':gr==='中2'?'g2':'g3';
+    h+='<div style="margin-bottom:6px;margin-top:14px"><span class="gref-grade '+gc+'" style="font-size:12px;padding:3px 12px">'+gr+'</span></div>';
+    ordered.forEach(function(tag){
+      var cnt=gm[tag]?gm[tag].length:0;
+      if(cnt===0)return;
+      var safeTag=tag.replace(/'/g,"\\'");
+      h+='<div class="gchip" onclick="startGrammarQ(\'' + safeTag + '\')">';  
+      h+='<div class="gchip-l"><div class="gdot" style="background:'+cols[ci%cols.length]+'"></div>';
+      h+='<span class="gchip-n">'+tag+'</span></div>';
+      h+='<span class="gchip-c">'+cnt+'問</span></div>';
+      ci++;
+    });
+  });
+  document.getElementById('grammarList').innerHTML=h;
+}
+
+function startGrammarQ(g){
+  var all=[];
+  tekigoQ.forEach(function(q){if(q.g===g)all.push(q)});
+  gokeiQ.forEach(function(q){if(q.g===g)all.push(q)});
+  seijoQ.forEach(function(q){if(q.g===g)all.push(q)});
+  kaiwaQ.forEach(function(q){if(q.g===g)all.push(q)});
+  if(all.length===0)return;
+  S.mode=all[0].bank?'gokei':(all[0].p?'seijoEisaku':(all[0].ctx!==undefined?'kaiwa':'tekigo'));
+  S.qs=shuffle(all.slice());S.idx=0;S.score=0;S.wrong=[];S.answered=false;S.showGrammarTag=true;
+  showPage('quiz');renderQ();
+}
+
+
+function startQuiz(mode){
+  S.mode=mode;
+  var qs;
+  if(mode==='tekigo')qs=tekigoQ.slice();
+  else if(mode==='gokei')qs=gokeiQ.slice();
+  else if(mode==='seijoEisaku')qs=seijoQ.slice();
+  else if(mode==='kaiwa')qs=kaiwaQ.slice();
+  S.qs=shuffle(qs);S.idx=0;S.score=0;S.wrong=[];S.answered=false;S.showGrammarTag=false;
+  showPage('quiz');renderQ();
+}
+
+function retryQuiz(){
+  S.qs=shuffle(S.qs.slice());S.idx=0;S.score=0;S.wrong=[];S.answered=false;
+  showPage('quiz');renderQ();
+}
+
+function renderQ(){
+  var q=S.qs[S.idx],tot=S.qs.length,n=S.idx+1;
+  document.getElementById('quizCounter').textContent=n+' / '+tot;
+  document.getElementById('qfill').style.width=(n/tot*100)+'%';
+  S.answered=false;
+  if('ctx' in q) renderKaiwa(q);
+  else if(q.bank) renderGokei(q);
+  else if(q.p) renderSeijo(q);
+  else renderTekigo(q);
+}
+
+// TEKIGO
+function renderTekigo(q){
+  var lbl=['ア','イ','ウ','エ','オ','カ','キ','ク'];
+  // Shuffle choices
+  var shuffled=q.ch.slice();
+  for(var i=shuffled.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=shuffled[i];shuffled[i]=shuffled[j];shuffled[j]=t}
+  var qt=q.q.replace(/\(    \)/g,'<span style="color:var(--pink);font-weight:700;border-bottom:2.5px dashed var(--pink);padding:0 8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+  var h='<div class="qcard">'+(S.showGrammarTag?'<span class="qtag qtag-g">'+q.g+'</span>':'')+'<span class="qtag qtag-t">適語選択</span><div class="qtxt">'+qt+'</div></div><div class="choices" id="chC">';
+  shuffled.forEach(function(c,i){
+    h+='<button class="cbtn" data-v="'+c.replace(/"/g,'&quot;')+'"><span class="clbl">'+lbl[i]+'</span><span>'+c+'</span></button>';
+  });
+  h+='</div><div class="result-banner" id="rbanner"></div><div class="ebox" id="ebox"><div class="ebox-t">'+(q.ex||'<b>正解は「'+q.a+'」</b>✨<br>文法：'+q.g)+'</div></div>';
+  h+='<button class="peekbtn" id="peekbtn" onclick="peekAnswer()">💡 答えを見る</button><button class="nbtn" id="nbtn" onclick="nextQ()">次の問題 →</button>';
+  document.getElementById('quizContent').innerHTML=h;
+  document.querySelectorAll('#chC .cbtn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(S.answered)return;S.answered=true;
+      var val=this.dataset.v;var ok=val===q.a;
+      if(ok){this.classList.add('ok');S.score++;S.streak++;S.total++;SFX.play('correct')}
+      else{this.classList.add('ng');S.streak=0;S.wrong.push(q);SFX.play('wrong');
+        document.querySelectorAll('#chC .cbtn').forEach(function(b){if(b.dataset.v===q.a)b.classList.add('ok')});
+      }
+      document.querySelectorAll('#chC .cbtn').forEach(function(b){b.classList.add('dis')});
+      var rb=document.getElementById('rbanner');
+      if(ok){rb.textContent='⭕ 正解！';rb.className='result-banner show ok-banner'}
+      else{rb.textContent='❌ 不正解…';rb.className='result-banner show ng-banner'}
+      document.getElementById('ebox').classList.add('show');
+      document.getElementById('peekbtn').classList.add('hide');
+      document.getElementById('nbtn').classList.add('show');
+      updStats();
+    });
+  });
+}
+
+// GOKEI
+function renderGokei(q){
+  var qt=q.q.replace(/\(    \)/g,'<span style="color:var(--pink);font-weight:700;border-bottom:2.5px dashed var(--pink);padding:0 8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+  var h='<div class="qcard">'+(S.showGrammarTag?'<span class="qtag qtag-g">'+q.g+'</span>':'')+'<span class="qtag qtag-t">語形変化</span><div class="qtxt">'+qt+'</div></div>';
+  h+='<div><input type="text" class="ainput" id="gi" placeholder="答えを入力..." autocomplete="off" autocapitalize="off" spellcheck="false">';
+  h+='<button class="subbtn" id="gsub">回答する</button></div>';
+  h+='<div class="corr" id="corr">正解：'+q.a+'</div>';
+  h+='<div class="result-banner" id="rbanner"></div><div class="ebox" id="ebox"><div class="ebox-t">'+(q.ex||'<b>正解は「'+q.a+'」</b>✨<br>文法：'+q.g)+'</div></div>';
+  h+='<button class="peekbtn" id="peekbtn" onclick="peekAnswer()">💡 答えを見る</button><button class="nbtn" id="nbtn" onclick="nextQ()">次の問題 →</button>';
+  document.getElementById('quizContent').innerHTML=h;
+  var inp=document.getElementById('gi'),sub=document.getElementById('gsub');
+  function doCheck(){
+    if(S.answered)return;S.answered=true;
+    var v=inp.value.trim().toLowerCase(),ok=v===q.a.toLowerCase();
+    if(ok){inp.classList.add('ok');S.score++;S.streak++;SFX.play('correct');S.total++}
+    else{inp.classList.add('ng');S.streak=0;S.wrong.push(q);SFX.play('wrong');document.getElementById('corr').classList.add('show')}
+    inp.disabled=true;sub.disabled=true;
+    var rb=document.getElementById('rbanner');
+    if(ok){rb.textContent='⭕ 正解！';rb.className='result-banner show ok-banner'}
+    else{rb.textContent='❌ 不正解…';rb.className='result-banner show ng-banner'}
+    document.getElementById('ebox').classList.add('show');document.getElementById('peekbtn').classList.add('hide');document.getElementById('nbtn').classList.add('show');updStats();
+  }
+  sub.addEventListener('click',doCheck);
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')doCheck()});
+}
+
+// SEIJO
+function renderSeijo(q){
+  var qt=q.q.replace(/\(    \)/g,'<span style="color:var(--pink);font-weight:700;border-bottom:2.5px dashed var(--pink);padding:0 8px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+  S.orderSel=[];
+  var h='<div class="qcard">'+(S.showGrammarTag?'<span class="qtag qtag-g">'+q.g+'</span>':'')+'<span class="qtag qtag-t">整序英作文</span><div class="qtxt">'+qt+'</div></div>';
+  h+='<div class="oslots" id="osl"></div><div class="ochoices" id="och">';
+  q.p.forEach(function(p,i){h+='<div class="ochip" data-i="'+i+'">'+p.l+' '+p.t+'</div>'});
+  h+='</div><button class="chkbtn" id="chkb" disabled>回答する</button>';
+  h+='<div class="corr" id="corr">正解：'+q.a.join('→')+'</div>';
+  var defEx='<b>正解：'+q.a.join('→')+'</b>✨<br>（'+q.a.map(function(l){var pp=q.p.find(function(x){return x.l===l});return pp?pp.t:''}).join(' ')+'）<br>文法：<b>'+q.g+'</b>';
+  h+='<div class="result-banner" id="rbanner"></div><div class="ebox" id="ebox"><div class="ebox-t">'+(q.ex||defEx)+'</div></div>';
+  h+='<button class="peekbtn" id="peekbtn" onclick="peekAnswer()">💡 答えを見る</button><button class="nbtn" id="nbtn" onclick="nextQ()">次の問題 →</button>';
+  document.getElementById('quizContent').innerHTML=h;
+  document.querySelectorAll('#och .ochip').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      var i=parseInt(this.dataset.i);
+      if(this.classList.contains('placed')){S.orderSel=S.orderSel.filter(function(x){return x!==i});this.classList.remove('placed')}
+      else{S.orderSel.push(i);this.classList.add('placed')}
+      updSlots(q);
+    });
+  });
+  document.getElementById('chkb').addEventListener('click',function(){
+    if(S.answered)return;S.answered=true;
+    var ua=S.orderSel.map(function(i){return q.p[i].l});
+    var ok=JSON.stringify(ua)===JSON.stringify(q.a);
+    var sl=document.getElementById('osl');
+    if(ok){sl.classList.add('ok');S.score++;S.streak++;SFX.play('correct');S.total++}
+    else{sl.classList.add('ng');S.streak=0;S.wrong.push(q);SFX.play('wrong');document.getElementById('corr').classList.add('show')}
+    document.getElementById('chkb').disabled=true;
+    var rb=document.getElementById('rbanner');
+    if(ok){rb.textContent='⭕ 正解！';rb.className='result-banner show ok-banner'}
+    else{rb.textContent='❌ 不正解…';rb.className='result-banner show ng-banner'}
+    document.getElementById('ebox').classList.add('show');document.getElementById('peekbtn').classList.add('hide');document.getElementById('nbtn').classList.add('show');updStats();
+  });
+}
+
+function updSlots(q){
+  var sl=document.getElementById('osl');
+  sl.innerHTML=S.orderSel.map(function(i){var p=q.p[i];return'<div class="ochip ins" data-ri="'+i+'">'+p.l+' '+p.t+'</div>'}).join('');
+  sl.querySelectorAll('.ochip').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      var ri=parseInt(this.dataset.ri);
+      S.orderSel=S.orderSel.filter(function(x){return x!==ri});
+      document.querySelectorAll('#och .ochip').forEach(function(c){if(parseInt(c.dataset.i)===ri)c.classList.remove('placed')});
+      updSlots(q);
+    });
+  });
+  document.getElementById('chkb').disabled=S.orderSel.length!==q.p.length;
+}
+
+// KAIWA
+function renderKaiwa(q){
+  S.convFilled=new Array(q.s).fill(null);S.convSlot=0;
+  let h=`<div class="qcard">${S.showGrammarTag?`<span class="qtag qtag-g">${q.g}</span>`:''}<span class="qtag qtag-t">会話文の完成</span><div class="qtxt">${q.ctx}</div></div>
+  <div class="stitle" style="font-size:13px">正しい順番に選んでください：</div>
+  <div class="cslots" id="csvs">${Array.from({length:q.s},(_,i)=>`<div class="cslot ${i===0?'act':''}" data-si="${i}"><span class="csnum">${i+1}</span><span class="cstxt" id="cst${i}">タップして選択</span></div>`).join('')}</div>
+  <div class="cchoices" id="cchs">${q.ch.map((c,i)=>`<button class="ccbtn" data-ci="${i}">${c}</button>`).join('')}</div>
+  <button class="chkbtn" id="chkc" disabled>回答する</button>
+  <div class="corr" id="corr">正解：${q.a.join(' → ')}</div>
+  <div class="result-banner" id="rbanner"></div><div class="ebox" id="ebox"><div class="ebox-t">${q.ex||('<b>正解：'+q.a.join(' → ')+'</b><br>'+q.a.map((a,i)=>{const c=q.ch.find(x=>x.charAt(0)===a);return '<b>'+(i+1)+'.</b> '+(c||a)}).join('<br>'))}</div></div>
+  <button class="peekbtn" id="peekbtn" onclick="peekAnswer()">💡 答えを見る</button><button class="nbtn" id="nbtn" onclick="nextQ()">次の問題 →</button>`;
+  document.getElementById('quizContent').innerHTML=h;
+
+  // Slot click - tap filled slot to clear it
+  document.querySelectorAll('#csvs .cslot').forEach(el=>{
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      var si=parseInt(this.dataset.si);
+      // If this slot is filled and we tap it again, clear it
+      if(S.convFilled[si]!==null){
+        var ci=S.convFilled[si];
+        S.convFilled[si]=null;
+        this.classList.remove('filled');
+        document.getElementById('cst'+si).textContent='タップして選択';
+        document.querySelectorAll('#cchs .ccbtn')[ci].classList.remove('used');
+        document.getElementById('chkc').disabled=true;
+      }
+      S.convSlot=si;
+      document.querySelectorAll('#csvs .cslot').forEach(function(s,i){s.classList.toggle('act',i===si)});
+    });
+  });
+  // Choice click
+  document.querySelectorAll('#cchs .ccbtn').forEach(el=>{
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      const ci=parseInt(this.dataset.ci),si=S.convSlot;
+      // Unfill prev
+      const prev=S.convFilled[si];
+      if(prev!==null)document.querySelectorAll('#cchs .ccbtn')[prev].classList.remove('used');
+      // Remove from other slot
+      const esi=S.convFilled.indexOf(ci);
+      if(esi!==-1){S.convFilled[esi]=null;const s=document.querySelectorAll('#csvs .cslot')[esi];s.classList.remove('filled');document.getElementById('cst'+esi).textContent='タップして選択'}
+      // Fill
+      S.convFilled[si]=ci;
+      const slot=document.querySelectorAll('#csvs .cslot')[si];slot.classList.add('filled');
+      document.getElementById('cst'+si).textContent=q.ch[ci];
+      this.classList.add('used');
+      // Auto next
+      const ne=S.convFilled.findIndex(x=>x===null);
+      if(ne!==-1){S.convSlot=ne;document.querySelectorAll('#csvs .cslot').forEach((s,i)=>s.classList.toggle('act',i===ne))}
+      document.getElementById('chkc').disabled=!S.convFilled.every(x=>x!==null);
+    });
+  });
+  // Check
+  document.getElementById('chkc').addEventListener('click',()=>{
+    if(S.answered)return;S.answered=true;
+    const ua=S.convFilled.map(i=>q.ch[i].charAt(0));
+    const ok=JSON.stringify(ua)===JSON.stringify(q.a);
+    if(ok){S.score++;S.streak++;S.total++;SFX.play('correct');document.querySelectorAll('#csvs .cslot').forEach(s=>s.style.borderColor='var(--ok)')}
+    else{S.streak=0;S.wrong.push(q);SFX.play('wrong');document.querySelectorAll('#csvs .cslot').forEach(s=>s.style.borderColor='var(--ng)');document.getElementById('corr').classList.add('show')}
+    document.getElementById('chkc').disabled=true;
+    var rb=document.getElementById('rbanner');
+    if(ok){rb.textContent='⭕ 正解！';rb.className='result-banner show ok-banner'}
+    else{rb.textContent='❌ 不正解…';rb.className='result-banner show ng-banner'}
+    document.getElementById('ebox').classList.add('show');document.getElementById('peekbtn').classList.add('hide');document.getElementById('nbtn').classList.add('show');updStats();
+  });
+}
+
+function peekAnswer(){
+  if(S.answered)return;S.answered=true;
+  S.streak=0;
+  var q=S.qs[S.idx];
+  // Mark as wrong (skipped)
+  S.wrong.push(q);
+  // Show correct answer visually depending on question type
+  var chBtns=document.querySelectorAll('#chC .cbtn');
+  if(chBtns.length>0){
+    chBtns.forEach(function(b){if(b.dataset.v===q.a)b.classList.add('ok');b.classList.add('dis')});
+  }
+  var inp=document.getElementById('ginp');
+  if(inp){inp.disabled=true;inp.value=q.a;inp.classList.add('ok');var sub=document.getElementById('gsub');if(sub)sub.disabled=true;var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
+  var osl=document.getElementById('osl');
+  if(osl){osl.classList.add('ng');var chkb=document.getElementById('chkb');if(chkb)chkb.disabled=true;var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
+  var chkc=document.getElementById('chkc');
+  if(chkc){chkc.disabled=true;document.querySelectorAll('#csvs .cslot').forEach(function(s){s.style.borderColor='var(--ng)'});var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
+  // Show banner as skipped
+  var rb=document.getElementById('rbanner');
+  rb.textContent='👀 答えを確認';rb.className='result-banner show ng-banner';
+  document.getElementById('ebox').classList.add('show');
+  document.getElementById('nbtn').classList.add('show');
+  document.getElementById('peekbtn').classList.add('hide');
+  SFX.play('wrong');
+  updStats();
+}
+function nextQ(){
+  SFX.play('click');
+  S.idx++;
+  if(S.idx>=S.qs.length)showResults();
+  else{renderQ();window.scrollTo(0,0)}
+}
+
+function showResults(){
+  const t=S.qs.length,p=Math.round((S.score/t)*100);
+  document.getElementById('rscore').textContent=p+'%';
+  document.getElementById('rcorr').textContent=S.score;
+  document.getElementById('rwrong').textContent=t-S.score;
+  document.getElementById('rtotal').textContent=t;
+  const rv=document.getElementById('wrongReview');
+  if(S.wrong.length===0)rv.innerHTML='<div style="text-align:center;color:var(--ok);padding:20px">🎉 全問正解！すばらしい！</div>';
+  else{let h='';S.wrong.forEach(q=>{const qt=(q.q||q.ctx||'').substring(0,60);h+=`<div class="gchip" style="cursor:default"><div class="gchip-l"><div class="gdot" style="background:var(--ng)"></div><div><div class="gchip-n" style="font-size:12px">${q.g}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${qt}...</div></div></div></div>`});rv.innerHTML=h}
+  if(S.score===S.qs.length)SFX.play('perfect');else SFX.play('done');showPage('results');
+}
+
+// GRAMMAR REF
+function buildGrammarRef(){
+  renderGRefs('all');
+}
+function renderGRefs(cat){
+  var list=cat==='all'?grammarRef:grammarRef.filter(function(g){return g.gr===cat});
+  var h='';list.forEach(function(g){
+    var gc=g.gr==='中1'?'g1':g.gr==='中2'?'g2':'g3';
+    h+='<div class="gref" data-gr="'+g.gr+'"><span class="gref-grade '+gc+'">'+g.gr+'</span>';
+    h+='<div class="gref-t">'+g.t+'</div><div class="gref-d">'+g.d+'</div>';
+    h+='<div class="gref-e">'+g.e.replace(/\n/g,'<br>')+'</div></div>';
+  });
+  document.getElementById('grammarRefList').innerHTML=h;
+}
+function fgCat(btn,cat){
+  document.querySelectorAll('#gTabs .ftab').forEach(function(t){t.classList.remove('on')});
+  btn.classList.add('on');renderGRefs(cat);
+}
+function filterGrammar(){
+  var q=document.getElementById('gSearch').value.toLowerCase();
+  document.querySelectorAll('#grammarRefList .gref').forEach(function(c){c.style.display=c.textContent.toLowerCase().includes(q)?'':'none'});
+}
+
+// VOCAB
+var vocabGroups={"🔤 基本単語": ["月の名前（January～December）", "序数（first～twelfth）", "曜日（Sunday～Saturday）", "時間・季節・自然", "家族", "スポーツ・教科", "人を表す名詞", "場所・建物", "身近な名詞"], "✍️ 重要動詞": ["重要な基本動詞", "haveのいろいろな意味", "take / getのいろいろな意味", "使い分けに注意する動詞", "セットで覚える動詞", "その他の重要動詞"], "🎨 形容詞・副詞": ["数・量を表す形容詞", "いろいろな形容詞", "頻度を表す副詞", "様子を表す副詞", "その他の重要な副詞"], "🔄 動詞の変化": ["規則動詞の過去形・過去分詞", "be動詞の変化", "3人称単数現在形のつくり方", "動詞のing形のつくり方"], "📦 名詞・代名詞": ["名詞の複数形", "代名詞（主格・所有格・目的格・所有代名詞）"], "🔤 動詞の熟語": ["goを使った熟語", "lookを使った熟語", "takeを使った熟語", "getを使った熟語", "comeを使った熟語", "動詞+up/down/on/off", "動詞+前置詞の熟語", "そのほかの動詞の熟語", "意味の似ている熟語"], "⭐ be動詞・形容詞・副詞の熟語": ["be動詞の熟語（超頻出！）", "数や量を表す熟語", "時・場所を表す熟語", "副詞の働きをする熟語", "形容詞の働きをする熟語", "その他の重要熟語（追加）", "そのほかの熟語"], "💬 会話表現": ["会話表現：あいさつ・お礼", "会話表現：電話", "会話表現：道案内", "会話表現：買い物", "会話表現：誘う・提案する"], "📝 不規則動詞": ["不規則動詞（ABC型：全部違う）", "不規則動詞（ABB型：過去形=過去分詞）", "不規則動詞（ABA型/AAA型）"], "📊 比較変化": ["比較変化（規則）", "比較変化（more/most型）", "比較変化（不規則）"]};
+function buildVocab(){showVocabHome()}
+function showVocabHome(){
+  var cl=document.getElementById('vCatList');
+  var el=document.getElementById('vocabList');
+  el.innerHTML='';
+  var h='';
+  for(var grp in vocabGroups){
+    h+=`<div class="vcat-group">${grp}</div>`;
+    vocabGroups[grp].forEach(function(cat){
+      var n=vocabData[cat]?vocabData[cat].length:0;
+      h+=`<div class="vcat-item" onclick="SFX.play('click');showVocabCat('${cat.replace(/'/g,"\\'")}')"><span class="vci-name">${cat}</span><span class="vci-count">${n}語</span></div>`;
+    });
+  }
+  h+=`<div class="vcat-group">📖 すべて表示</div>`;
+  h+=`<div class="vcat-item" onclick="SFX.play('click');showVocabCat('all')"><span class="vci-name">全カテゴリ一覧</span><span class="vci-count">${Object.values(vocabData).reduce(function(a,b){return a+b.length},0)}語</span></div>`;
+  cl.innerHTML=h;
+}
+function showVocabCat(cat){
+  var cl=document.getElementById('vCatList');
+  cl.innerHTML='';
+  var el=document.getElementById('vocabList');
+  var h='<button class="vback-btn" onclick="SFX.play(\'click\');showVocabHome();document.getElementById(\'vocabList\').innerHTML=\'\'">← カテゴリ一覧に戻る</button>';
+  var cs=cat==='all'?Object.keys(vocabData):[cat];
+  cs.forEach(function(c){
+    h+=`<div class="vcat">${c}</div>`;
+    vocabData[c].forEach(function(v){
+      h+=`<div class="vcard" onclick="this.classList.toggle('rev');SFX.play('flip');speakEn(this.querySelector('.vw').textContent)"><div><div class="vw">${v.w}</div></div><div class="vm">${v.m}</div></div>`;
+    });
+  });
+  el.innerHTML=h;
+  window.scrollTo(0,0);
+}
+function rvList(cat){showVocabCat(cat)}
+function fvCat(btn,cat){showVocabCat(cat)}
+function filterVocab(){
+  var q=document.getElementById('vSearch').value.toLowerCase();
+  if(q.length>0){
+    var cl=document.getElementById('vCatList');cl.innerHTML='';
+    var el=document.getElementById('vocabList');
+    var h='<button class="vback-btn" onclick="SFX.play(\'click\');showVocabHome();document.getElementById(\'vocabList\').innerHTML=\'\'">← カテゴリ一覧に戻る</button>';
+    Object.keys(vocabData).forEach(function(c){
+      var matched=vocabData[c].filter(function(v){return(v.w+v.m).toLowerCase().includes(q)});
+      if(matched.length>0){
+        h+=`<div class="vcat">${c}</div>`;
+        matched.forEach(function(v){
+          h+=`<div class="vcard" onclick="this.classList.toggle('rev');SFX.play('flip');speakEn(this.querySelector('.vw').textContent)"><div><div class="vw">${v.w}</div></div><div class="vm">${v.m}</div></div>`;
+        });
+      }
+    });
+    el.innerHTML=h;
+  } else {showVocabHome();document.getElementById('vocabList').innerHTML=''}
+}
+
+init();
+document.body.addEventListener('click',function(){SFX.init()},{once:true});
+</script>
+</body>
+</html>
