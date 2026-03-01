@@ -186,6 +186,19 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text
 
 /* GOKEI INPUT */
 .wbl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px}
+
+/* MULTI-TEKIGO */
+.mt-slots{display:grid;gap:8px;margin-bottom:14px}
+.mt-slot{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card);border-radius:var(--rs);min-height:48px;border:2px solid var(--surface);cursor:pointer;transition:.2s;box-shadow:var(--sh)}
+.mt-slot.act{border-color:var(--pink);background:var(--pink-bg)}
+.mt-slot.filled .mt-stxt{color:var(--text);font-weight:600}
+.mt-slot.filled .mt-snum{background:var(--pink);color:#fff}
+.mt-snum{width:26px;height:26px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:var(--dim)}
+.mt-stxt{font-size:14px;color:var(--muted);line-height:1.5}
+.mt-choices{display:grid;gap:6px;margin-bottom:16px}
+.mt-cbtn{display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--surface);border-radius:var(--rs);padding:12px 14px;cursor:pointer;font-family:'Noto Sans JP';font-size:14px;color:var(--text);text-align:left;transition:.2s;width:100%;line-height:1.5;box-shadow:var(--sh)}
+.mt-cbtn:active:not(.used){transform:scale(.98)}
+.mt-cbtn.used{opacity:.2;pointer-events:none}
 .wbank{display:flex;flex-wrap:wrap;gap:8px;padding:12px;background:var(--purple-bg);border-radius:var(--rs);margin-bottom:12px}
 .wchip{padding:6px 14px;background:var(--card);border:1.5px solid var(--purple-l);border-radius:8px;font-size:14px;color:var(--purple);font-weight:600}
 .ainput{width:100%;background:var(--card);border:2px solid var(--surface);border-radius:var(--rs);padding:14px 16px;font-family:'Noto Sans JP';font-size:16px;color:var(--text);outline:none;transition:border-color .2s}
@@ -2007,60 +2020,6 @@ Which ＋ 名詞 ＋ do you ～? ＝「どちらの～を…しますか？」
 Which <b>language</b> do you speak?
 Which <b>book</b> do you like?
 A or B? の選択肢がつくことが多い！</span>`}
-,{id:239,q:`A: Did you finish your English homework for summer vacation?
-ア No. The last question is very difficult.
-イ Sounds good. We can go to the library.
-ウ I agree. Let's try to finish it together.`,ch:["ア No. The last question is very difficult.","イ Sounds good. We can go to the library.","ウ I agree. Let's try to finish it together."],a:["ア","イ","ウ"],s:3,g:`会話並べ替え`,
- ex:`<b>正解の並び順：ア・イ・ウ</b>
-
-✏️ <b>完成した会話と日本語訳</b>
-Did you finish your English homework for summer vacation?（夏休みの英語の宿題、終わった？）
-↓
-<b>ア</b> No. The last question is very difficult.（まだ。最後の問題がとても難しくて。）
-↓
-<b>イ</b> Sounds good. We can go to the library.（そうだね。図書館に行けるよ。）
-↓
-<b>ウ</b> I agree. Let's try to finish it together.（賛成！一緒に終わらせよう。）
-
-<span class="tip">💡 <b>会話の流れ</b>
-①問題提起（宿題まだ）→②提案（図書館）→③同意（一緒に）
-Sounds good. ＝「いいね！」（It sounds good の短縮）</span>`}
-,{id:240,q:`May I help you?
-ア No problem. Can I try it on?
-イ Yes. I'm looking for a black jacket.
-ウ Let me see. We have only a large size.`,ch:["ア No problem. Can I try it on?","イ Yes. I'm looking for a black jacket.","ウ Let me see. We have only a large size."],a:["イ","ウ","ア"],s:3,g:`会話並べ替え`,
- ex:`<b>正解の並び順：イ・ウ・ア</b>
-
-✏️ <b>完成した会話と日本語訳</b>
-May I help you?（いらっしゃいませ。）
-↓
-<b>イ</b> Yes. I'm looking for a black jacket.（はい、黒いジャケットを探しています。）
-↓
-<b>ウ</b> Let me see. We have only a large size.（少々お待ちください。ラージサイズしかございません。）
-↓
-<b>ア</b> No problem. Can I try it on?（問題ありません。試着できますか？）
-
-<span class="tip">💡 <b>ショッピングの定番フレーズ</b>
-I'm looking for ～.（～を探しています）
-try it on ＝ 試着する（try on it ではなく try it on！代名詞は間に入る）</span>`}
-,{id:241,q:`You look sad. What's wrong?
-ア You're right. Thanks. I will.
-イ You should go to the police and tell them about that.
-ウ I have lost my bag that I bought yesterday. Everything is in it.`,ch:["ア You're right. Thanks. I will.","イ You should go to the police and tell them about that.","ウ I have lost my bag that I bought yesterday. Everything is in it."],a:["ウ","イ","ア"],s:3,g:`会話並べ替え`,
- ex:`<b>正解の並び順：ウ・イ・ア</b>
-
-✏️ <b>完成した会話と日本語訳</b>
-You look sad. What's wrong?（悲しそうだね。どうしたの？）
-↓
-<b>ウ</b> I have lost my bag that I bought yesterday. Everything is in it.（昨日買ったバッグをなくしてしまいました。全部入っていたのに。）
-↓
-<b>イ</b> You should go to the police and tell them about that.（警察に行ってそのことを伝えるべきだよ。）
-↓
-<b>ア</b> You're right. Thanks. I will.（そうだね。ありがとう。そうします。）
-
-<span class="tip">💡 <b>I have lost ～</b>（現在完了・結果）
-「なくしてしまった（今もない状態）」→ 現在完了形！
-You should ～.（～すべきだよ）→ アドバイスの定番</span>`}
 ,{id:245,q:`A: I think I've seen that man before.
 B: Who are you talking about?
 A: The ( ア care イ man ウ is エ who オ taking) of the dog over there.
@@ -2401,7 +2360,52 @@ Saki: I will study hard to go to college.（大学に行くために一生懸命
 <span class="tip">💡 <b>make your dream come true ＝ 夢を叶える</b>
 make ＋ 目的語 ＋ 動詞の原形（使役動詞）
 「make your dream come true」→「あなたの夢を実現させる」
-save ＝「救う」（医療文脈では「命を救う」）</span>`}];
+save ＝「救う」（医療文脈では「命を救う」）</span>`}
+,{id:239,ctx:`A: Did you finish your English homework for summer vacation?`,ch:["ア No. The last question is very difficult.","イ Sounds good. We can go to the library.","ウ I agree. Let's try to finish it together."],a:["ア","イ","ウ"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：ア・イ・ウ</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+Did you finish your English homework for summer vacation?（夏休みの英語の宿題、終わった？）
+↓
+<b>ア</b> No. The last question is very difficult.（まだ。最後の問題がとても難しくて。）
+↓
+<b>イ</b> Sounds good. We can go to the library.（そうだね。図書館に行けるよ。）
+↓
+<b>ウ</b> I agree. Let's try to finish it together.（賛成！一緒に終わらせよう。）
+
+<span class="tip">💡 <b>会話の流れ</b>
+①問題提起（宿題まだ）→②提案（図書館）→③同意（一緒に）
+Sounds good. ＝「いいね！」（It sounds good の短縮）</span>`}
+,{id:240,ctx:`May I help you?`,ch:["ア No problem. Can I try it on?","イ Yes. I'm looking for a black jacket.","ウ Let me see. We have only a large size."],a:["イ","ウ","ア"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：イ・ウ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+May I help you?（いらっしゃいませ。）
+↓
+<b>イ</b> Yes. I'm looking for a black jacket.（はい、黒いジャケットを探しています。）
+↓
+<b>ウ</b> Let me see. We have only a large size.（少々お待ちください。ラージサイズしかございません。）
+↓
+<b>ア</b> No problem. Can I try it on?（問題ありません。試着できますか？）
+
+<span class="tip">💡 <b>ショッピングの定番フレーズ</b>
+I'm looking for ～.（～を探しています）
+try it on ＝ 試着する（try on it ではなく try it on！代名詞は間に入る）</span>`}
+,{id:241,ctx:`You look sad. What's wrong?`,ch:["ア You're right. Thanks. I will.","イ You should go to the police and tell them about that.","ウ I have lost my bag that I bought yesterday. Everything is in it."],a:["ウ","イ","ア"],s:3,g:`会話並べ替え`,
+ ex:`<b>正解の並び順：ウ・イ・ア</b>
+
+✏️ <b>完成した会話と日本語訳</b>
+You look sad. What's wrong?（悲しそうだね。どうしたの？）
+↓
+<b>ウ</b> I have lost my bag that I bought yesterday. Everything is in it.（昨日買ったバッグをなくしてしまいました。全部入っていたのに。）
+↓
+<b>イ</b> You should go to the police and tell them about that.（警察に行ってそのことを伝えるべきだよ。）
+↓
+<b>ア</b> You're right. Thanks. I will.（そうだね。ありがとう。そうします。）
+
+<span class="tip">💡 <b>I have lost ～</b>（現在完了・結果）
+「なくしてしまった（今もない状態）」→ 現在完了形！
+You should ～.（～すべきだよ）→ アドバイスの定番</span>`}];
 
 // Vocab, Grammar Ref, etc
 const vocabData={"goを使った熟語": [{"w": "go to bed", "m": "寝る"}, {"w": "go out", "m": "外出する"}, {"w": "go away", "m": "立ち去る"}, {"w": "go back", "m": "戻る，帰る"}, {"w": "go shopping", "m": "買い物に行く"}, {"w": "go fishing", "m": "釣りに行く"}, {"w": "go ~ing", "m": "～しに行く"}], "lookを使った熟語": [{"w": "look at ～", "m": "～を見る"}, {"w": "look for ～", "m": "～を探す"}, {"w": "look like ～", "m": "～に似ている"}, {"w": "look forward to ～", "m": "～を楽しみに待つ"}, {"w": "look after ～", "m": "～の世話をする"}], "takeを使った熟語": [{"w": "take off", "m": "（服を）脱ぐ"}, {"w": "take care", "m": "注意する"}, {"w": "take a bath", "m": "風呂に入る"}, {"w": "take a walk", "m": "散歩する"}, {"w": "take a picture/photo", "m": "写真を撮る"}, {"w": "take care of ～", "m": "～の世話をする"}], "getを使った熟語": [{"w": "get up", "m": "起きる"}, {"w": "get to school", "m": "学校に着く"}, {"w": "get back", "m": "戻る，帰る"}, {"w": "get home", "m": "帰宅する"}, {"w": "get on the bus", "m": "バスに乗る"}, {"w": "get off the train", "m": "電車を降りる"}], "comeを使った熟語": [{"w": "come in", "m": "入る"}, {"w": "come home", "m": "帰宅する"}, {"w": "come back", "m": "帰ってくる，戻ってくる"}, {"w": "come true", "m": "実現する"}, {"w": "come from ～", "m": "～の出身である"}, {"w": "Come on!", "m": "がんばって！/さあ，早く！"}], "動詞+up/down/on/off": [{"w": "give up", "m": "あきらめる"}, {"w": "grow up", "m": "成長する"}, {"w": "put on", "m": "身につける"}, {"w": "put off", "m": "延期する"}, {"w": "sit down", "m": "すわる"}, {"w": "stand up", "m": "立ち上がる"}, {"w": "cut down", "m": "切り倒す"}, {"w": "pick up", "m": "車で迎えに行く/拾う"}, {"w": "turn on the TV", "m": "テレビをつける"}, {"w": "turn off the TV", "m": "テレビを消す"}], "動詞+前置詞の熟語": [{"w": "listen to ～", "m": "～を聞く"}, {"w": "wait for ～", "m": "～を待つ"}, {"w": "talk about ～", "m": "～について話す"}, {"w": "talk with ～", "m": "～と話す"}, {"w": "agree with ～", "m": "～に賛成する"}, {"w": "arrive in/at ～", "m": "～に着く"}, {"w": "stay at ～", "m": "～に滞在する"}], "そのほかの動詞の熟語": [{"w": "have a good time", "m": "楽しい時を過ごす"}, {"w": "do your best", "m": "全力をつくす"}, {"w": "help me with ～", "m": "（私の）～を手伝う"}, {"w": "help each other", "m": "お互いを助ける"}, {"w": "one after another", "m": "次々に"}], "be動詞の熟語（超頻出！）": [{"w": "be kind to ～", "m": "～に親切だ"}, {"w": "be famous for ～", "m": "～で有名だ"}, {"w": "be interested in ～", "m": "～に興味がある"}, {"w": "be good at ～", "m": "～が得意だ"}, {"w": "be different from ～", "m": "～と違う"}, {"w": "be late for ～", "m": "～に遅れる"}, {"w": "be full of ～", "m": "～でいっぱいだ"}, {"w": "be afraid of ～", "m": "～を恐れる"}, {"w": "be proud of ～", "m": "～を自慢に思う"}, {"w": "be able to ～", "m": "～できる"}, {"w": "be born", "m": "生まれる"}, {"w": "be covered with ～", "m": "～でおおわれている"}, {"w": "be glad/happy to ～", "m": "～してうれしい"}, {"w": "be surprised at ～", "m": "～に驚く"}, {"w": "be known to ～", "m": "～に知られている"}, {"w": "be made of ～", "m": "～でできている（材料）"}], "副詞の働きをする熟語": [{"w": "for example", "m": "例えば"}, {"w": "of course", "m": "もちろん"}, {"w": "at last", "m": "ついに"}, {"w": "at first", "m": "最初は"}, {"w": "after school", "m": "放課後"}, {"w": "at home", "m": "家で"}, {"w": "over there", "m": "向こうで"}, {"w": "one day", "m": "ある日"}, {"w": "a lot", "m": "たくさん，とても"}, {"w": "for a long time", "m": "長い間"}, {"w": "for the first time", "m": "初めて"}, {"w": "all over the world", "m": "世界中で"}, {"w": "not ～at all", "m": "少しも～ない"}, {"w": "on my way to school", "m": "学校へ行く途中で"}, {"w": "as soon as ～", "m": "～するとすぐに"}], "形容詞の働きをする熟語": [{"w": "a lot of ～", "m": "たくさんの～"}, {"w": "lots of ～", "m": "たくさんの～"}, {"w": "a few ～", "m": "2，3の～/少しの～"}, {"w": "thousands of ～", "m": "何千もの～"}, {"w": "a kind of ～", "m": "一種の～"}, {"w": "a cup of tea", "m": "カップ1杯のお茶"}, {"w": "a glass of water", "m": "コップ1杯の水"}], "そのほかの熟語": [{"w": "thanks to ～", "m": "～のおかげで"}, {"w": "because of ～", "m": "～のために（理由）"}, {"w": "in front of ～", "m": "～の前で"}, {"w": "between A and B", "m": "AとBの間に"}, {"w": "both A and B", "m": "AもBも両方とも"}, {"w": "far from ～", "m": "～から遠くに"}], "会話表現：あいさつ・お礼": [{"w": "How are you? — I'm fine, thank you.", "m": "お元気ですか？—元気です"}, {"w": "Nice to meet you.", "m": "はじめまして"}, {"w": "Good morning/afternoon/evening.", "m": "おはよう/こんにちは/こんばんは"}, {"w": "See you. / Goodbye.", "m": "またね/さようなら"}, {"w": "Thank you very much. — You're welcome.", "m": "ありがとう—どういたしまして"}, {"w": "I'm sorry. — That's all right.", "m": "ごめんなさい—いいですよ"}, {"w": "No problem. / Not at all. / That's OK.", "m": "問題ないよ/どういたしまして"}], "会話表現：電話": [{"w": "This is Aya. (電話で)", "m": "こちらは彩です"}, {"w": "May I speak to ～?", "m": "～さんとお話できますか"}, {"w": "Speaking.", "m": "私です（電話で本人が出た時）"}, {"w": "Sorry, he's out.", "m": "すみません、外出中です"}, {"w": "Shall I take a message?", "m": "伝言をうかがいましょうか"}, {"w": "I'll call back later.", "m": "あとでかけ直します"}, {"w": "Hold on, please. / Just a minute.", "m": "少々お待ちください"}, {"w": "Who's calling, please?", "m": "どちら様ですか"}, {"w": "Can I leave a message?", "m": "伝言をお願いできますか"}, {"w": "You have the wrong number.", "m": "番号が違います"}], "会話表現：道案内": [{"w": "Excuse me. Could you tell me the way to ～?", "m": "すみません。～への道を教えて"}, {"w": "Go straight.", "m": "まっすぐ行く"}, {"w": "Turn right/left.", "m": "右/左に曲がる"}, {"w": "You'll see it on your left/right.", "m": "左/右手に見えます"}, {"w": "Where is the library?", "m": "図書館はどこですか"}, {"w": "Is there a station near here?", "m": "この近くに駅はありますか"}, {"w": "How can I get to the hospital?", "m": "病院へはどう行けますか"}, {"w": "I'm sorry, I don't know. / I'm a stranger here.", "m": "すみません、わかりません"}], "会話表現：買い物": [{"w": "May I help you?", "m": "いらっしゃいませ"}, {"w": "I'm looking for ～.", "m": "～を探しています"}, {"w": "How much is it?", "m": "いくらですか"}, {"w": "Can I try it on?", "m": "試着してもいいですか"}, {"w": "I'll take it.", "m": "これにします"}, {"w": "Here you are.", "m": "はい、どうぞ"}], "会話表現：誘う・提案する": [{"w": "Why don't you join us?", "m": "参加しませんか"}, {"w": "Sounds good.", "m": "いいですね"}, {"w": "How about ～ing?", "m": "～するのはどうですか"}, {"w": "I'd love to.", "m": "ぜひそうしたいです"}, {"w": "Would you like to ～?", "m": "～しませんか（丁寧）"}, {"w": "Sorry, but I'm busy today.", "m": "すみませんが今日は忙しいです"}, {"w": "Shall we go shopping?", "m": "買い物に行きましょうか"}, {"w": "Let's play soccer.", "m": "サッカーをしましょう"}, {"w": "Yes, let's. / That's a good idea. / Why not?", "m": "承諾の表現3パターン"}, {"w": "Would you like something to drink?", "m": "飲み物はいかがですか"}], "不規則動詞（ABC型：全部違う）": [{"w": "break→broke→broken", "m": "こわす"}, {"w": "do→did→done", "m": "する"}, {"w": "eat→ate→eaten", "m": "食べる"}, {"w": "know→knew→known", "m": "知っている"}, {"w": "see→saw→seen", "m": "見える"}, {"w": "sing→sang→sung", "m": "歌う"}, {"w": "speak→spoke→spoken", "m": "話す"}, {"w": "take→took→taken", "m": "取る，撮る"}, {"w": "write→wrote→written", "m": "書く"}, {"w": "give→gave→given", "m": "与える"}, {"w": "go→went→gone", "m": "行く"}, {"w": "drink→drank→drunk", "m": "飲む"}, {"w": "begin→began→begun", "m": "始める"}, {"w": "draw→drew→drawn", "m": "描く"}, {"w": "drive→drove→driven", "m": "運転する"}, {"w": "fall→fell→fallen", "m": "落ちる"}, {"w": "fly→flew→flown", "m": "飛ぶ"}, {"w": "forget→forgot→forgotten", "m": "忘れる"}, {"w": "grow→grew→grown", "m": "成長する"}, {"w": "ride→rode→ridden", "m": "乗る"}, {"w": "rise→rose→risen", "m": "のぼる"}, {"w": "show→showed→shown", "m": "見せる"}, {"w": "swim→swam→swum", "m": "泳ぐ"}, {"w": "throw→threw→thrown", "m": "投げる"}, {"w": "wear→wore→worn", "m": "着ている"}, {"w": "choose→chose→chosen", "m": "選ぶ"}], "不規則動詞（ABB型：過去形=過去分詞）": [{"w": "make→made→made", "m": "作る"}, {"w": "build→built→built", "m": "建てる"}, {"w": "hear→heard→heard", "m": "聞く"}, {"w": "find→found→found", "m": "見つける"}, {"w": "buy→bought→bought", "m": "買う"}, {"w": "catch→caught→caught", "m": "捕まえる"}, {"w": "teach→taught→taught", "m": "教える"}, {"w": "think→thought→thought", "m": "考える"}, {"w": "bring→brought→brought", "m": "持ってくる"}, {"w": "feel→felt→felt", "m": "感じる"}, {"w": "keep→kept→kept", "m": "保つ"}, {"w": "leave→left→left", "m": "去る，出発する"}, {"w": "lose→lost→lost", "m": "失う，負ける"}, {"w": "meet→met→met", "m": "会う"}, {"w": "sell→sold→sold", "m": "売る"}, {"w": "send→sent→sent", "m": "送る"}, {"w": "sit→sat→sat", "m": "すわる"}, {"w": "sleep→slept→slept", "m": "眠る"}, {"w": "spend→spent→spent", "m": "過ごす，使う"}, {"w": "stand→stood→stood", "m": "立つ"}, {"w": "tell→told→told", "m": "伝える，言う"}, {"w": "understand→understood→understood", "m": "理解する"}, {"w": "win→won→won", "m": "勝つ"}, {"w": "hold→held→held", "m": "握る，開く"}, {"w": "say→said→said", "m": "言う"}, {"w": "pay→paid→paid", "m": "払う"}, {"w": "have→had→had", "m": "持つ"}, {"w": "get→got→got(ten)", "m": "得る"}], "不規則動詞（ABA型/AAA型）": [{"w": "come→came→come", "m": "来る"}, {"w": "run→ran→run", "m": "走る"}, {"w": "become→became→become", "m": "～になる"}, {"w": "cut→cut→cut", "m": "切る"}, {"w": "put→put→put", "m": "置く"}, {"w": "read→read→read", "m": "読む ※過去形の発音は「レッド」"}, {"w": "set→set→set", "m": "置く，セットする"}, {"w": "hit→hit→hit", "m": "打つ"}, {"w": "hurt→hurt→hurt", "m": "傷つける"}, {"w": "shut→shut→shut", "m": "閉める"}, {"w": "spread→spread→spread", "m": "広げる"}], "比較変化（規則）": [{"w": "tall→taller→tallest", "m": "高い（ふつう：+er/est）"}, {"w": "large→larger→largest", "m": "大きい（語尾e：+r/st）"}, {"w": "easy→easier→easiest", "m": "簡単な（子音+y：yをiに変えてer/est）"}, {"w": "hot→hotter→hottest", "m": "暑い（短母音+子音：子音を重ねてer/est）"}, {"w": "big→bigger→biggest", "m": "大きい（同上）"}, {"w": "new→newer→newest", "m": "新しい"}, {"w": "nice→nicer→nicest", "m": "すてきな"}, {"w": "busy→busier→busiest", "m": "忙しい"}, {"w": "early→earlier→earliest", "m": "早い"}, {"w": "long→longer→longest", "m": "長い"}, {"w": "old→older→oldest", "m": "古い，年をとった"}, {"w": "young→younger→youngest", "m": "若い"}, {"w": "fast→faster→fastest", "m": "速い"}, {"w": "high→higher→highest", "m": "高い"}, {"w": "cold→colder→coldest", "m": "寒い"}, {"w": "warm→warmer→warmest", "m": "暖かい"}, {"w": "short→shorter→shortest", "m": "短い"}, {"w": "slow→slower→slowest", "m": "遅い"}, {"w": "hard→harder→hardest", "m": "難しい"}], "比較変化（more/most型）": [{"w": "famous→more famous→most famous", "m": "有名な"}, {"w": "interesting→more ～→most ～", "m": "おもしろい"}, {"w": "important→more ～→most ～", "m": "重要な"}, {"w": "difficult→more ～→most ～", "m": "難しい"}, {"w": "useful→more ～→most ～", "m": "役に立つ"}, {"w": "popular→more ～→most ～", "m": "人気のある"}, {"w": "careful→more ～→most ～", "m": "注意深い"}, {"w": "exciting→more ～→most ～", "m": "わくわくする"}, {"w": "beautiful→more ～→most ～", "m": "美しい"}, {"w": "slowly→more ～→most ～", "m": "ゆっくり（副詞）"}], "比較変化（不規則）": [{"w": "good/well→better→best", "m": "よい/じょうずに"}, {"w": "bad/ill→worse→worst", "m": "悪い"}, {"w": "many/much→more→most", "m": "多い/多くの"}, {"w": "little→less→least", "m": "少ない"}], "月の名前（January～December）": [{"w": "January", "m": "1月"}, {"w": "February", "m": "2月"}, {"w": "March", "m": "3月"}, {"w": "April", "m": "4月"}, {"w": "May", "m": "5月"}, {"w": "June", "m": "6月"}, {"w": "July", "m": "7月"}, {"w": "August", "m": "8月"}, {"w": "September", "m": "9月"}, {"w": "October", "m": "10月"}, {"w": "November", "m": "11月"}, {"w": "December", "m": "12月"}], "序数（first～twelfth）": [{"w": "first", "m": "1番目の"}, {"w": "second", "m": "2番目の"}, {"w": "third", "m": "3番目の"}, {"w": "fourth", "m": "4番目の"}, {"w": "fifth", "m": "5番目の"}, {"w": "sixth", "m": "6番目の"}, {"w": "seventh", "m": "7番目の"}, {"w": "eighth", "m": "8番目の"}, {"w": "ninth", "m": "9番目の"}, {"w": "tenth", "m": "10番目の"}, {"w": "eleventh", "m": "11番目の"}, {"w": "twelfth", "m": "12番目の"}], "曜日（Sunday～Saturday）": [{"w": "Sunday", "m": "日曜日"}, {"w": "Monday", "m": "月曜日"}, {"w": "Tuesday", "m": "火曜日"}, {"w": "Wednesday", "m": "水曜日"}, {"w": "Thursday", "m": "木曜日"}, {"w": "Friday", "m": "金曜日"}, {"w": "Saturday", "m": "土曜日"}], "時間・季節・自然": [{"w": "morning", "m": "午前"}, {"w": "afternoon", "m": "午後"}, {"w": "evening", "m": "夕方"}, {"w": "night", "m": "夜"}, {"w": "day", "m": "1日"}, {"w": "week", "m": "1週間"}, {"w": "month", "m": "1か月"}, {"w": "year", "m": "1年"}, {"w": "season", "m": "季節"}, {"w": "spring", "m": "春"}, {"w": "summer", "m": "夏"}, {"w": "fall", "m": "秋"}, {"w": "winter", "m": "冬"}, {"w": "country", "m": "国"}, {"w": "earth", "m": "地球"}, {"w": "sea", "m": "海"}], "家族": [{"w": "family", "m": "家族"}, {"w": "father", "m": "父"}, {"w": "mother", "m": "母"}, {"w": "brother", "m": "兄・弟"}, {"w": "sister", "m": "姉・妹"}, {"w": "grandfather", "m": "祖父"}, {"w": "grandmother", "m": "祖母"}, {"w": "uncle", "m": "おじ"}, {"w": "aunt", "m": "おば"}, {"w": "parents", "m": "両親"}, {"w": "child", "m": "子ども"}], "スポーツ・教科": [{"w": "sport", "m": "スポーツ"}, {"w": "baseball", "m": "野球"}, {"w": "soccer", "m": "サッカー"}, {"w": "basketball", "m": "バスケットボール"}, {"w": "tennis", "m": "テニス"}, {"w": "player", "m": "選手"}, {"w": "team", "m": "チーム"}, {"w": "member", "m": "メンバー"}, {"w": "game", "m": "試合"}, {"w": "subject", "m": "教科"}, {"w": "Japanese", "m": "国語"}, {"w": "Science", "m": "理科"}, {"w": "English", "m": "英語"}, {"w": "Social Studies", "m": "社会"}, {"w": "Math", "m": "数学"}, {"w": "Music", "m": "音楽"}, {"w": "P.E.", "m": "体育"}], "人を表す名詞": [{"w": "teacher", "m": "教師"}, {"w": "friend", "m": "友達"}, {"w": "singer", "m": "歌手"}, {"w": "boy", "m": "少年"}, {"w": "girl", "m": "少女"}, {"w": "cook", "m": "料理人"}, {"w": "doctor", "m": "医師"}, {"w": "student", "m": "生徒"}, {"w": "man", "m": "男性"}, {"w": "woman", "m": "女性"}], "場所・建物": [{"w": "school", "m": "学校"}, {"w": "station", "m": "駅"}, {"w": "library", "m": "図書館"}, {"w": "hospital", "m": "病院"}, {"w": "museum", "m": "博物館"}, {"w": "park", "m": "公園"}, {"w": "restaurant", "m": "レストラン"}, {"w": "post office", "m": "郵便局"}], "身近な名詞": [{"w": "coffee", "m": "コーヒー"}, {"w": "tea", "m": "お茶"}, {"w": "water", "m": "水"}, {"w": "homework", "m": "宿題"}, {"w": "money", "m": "お金"}, {"w": "news", "m": "ニュース"}], "重要な基本動詞": [{"w": "like sports", "m": "スポーツが好き"}, {"w": "play soccer", "m": "サッカーをする"}, {"w": "go to the park", "m": "公園へ行く"}, {"w": "come to Japan", "m": "日本へ来る"}, {"w": "live in Tokyo", "m": "東京に住む"}, {"w": "want a bike", "m": "自転車が欲しい"}, {"w": "wash the dishes", "m": "皿を洗う"}, {"w": "study English", "m": "英語を勉強する"}, {"w": "make a cake", "m": "ケーキを作る"}, {"w": "read a book", "m": "本を読む"}, {"w": "write a letter", "m": "手紙を書く"}, {"w": "find a job", "m": "仕事を見つける"}, {"w": "know Ken", "m": "ケンを知っている"}, {"w": "visit China", "m": "中国を訪れる"}], "haveのいろいろな意味": [{"w": "have a CD", "m": "CDを持っている"}, {"w": "have a sister", "m": "姉がいる"}, {"w": "have lunch", "m": "昼食を食べる"}, {"w": "have a question", "m": "質問がある"}, {"w": "have a bird", "m": "鳥を飼っている"}, {"w": "have a party", "m": "パーティーを開く"}, {"w": "have lots of snow", "m": "雪がたくさん降る"}], "take / getのいろいろな意味": [{"w": "take an egg", "m": "卵を手に取る"}, {"w": "take a bus", "m": "バスに乗っていく"}, {"w": "take ten minutes", "m": "10分かかる"}, {"w": "take him to the zoo", "m": "彼を動物園へ連れていく"}, {"w": "get information", "m": "情報を得る"}, {"w": "get cold", "m": "寒くなる"}, {"w": "get a hat", "m": "帽子を買う"}, {"w": "get to the station", "m": "駅に着く"}, {"w": "get an e-mail", "m": "メールを受け取る"}], "使い分けに注意する動詞": [{"w": "speak French", "m": "フランス語を話す（言語）"}, {"w": "tell the truth", "m": "真実を話す（伝える）"}, {"w": "talk with Miki", "m": "ミキと話す（おしゃべり）"}, {"w": "see stars", "m": "星が見える（自然に）"}, {"w": "watch TV", "m": "テレビを見る（じっと）"}, {"w": "look at the tree", "m": "木を見る（意識的に）"}, {"w": "hear a noise", "m": "物音を聞く（自然に）"}, {"w": "listen to music", "m": "音楽を聞く（意識的に）"}, {"w": "ask Ken's address", "m": "ケンの住所を聞く（尋ねる）"}, {"w": "teach English", "m": "英語を教える（知識を）"}, {"w": "tell her the way", "m": "彼女に道を教える（情報を）"}], "セットで覚える動詞": [{"w": "ask / answer", "m": "尋ねる / 答える"}, {"w": "learn / teach", "m": "習う / 教える"}, {"w": "open / close", "m": "開ける / 閉める"}, {"w": "buy / sell", "m": "買う / 売る"}, {"w": "take / bring", "m": "持っていく / 持ってくる"}, {"w": "begin, start / finish, end", "m": "始める / 終える"}, {"w": "remember / forget", "m": "覚えている / 忘れる"}, {"w": "win / lose", "m": "勝つ / 負ける"}], "その他の重要動詞": [{"w": "enjoy the party", "m": "パーティーを楽しむ"}, {"w": "eat pizza", "m": "ピザを食べる"}, {"w": "drink tea", "m": "紅茶を飲む"}, {"w": "cook dinner", "m": "夕食を作る"}, {"w": "practice the piano", "m": "ピアノを練習する"}, {"w": "clean the room", "m": "部屋を掃除する"}, {"w": "call Lisa", "m": "リサに電話する"}, {"w": "sing a song", "m": "歌を歌う"}, {"w": "work hard", "m": "熱心に働く"}, {"w": "leave home", "m": "家を出る"}, {"w": "stay in Paris", "m": "パリに滞在する"}, {"w": "drive a car", "m": "車を運転する"}, {"w": "feel happy", "m": "幸せに感じる"}, {"w": "help my friend", "m": "友達を手伝う"}, {"w": "need help", "m": "助けを必要とする"}, {"w": "love animals", "m": "動物を愛する"}], "数・量を表す形容詞": [{"w": "many cars", "m": "たくさんの車（数えられる）"}, {"w": "much milk", "m": "多量の牛乳（数えられない）"}, {"w": "some cars / some milk", "m": "いくつかの車 / いくらかの牛乳"}, {"w": "a few cars", "m": "2、3台の車（少しある）"}, {"w": "a little milk", "m": "少量の牛乳（少しある）"}, {"w": "few cars", "m": "ほとんどない車"}, {"w": "little milk", "m": "ほとんどない牛乳"}], "いろいろな形容詞": [{"w": "old / new", "m": "古い / 新しい"}, {"w": "good / bad", "m": "良い / 悪い"}, {"w": "big, large / little, small", "m": "大きい / 小さい"}, {"w": "long / short", "m": "長い / 短い"}, {"w": "same / different", "m": "同じ / 異なる"}, {"w": "old / young", "m": "年をとった / 若い"}, {"w": "right / wrong", "m": "正しい / 間違った"}, {"w": "busy / free", "m": "忙しい / 暇な"}, {"w": "easy / difficult, hard", "m": "簡単な / 難しい"}, {"w": "hot / cold", "m": "暑い（熱い） / 寒い・冷たい"}, {"w": "famous", "m": "有名な"}, {"w": "popular", "m": "人気のある"}, {"w": "favorite", "m": "お気に入りの"}, {"w": "interesting", "m": "興味深い"}, {"w": "beautiful", "m": "美しい"}, {"w": "sorry", "m": "すまなく思って"}, {"w": "important", "m": "大切な"}, {"w": "exciting", "m": "わくわくさせる"}, {"w": "tired", "m": "疲れた"}, {"w": "kind", "m": "親切な"}, {"w": "useful", "m": "役に立つ"}], "頻度を表す副詞": [{"w": "always", "m": "いつも"}, {"w": "usually", "m": "たいてい"}, {"w": "often", "m": "しばしば"}, {"w": "sometimes", "m": "ときどき"}, {"w": "never", "m": "決して〜ない"}], "様子を表す副詞": [{"w": "sing well", "m": "上手に歌う"}, {"w": "run fast", "m": "速く走る"}, {"w": "get up early", "m": "早く起きる"}, {"w": "go to bed late", "m": "遅く寝る"}, {"w": "speak slowly", "m": "ゆっくり話す"}, {"w": "study hard", "m": "熱心に勉強する"}], "その他の重要な副詞": [{"w": "too", "m": "肯定文の末尾で「～も」/ 形容詞の前で「～すぎる」"}, {"w": "also", "m": "～もまた（文中で使う）"}, {"w": "either", "m": "～もまたない（否定文で使う）"}, {"w": "again", "m": "再び"}, {"w": "next week", "m": "来週"}, {"w": "last Sunday", "m": "この前の日曜日"}, {"w": "ten days ago", "m": "10日前"}], "規則動詞の過去形・過去分詞": [{"w": "help→helped", "m": "助ける"}, {"w": "watch→watched", "m": "見る"}, {"w": "like→liked", "m": "好む"}, {"w": "love→loved", "m": "愛する"}, {"w": "use→used", "m": "使う"}, {"w": "live→lived", "m": "住む"}, {"w": "study→studied", "m": "勉強する（y→ied）"}, {"w": "try→tried", "m": "試す（y→ied）"}, {"w": "carry→carried", "m": "運ぶ（y→ied）"}, {"w": "cry→cried", "m": "泣く（y→ied）"}, {"w": "stop→stopped", "m": "止まる（子音を重ねる）"}, {"w": "plan→planned", "m": "計画する（子音を重ねる）"}, {"w": "drop→dropped", "m": "落とす（子音を重ねる）"}], "be動詞の変化": [{"w": "I am / I was / I have been", "m": "私は～である"}, {"w": "You are / You were / You have been", "m": "あなたは～である"}, {"w": "He is / He was / He has been", "m": "彼は～である（3人称単数）"}], "3人称単数現在形のつくり方": [{"w": "do→does", "m": "する"}, {"w": "go→goes", "m": "行く（-es）"}, {"w": "give→gives", "m": "与える"}, {"w": "come→comes", "m": "来る"}, {"w": "start→starts", "m": "始める"}, {"w": "work→works", "m": "働く"}, {"w": "watch→watches", "m": "見る（-es）"}, {"w": "finish→finishes", "m": "終える（-es）"}, {"w": "study→studies", "m": "勉強する（y→ies）"}, {"w": "try→tries", "m": "試す（y→ies）"}, {"w": "carry→carries", "m": "運ぶ（y→ies）"}, {"w": "cry→cries", "m": "泣く（y→ies）"}, {"w": "have→has", "m": "持っている（不規則）"}], "動詞のing形のつくり方": [{"w": "do→doing", "m": "する"}, {"w": "listen→listening", "m": "聞く"}, {"w": "cook→cooking", "m": "料理する"}, {"w": "read→reading", "m": "読む"}, {"w": "study→studying", "m": "勉強する（yはそのまま+ing）"}, {"w": "wash→washing", "m": "洗う"}, {"w": "make→making", "m": "作る（eを取ってing）"}, {"w": "take→taking", "m": "取る（eを取ってing）"}, {"w": "use→using", "m": "使う（eを取ってing）"}, {"w": "write→writing", "m": "書く（eを取ってing）"}, {"w": "run→running", "m": "走る（子音を重ねてing）"}, {"w": "swim→swimming", "m": "泳ぐ（子音を重ねてing）"}, {"w": "sit→sitting", "m": "座る（子音を重ねてing）"}, {"w": "cut→cutting", "m": "切る（子音を重ねてing）"}], "名詞の複数形": [{"w": "girl→girls", "m": "女の子（ふつう：+s）"}, {"w": "week→weeks", "m": "週（ふつう：+s）"}, {"w": "class→classes", "m": "クラス（-es）"}, {"w": "box→boxes", "m": "箱（-es）"}, {"w": "watch→watches", "m": "腕時計（-es）"}, {"w": "dish→dishes", "m": "皿（-es）"}, {"w": "piano→pianos", "m": "ピアノ（+s）"}, {"w": "potato→potatoes", "m": "じゃがいも（-es）"}, {"w": "country→countries", "m": "国（y→ies）"}, {"w": "city→cities", "m": "都市（y→ies）"}, {"w": "leaf→leaves", "m": "葉っぱ（f→ves）"}, {"w": "knife→knives", "m": "ナイフ（fe→ves）"}, {"w": "child→children", "m": "子ども（不規則）"}, {"w": "foot→feet", "m": "足（不規則）"}, {"w": "man→men", "m": "男性（不規則）"}, {"w": "woman→women", "m": "女性（不規則）"}], "代名詞（主格・所有格・目的格・所有代名詞）": [{"w": "I / my / me / mine", "m": "私は / 私の / 私を / 私のもの"}, {"w": "you / your / you / yours", "m": "あなたは / あなたの / あなたを / あなたのもの"}, {"w": "he / his / him / his", "m": "彼は / 彼の / 彼を / 彼のもの"}, {"w": "she / her / her / hers", "m": "彼女は / 彼女の / 彼女を / 彼女のもの"}, {"w": "it / its / it / –", "m": "それは / その / それを"}, {"w": "we / our / us / ours", "m": "私たちは / 私たちの / 私たちを / 私たちのもの"}, {"w": "they / their / them / theirs", "m": "彼らは / 彼らの / 彼らを / 彼らのもの"}], "数や量を表す熟語": [{"w": "one of my friends", "m": "私の友人の一人"}, {"w": "some of my friends", "m": "私の友人の何人か"}, {"w": "most of my friends", "m": "私の友人のほとんど"}, {"w": "all of my friends", "m": "私の友人のすべて"}, {"w": "a lot of books", "m": "たくさんの本"}, {"w": "lots of money", "m": "たくさんのお金"}, {"w": "hundreds of children", "m": "何百人もの子どもたち"}, {"w": "thousands of people", "m": "何千人もの人々"}, {"w": "a few students", "m": "2、3人の生徒"}, {"w": "a little sugar", "m": "少量の砂糖"}, {"w": "a cup of tea", "m": "カップ一杯の紅茶"}, {"w": "a glass of water", "m": "コップ一杯の水"}, {"w": "a piece of paper", "m": "一枚の紙"}, {"w": "a pair of socks", "m": "一足の靴下"}], "時・場所を表す熟語": [{"w": "from nine to five", "m": "9時から5時まで"}, {"w": "between twelve and one", "m": "12時と1時の間に"}, {"w": "after school", "m": "放課後"}, {"w": "in the future", "m": "将来は"}, {"w": "one day", "m": "ある日"}, {"w": "some day", "m": "いつか"}, {"w": "every day", "m": "毎日"}, {"w": "all day", "m": "一日中"}, {"w": "over there", "m": "向こうで"}, {"w": "in front of the tree", "m": "木の前に"}, {"w": "at home", "m": "家で"}, {"w": "at that time", "m": "そのとき"}, {"w": "far from here", "m": "ここから遠く"}, {"w": "at first", "m": "最初は"}, {"w": "at last", "m": "ついに"}, {"w": "at once", "m": "すぐに"}, {"w": "for the first time", "m": "初めて"}, {"w": "after a while", "m": "しばらくして"}, {"w": "for a long time", "m": "長い間"}, {"w": "all over the world", "m": "世界中で"}], "その他の重要熟語（追加）": [{"w": "for example", "m": "例えば"}, {"w": "of course", "m": "もちろん"}, {"w": "each other", "m": "お互い"}, {"w": "thanks to the rain", "m": "雨のおかげで"}, {"w": "because of the rain", "m": "雨のために"}, {"w": "as soon as it rains", "m": "雨が降るとすぐに"}, {"w": "one after another", "m": "次々に"}, {"w": "a kind of flower", "m": "一種の花"}, {"w": "both my sister and I", "m": "姉も私も両方とも"}, {"w": "either my brother or I", "m": "兄か私かどちらか"}, {"w": "on my way to the store", "m": "お店に行く途中で"}, {"w": "eat a lot", "m": "たくさん食べる"}, {"w": "not ～ at all", "m": "少しも～ない"}, {"w": "can't wait any more", "m": "これ以上待てない"}, {"w": "like rabbits very much", "m": "うさぎがとても好き"}, {"w": "such as peaches", "m": "例えば桃のような"}], "意味の似ている熟語": [{"w": "go/come/get home", "m": "家に帰る（3通り）"}, {"w": "speak to/with Ann", "m": "アンと話す"}, {"w": "get to / arrive at the airport", "m": "空港に到着する"}, {"w": "take care of / look after my dog", "m": "犬の世話をする"}, {"w": "want to / would like to drink tea", "m": "お茶を飲みたい"}, {"w": "go/get back to my desk", "m": "席に戻る"}, {"w": "make/become friends with John", "m": "ジョンと友達になる"}, {"w": "take/have a break", "m": "ひと休みする"}, {"w": "be/come from Okinawa", "m": "沖縄出身"}, {"w": "walk to school / go to school on foot", "m": "歩いて学校へ行く"}]};
@@ -2559,6 +2563,7 @@ function renderQ(){
   if('ctx' in q) renderKaiwa(q);
   else if(q.bank) renderGokei(q);
   else if(q.p) renderSeijo(q);
+  else if(Array.isArray(q.a)) renderMultiTekigo(q);
   else renderTekigo(q);
 }
 
@@ -2593,6 +2598,93 @@ function renderTekigo(q){
       document.getElementById('nbtn').classList.add('show');
       updStats();
     });
+  });
+}
+
+// MULTI-TEKIGO (multiple blanks: ①②③ from choices ア〜カ)
+function renderMultiTekigo(q){
+  var slotCount=q.a.length;
+  S.mtFilled=new Array(slotCount).fill(null);S.mtSlot=0;
+  var qt=q.q;
+  // Replace ① ② ③ markers in the question text for display
+  for(var si=0;si<slotCount;si++){
+    var marker='( '+'①②③④⑤'[si]+' )';
+    qt=qt.replace(marker,'<span style="color:var(--pink);font-weight:700;border-bottom:2.5px dashed var(--pink);padding:0 4px">( '+'①②③④⑤'[si]+' )</span>');
+  }
+  var h='<div class="qcard">'+(S.showGrammarTag?'<span class="qtag qtag-g">'+q.g+'</span>':'')+'<span class="qtag qtag-t">適語選択</span><div class="qtxt">'+qt+'</div></div>';
+  h+='<div class="stitle" style="font-size:13px">①〜③に入る語を順番に選んでください：</div>';
+  h+='<div class="mt-slots" id="mtSlots">';
+  for(var i=0;i<slotCount;i++){
+    h+='<div class="mt-slot'+(i===0?' act':'')+'" data-si="'+i+'"><span class="mt-snum">'+'①②③④⑤'[i]+'</span><span class="mt-stxt" id="mts'+i+'">タップして選択</span></div>';
+  }
+  h+='</div>';
+  h+='<div class="mt-choices" id="mtChs">';
+  q.ch.forEach(function(c,i){
+    h+='<button class="mt-cbtn" data-ci="'+i+'">'+c+'</button>';
+  });
+  h+='</div>';
+  h+='<button class="chkbtn" id="mtChk" disabled>回答する</button>';
+  h+='<div class="corr" id="corr">正解：'+q.a.join('・')+'</div>';
+  h+='<div class="result-banner" id="rbanner"></div><div class="ebox" id="ebox"><div class="ebox-t">'+(q.ex||'<b>正解：'+q.a.join('・')+'</b>')+'</div></div>';
+  h+='<button class="peekbtn" id="peekbtn" onclick="peekAnswer()">💡 答えを見る</button><button class="nbtn" id="nbtn" onclick="nextQ()">次の問題 →</button>';
+  document.getElementById('quizContent').innerHTML=h;
+
+  // Slot click: tap filled slot to clear, or select a slot
+  document.querySelectorAll('#mtSlots .mt-slot').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      var si=parseInt(this.dataset.si);
+      if(S.mtFilled[si]!==null){
+        var ci=S.mtFilled[si];
+        S.mtFilled[si]=null;
+        this.classList.remove('filled');
+        document.getElementById('mts'+si).textContent='タップして選択';
+        document.querySelectorAll('#mtChs .mt-cbtn')[ci].classList.remove('used');
+        document.getElementById('mtChk').disabled=true;
+      }
+      S.mtSlot=si;
+      document.querySelectorAll('#mtSlots .mt-slot').forEach(function(s,i){s.classList.toggle('act',i===si)});
+    });
+  });
+
+  // Choice click
+  document.querySelectorAll('#mtChs .mt-cbtn').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(S.answered)return;
+      var ci=parseInt(this.dataset.ci),si=S.mtSlot;
+      // Unfill prev choice in this slot
+      var prev=S.mtFilled[si];
+      if(prev!==null)document.querySelectorAll('#mtChs .mt-cbtn')[prev].classList.remove('used');
+      // Remove this choice from any other slot
+      var esi=S.mtFilled.indexOf(ci);
+      if(esi!==-1){S.mtFilled[esi]=null;var s=document.querySelectorAll('#mtSlots .mt-slot')[esi];s.classList.remove('filled');document.getElementById('mts'+esi).textContent='タップして選択'}
+      // Fill slot
+      S.mtFilled[si]=ci;
+      var slot=document.querySelectorAll('#mtSlots .mt-slot')[si];slot.classList.add('filled');
+      document.getElementById('mts'+si).textContent=q.ch[ci];
+      this.classList.add('used');
+      // Auto-advance to next empty slot
+      var ne=S.mtFilled.findIndex(function(x){return x===null});
+      if(ne!==-1){S.mtSlot=ne;document.querySelectorAll('#mtSlots .mt-slot').forEach(function(s,i){s.classList.toggle('act',i===ne)})}
+      document.getElementById('mtChk').disabled=!S.mtFilled.every(function(x){return x!==null});
+    });
+  });
+
+  // Check answer
+  document.getElementById('mtChk').addEventListener('click',function(){
+    if(S.answered)return;S.answered=true;
+    // Extract the ア/イ/ウ... label from each chosen answer
+    var ua=S.mtFilled.map(function(ci){return q.ch[ci].charAt(0)});
+    var ok=JSON.stringify(ua)===JSON.stringify(q.a);
+    if(ok){S.score++;S.streak++;S.total++;SFX.play('correct');document.querySelectorAll('#mtSlots .mt-slot').forEach(function(s){s.style.borderColor='var(--ok)'})}
+    else{S.streak=0;S.wrong.push(q);SFX.play('wrong');document.querySelectorAll('#mtSlots .mt-slot').forEach(function(s){s.style.borderColor='var(--ng)'});document.getElementById('corr').classList.add('show')}
+    document.getElementById('mtChk').disabled=true;
+    // Disable choice buttons
+    document.querySelectorAll('#mtChs .mt-cbtn').forEach(function(b){b.style.pointerEvents='none'});
+    var rb=document.getElementById('rbanner');
+    if(ok){rb.textContent='⭕ 正解！';rb.className='result-banner show ok-banner'}
+    else{rb.textContent='❌ 不正解…';rb.className='result-banner show ng-banner'}
+    document.getElementById('ebox').classList.add('show');document.getElementById('peekbtn').classList.add('hide');document.getElementById('nbtn').classList.add('show');updStats();
   });
 }
 
@@ -2759,6 +2851,9 @@ function peekAnswer(){
   if(osl){osl.classList.add('ng');var chkb=document.getElementById('chkb');if(chkb)chkb.disabled=true;var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
   var chkc=document.getElementById('chkc');
   if(chkc){chkc.disabled=true;document.querySelectorAll('#csvs .cslot').forEach(function(s){s.style.borderColor='var(--ng)'});var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
+  // Multi-tekigo peek
+  var mtChk=document.getElementById('mtChk');
+  if(mtChk){mtChk.disabled=true;document.querySelectorAll('#mtSlots .mt-slot').forEach(function(s){s.style.borderColor='var(--ng)';s.style.pointerEvents='none'});document.querySelectorAll('#mtChs .mt-cbtn').forEach(function(b){b.style.pointerEvents='none'});var corr=document.getElementById('corr');if(corr)corr.classList.add('show')}
   // Show banner as skipped
   var rb=document.getElementById('rbanner');
   rb.textContent='👀 答えを確認';rb.className='result-banner show ng-banner';
